@@ -1,19 +1,32 @@
 CXX = g++-11 -std=c++20
-CXXFLAGS = -Wall -g -MMD  # use -MMD to generate dependencies
-SOURCES = $(wildcard *.cc)   # list of all .cc files in the current directory
-OBJECTS = ${SOURCES:.cc=.o}  # .o files depend upon .cc files with same names
-DEPENDS = ${OBJECTS:.o=.d}   # .d file is list of dependencies for corresponding .cc file
+CXXFLAGS = -Wall -g -MMD -lX11
+SOURCES = $(wildcard **/*.cc)
+OBJS = ${SOURCES:.cc=.o}
+DEPENDS = ${OBJS:.o=.d}
 EXEC=chess
+D = 0
 
-# First target in the makefile is the default target.
-$(EXEC): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXEC) -lX11
+$(EXEC): $(OBJS)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(EXEC) 
+	@rm -f $(OBJS) $(DEPENDS)
+	@echo "compiled successfully"
 
-%.o: %.cc 
-	$(CXX) -c -o $@ $< $(CXXFLAGS)
+%.o: %.cc
+	@echo "compiling..."
+	@$(CXX) -c -o $@ $< $(CXXFLAGS) -DDEBUG=$(D)
 
 -include ${DEPENDS}
 
-.PHONY: clean 
+.PHONY: clean run runs
+
 clean:
-	rm  -f $(OBJECTS) $(DEPENDS) $(EXEC)
+	@rm -f $(OBJS) $(DEPENDS)
+
+superclean:
+	@rm -f $(OBJS) $(DEPENDS) $(EXEC)
+
+run:
+	@if [ -f "$(EXEC)" ]; then ./$(EXEC); else make; ./$(EXEC); fi
+
+runs: $(EXEC)
+	@./$(EXEC)
