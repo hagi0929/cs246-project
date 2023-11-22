@@ -1,5 +1,6 @@
 CXX = g++-11 -std=c++20
-CXXFLAGS = -Wall -g -MMD -lX11
+INC_DIR = ./include
+CXXFLAGS = -Wall -g -MMD -lX11 -I$(INC_DIR)
 SOURCES = $(wildcard **/*.cc)
 OBJS = ${SOURCES:.cc=.o}
 DEPENDS = ${OBJS:.o=.d}

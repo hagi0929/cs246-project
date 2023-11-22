@@ -1,7 +1,7 @@
 #ifndef TURN_H
 #define TURN_H
 #include <vector>
-#include "../etc/move.h"
+#include"move.h"
 
 class Turn {
   vector<Move> moves;

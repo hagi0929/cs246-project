@@ -1,7 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "../GameBoard/gameboard.h"
-#include "../Turn/turn.h"
+#include"gameBoard.h"
+#include"turn.h"
 
 using namespace std;
 

@@ -1,9 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
-#include "../GameBoard/gameboard.h"
+#include"gameBoard.h"
 
 class Game {
-    GameBoard &currentGame;
+    GameBoard *currentGame = nullptr;
     public:
 };
 

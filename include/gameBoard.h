@@ -1,10 +1,10 @@
 #ifndef GAMEBOARD_H
 #define GAMEBOARD_H
 
-#include "../Cell/cell.h"
-#include "../Player/player.h"
-#include "../etc/history.h"
-#include "../Piece/piece.h"
+#include"cell.h"
+#include"player.h"
+#include"history.h"
+#include"piece.h"
 
 const int BOARD_SIZE = 8;
 

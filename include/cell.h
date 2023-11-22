@@ -1,7 +1,7 @@
 #ifndef CELL_H
 #define CELL_H
 
-#include "../Piece/piece.h"
+#include"piece.h"
 
 class Cell {
     Piece *piece;
