@@ -1,4 +1,6 @@
-#include "Player.h"
+#ifndef COMPUTER1_H
+#define COMPUTER1_H
+#include "player.h"
 
 class Computer1 : public Player {
     public:
@@ -6,3 +8,4 @@ class Computer1 : public Player {
         Turn getNextTurn();
         int getScore() const;
 }
+#endif

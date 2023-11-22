@@ -1,3 +1,6 @@
+#ifndef HISTORY_H
+#define HISTORY_H
+
 #include <string>
 
 using namespace std;
@@ -12,3 +15,5 @@ class History {
   string get(int n);
   int size();
 };
+
+#endif

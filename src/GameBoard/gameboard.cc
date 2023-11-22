@@ -1,4 +1,4 @@
-#include "GameBoard.h"
+#include "gameBoard.h"
 
 GameBoard::GameBoard() {
   dout << "GameBoard ctor called" << endl;

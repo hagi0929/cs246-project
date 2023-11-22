@@ -1,3 +1,5 @@
+#ifndef PIECE_H
+#define PIECE_H
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -20,3 +22,5 @@ class Piece {
   virtual PieceType getType() const = 0;
   virtual vector<Coor> possibleMoves(Coor c) const = 0;
 };
+
+#endif

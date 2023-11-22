@@ -1,4 +1,4 @@
-#include "Computer2.h"
+#include "computer2.h"
  
 Computer2::Computer2(GameBoard &gameBoard) : Player(gameBoard) {
     dout << "Computer2 has been created" << endl;

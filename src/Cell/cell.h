@@ -1,3 +1,8 @@
+#ifndef CELL_H
+#define CELL_H
+
+#include "../Piece/piece.h"
+
 class Cell {
     Piece *piece;
     public:
@@ -6,3 +11,5 @@ class Cell {
     Piece getPiece();
     bool isEmpty();
 };
+
+#endif

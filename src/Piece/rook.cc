@@ -1,4 +1,4 @@
-#include "Piece.h"
+#include "piece.h"
 using namespace std;
 
 class Rook : public Piece {

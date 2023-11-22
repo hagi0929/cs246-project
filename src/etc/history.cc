@@ -1,4 +1,4 @@
-#include "History.h"
+#include "history.h"
 
 History::History() {
     dout << "History ctor is called" << endl;

@@ -1,11 +1,11 @@
-#include "Piece.h"
+#include "piece.h"
 using namespace std;
 
 class Pawn : public Piece {
  public:
- Pawn(int team, int moveCount) : Piece{Piece}, PieceType{PieceType::Pawn} {
-  dout << "Pawn ctor called" << endl;
- }
+  Pawn(int team, int moveCount) : Piece{Piece{team, moveCount}}, type{PieceType::Pawn} {
+    dout << "Pawn ctor called" << endl;
+  }
   PieceType getType() {
     return PieceType::Queen;
   };

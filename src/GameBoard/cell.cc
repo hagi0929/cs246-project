@@ -9,7 +9,7 @@ Cell::Cell() : piece{nullptr} {
 Cell::~Cell() {delete piece;}
 
 Piece Cell::getPiece() {
-    return {};
+    return nullptr;
 }
 
 bool Cell::isEmpty() {

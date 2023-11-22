@@ -1,4 +1,4 @@
-#include "Computer1.h"
+#include "piece.h"
  
 Computer1::Computer1(GameBoard &gameBoard) : Player(gameBoard) {
     dout << "computer1 has been created" << endl;

@@ -1,9 +1,10 @@
+#ifndef MOVE_H
+#define MOVE_H
+
 #include <string>
 
-struct Coor {
-  int x;
-  int y;
-};
+using namespace std;
+
 
 class Move {
     Coor cur, dest;
@@ -14,3 +15,5 @@ class Move {
     Coor getCur() const;
     Coor getDest() const;
 };
+
+#endif

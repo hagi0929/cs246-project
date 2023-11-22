@@ -1,4 +1,4 @@
-#include "Human.h"
+#include "human.h"
  
 Human::Human(GameBoard &gameBoard) : Player(gameBoard) {
     dout << "Human has been created" << endl;
