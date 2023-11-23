@@ -3,8 +3,9 @@
 
 #include"cell.h"
 #include"player.h"
-#include"history.h"
+#include"gamelog.h"
 #include"piece.h"
+using namespace std;
 
 const int BOARD_SIZE = 8;
 

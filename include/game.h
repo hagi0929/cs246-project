@@ -1,10 +1,15 @@
 #ifndef GAME_H
 #define GAME_H
-#include"gameBoard.h"
-
+#include"gameboard.h"
+using namespace std;
 class Game {
-    GameBoard *currentGame = nullptr;
+    GameBoard *currentGame;
+
     public:
+    Game();
+    ~Game();
+    void play();
+    bool isValidCmd();
 };
 
 #endif

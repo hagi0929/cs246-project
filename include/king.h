@@ -2,6 +2,7 @@
 #define KING_H
 #include "piece.h"
 
+using namespace std;
 class King : public Piece {
  public:
   King(int team, int moveCount);

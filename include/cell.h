@@ -1,15 +1,24 @@
 #ifndef CELL_H
 #define CELL_H
+#include <memory>
 
-#include"piece.h"
+#include "observer.h"
+#include "piece.h"
+#include "coor.h"
 
+using namespace std;
 class Cell {
-    Piece *piece;
-    public:
-    Cell();
-    ~Cell();
-    Piece getPiece();
-    bool isEmpty();
+  shared_ptr<Piece> piece;
+  weak_ptr<Observer> observer;
+  Coor coor; 
+ public:
+  Cell();
+  ~Cell();
+  shared_ptr<Piece> getPiece();
+  void setPiece(shared_ptr<Piece>);
+  bool isEmpty();
+  void removePiece();
+  void notifyDisplay();
 };
 
 #endif

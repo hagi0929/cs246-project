@@ -1,12 +1,12 @@
 #ifndef HUMAN_H
 #define HUMAN_H
 #include "player.h"
-
+using namespace std;
 class Human : public Player {
     public:
-        Human(GameBoard &gameBoard);
-        Turn getNextTurn();
-        int getScore()   const;
+        Human();
+        ~Human();
+        Turn getNextTurn() override;
 };
 
 #endif

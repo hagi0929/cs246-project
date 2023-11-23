@@ -2,6 +2,8 @@
 #define COMPUTER2_H
 #include "player.h"
 
+using namespace std;
+
 class Computer2 : public Player {
     public:
         Computer2(GameBoard &gameBoard);

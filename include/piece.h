@@ -2,19 +2,14 @@
 #define PIECE_H
 #include <vector>
 #include <iostream>
+#include "coor.h"
 using namespace std;
 
 enum class PieceType { King, Queen, Knight, Bishop, Rook, Pawn };
 
-struct Coor {
-  int x;
-  int y;
-};
-
 class Piece {
   int team;
   int moveCount;
-  PieceType type;
 
  public:
   Piece(int team, int moveCount);

@@ -1,6 +1,7 @@
 #include "human.h"
+#include <iostream>
  
-Human::Human(GameBoard &gameBoard) : Player(gameBoard) {
+Human::Human() : Player() {
     dout << "Human has been created" << endl;
 }
 Human::~Human() {
@@ -9,6 +10,4 @@ Human::~Human() {
 Turn Human::getNextTurn() {
     dout << "Human is getting its next turn" << endl;
 }
-getScore() const {
-    dout << "Human getScore is called" << endl;
-}
+

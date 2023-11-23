@@ -8,7 +8,7 @@ Cell::Cell() : piece{nullptr} {
 
 Cell::~Cell() {delete piece;}
 
-Piece Cell::getPiece() {
+shared_ptr<Piece> Cell::getPiece() {
     return nullptr;
 }
 
@@ -16,12 +16,11 @@ bool Cell::isEmpty() {
     return true;
 }
 
-void Cell::setPiece(Piece *p) {
+void Cell::setPiece(shared_ptr<Piece> p) {
     piece = p;
 }
 
 void Cell::removePiece() {
-    delete piece;
     piece = nullptr;
 }
 
