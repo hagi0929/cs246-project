@@ -2,28 +2,52 @@
 
 using namespace std;
 
-Cell::Cell() : piece{nullptr} {
-    dout << "Cell ctor is called" << endl;
+Cell::Cell(Coor coor) : piece{nullptr}, coor{coor} {
+  dout << "Cell ctor is called" << endl;
 }
 
-Cell::~Cell() {delete piece;}
-
 shared_ptr<Piece> Cell::getPiece() {
-    return nullptr;
+  return piece;
 }
 
 bool Cell::isEmpty() {
-    return true;
+  return !piece;
 }
 
 void Cell::setPiece(shared_ptr<Piece> p) {
-    piece = p;
+  piece = p;
 }
 
+void Cell::attach(unique_ptr<Observer> ob) {
+  for(auto &obs: observers) {
+    if(!obs) {
+        obs = move(ob);
+        break;
+    }
+  }
+}
+
+void Cell::detach(unique_ptr<Observer> ob) {
+  for (auto &obs : observers) {
+    if (obs) {
+      obs = nullptr;
+    }
+  }
+}
+
+int Cell::getRow() const {
+  return coor.y;
+}
+
+int Cell::getCol() const {
+    return coor.x;
+}
 void Cell::removePiece() {
-    piece = nullptr;
+  piece = nullptr;
 }
 
 void Cell::notifyDisplay() {
-    // TODO
+  for (int i = 0; i < observerCount; ++i) {
+    observers[i]->notify(*this);
+  }
 }

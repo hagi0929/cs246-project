@@ -8,15 +8,20 @@
 
 using namespace std;
 
+const int observerCount = 2;
+
 class Cell {
   shared_ptr<Piece> piece;
-  Observer *observers[2];
+  unique_ptr<Observer> observers[observerCount];
   Coor coor;
  public:
-  Cell();
-  ~Cell();
+  Cell(Coor coor);
   shared_ptr<Piece> getPiece();
-  void setPiece(shared_ptr<Piece>);
+  void setPiece(shared_ptr<Piece> p);
+  void attach(unique_ptr<Observer> ob);
+  void detach(unique_ptr<Observer> ob);
+  int getRow() const;
+  int getCol() const;
   bool isEmpty();
   void removePiece();
   void notifyDisplay();

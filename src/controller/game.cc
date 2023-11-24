@@ -1,5 +1,6 @@
 #include "game.h"
 #include <iostream>
+#include <string>
 
 Game::Game() : board{nullptr} {
     dout << "Game ctor is called" << endl;
@@ -16,5 +17,7 @@ void Game::play() {
 
 bool Game::isValidCmd() const {
     dout << "Game::isValidCmd() is called" << endl;
+    string cmd;
+
     return true;
 }

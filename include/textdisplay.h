@@ -7,15 +7,16 @@
 
 using namespace std;
 
+const int gridSize = 8;
+
 class TextDisplay: public Observer {
-  std::vector<std::vector<char>> display;
-  const int gridSize;
+  vector<vector<char>> display;
 
  public:
   TextDisplay();
-  void notify(Turn &t) override;
+  void notify(Cell &c) override;
   ~TextDisplay();
-  friend std::ostream &operator<<(std::ostream &out, const TextDisplay &td);
+  friend ostream &operator<<(ostream &out, const TextDisplay &td);
 };
 
 #endif

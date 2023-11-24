@@ -7,6 +7,7 @@ using namespace std;
 class Bishop : public Piece {
  public:
   Bishop(int team, int moveCount);
+  char getChar() const override;
   PieceType getType() const override;
   vector<Coor> possibleMoves(Coor c) const override;
 };
