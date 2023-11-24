@@ -6,7 +6,7 @@ class Human : public Player {
     public:
         Human();
         ~Human();
-        Turn getNextTurn() override;
+        Turn &getNextTurn() override;
 };
 
 #endif

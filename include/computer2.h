@@ -5,9 +5,10 @@
 using namespace std;
 
 class Computer2 : public Player {
+        GameBoard *board;
     public:
-        Computer2(GameBoard &gameBoard);
-        Turn getNextTurn();
+        Computer2(GameBoard *board);
+        Turn &getNextTurn();
         int getScore() const;
 };
 

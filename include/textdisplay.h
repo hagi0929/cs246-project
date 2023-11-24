@@ -3,7 +3,10 @@
 
 #include <iostream>
 #include <vector>
+#include "observer.h"
+
 using namespace std;
+
 class TextDisplay: public Observer {
   std::vector<std::vector<char>> display;
   const int gridSize;

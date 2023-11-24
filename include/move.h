@@ -2,10 +2,9 @@
 #define MOVE_H
 
 #include <string>
+#include "coor.h"
 
 using namespace std;
-
-struct Coor;
 
 class Move {
   Coor cur, dest;

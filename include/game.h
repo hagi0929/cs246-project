@@ -1,15 +1,22 @@
 #ifndef GAME_H
 #define GAME_H
-#include"gameboard.h"
+#include "gameboard.h"
+#include "human.h"
+#include "computer1.h"
+#include "computer2.h"
+#include "computer3.h"
+#include "computer4.h"
+
 using namespace std;
+
 class Game {
-    GameBoard *currentGame;
+    GameBoard *board;
 
     public:
-    Game();
-    ~Game();
+    Game() = default;
+    ~Game() = default;
     void play();
-    bool isValidCmd();
+    bool isValidCmd() const;
 };
 
 #endif

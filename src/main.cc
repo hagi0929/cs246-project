@@ -6,14 +6,13 @@
 
 #include <iostream>
 #include <stdexcept>
-
 #include "game.h"
 
 using namespace std;
 
 int main() {
   try {
-    Game game;
+    Game game{};
     cout << "Welcome tdo the game!" << endl;
     dout << "Welcome to the gsdfame!" << endl;
   } catch (exception& e) {

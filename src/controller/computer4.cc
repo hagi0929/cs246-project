@@ -1,14 +1,10 @@
 #include "computer4.h"
- 
-Computer4::Computer4(GameBoard &gameBoard) : Player(gameBoard) {
-    dout << "Computer4 has been created" << endl;
+
+Computer4::Computer4(GameBoard *board) : board(board) {
+  dout << "computer4 has been created" << endl;
 }
-Computer4::~Computer2() {
-    dout << "Computer4 has been destroyed" << endl;
+Computer4::~Computer4() { dout << "computer4 has been destroyed" << endl; }
+Turn &Computer4::getNextTurn() {
+  dout << "computer4 is getting its next turn" << endl;
 }
-Turn Computer4::getNextTurn() {
-    dout << "Computer4 is getting its next turn" << endl;
-}
-getScore() const {
-    dout << "Computer4 getScore is called" << endl;
-}
+Computer4::getScore() const { dout << "computer4 getScore is called" << endl; }

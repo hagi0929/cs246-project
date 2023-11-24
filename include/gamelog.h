@@ -1,19 +1,20 @@
-#ifndef HISTORY_H
-#define HISTORY_H
+#ifndef GAMELOG_H
+#define GAMELOG_H
 
 #include <string>
+#include <vector>
+#include "turn.h"
 
 using namespace std;
 
-class History {
+class GameLog {
+  vector<Turn *> stack;
+  int timeline, timelineLimit;
  public:
-  History();
-  ~History();
-  void add(const std::string& cmd);
-  void clear();
-  void print();
-  string get(int n);
-  int size();
+  GameLog();
+  ~GameLog();
+  Turn *pop(int n);
+  void push(Turn *);
 };
 
 #endif

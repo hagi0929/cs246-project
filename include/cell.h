@@ -7,10 +7,11 @@
 #include "coor.h"
 
 using namespace std;
+
 class Cell {
   shared_ptr<Piece> piece;
-  weak_ptr<Observer> observer;
-  Coor coor; 
+  Observer *observers[2];
+  Coor coor;
  public:
   Cell();
   ~Cell();

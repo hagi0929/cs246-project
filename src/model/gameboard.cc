@@ -1,19 +1,6 @@
 #include "gameboard.h"
-#include "turn.h"
 
 using namespace std;
-
-
-  // GameBoard();
-  // ~GameBoard();
-  // bool isValidMove(Turn t) const;
-  // bool move(Coor c1, Coor c2);
-  // void addPiece(Piece &p, Coor c);
-  // void removePiece(Coor c);
-  // void setBeginPlayer(Player &p);
-  // void undo(int moves);
-  // void redo(int moves);
-  // int getThisTurn() const;
 
 GameBoard::GameBoard() {
     dout << "GameBoard ctor is called" << endl;
@@ -21,7 +8,7 @@ GameBoard::GameBoard() {
 GameBoard::~GameBoard() {
     dout << "GameBoard dtor is called" << endl;
 }
-bool GameBoard::isValidMove(Turn t) const {
+bool GameBoard::isValidMove(Turn &t) const {
   dout << "GameBoard::isValidMove is called" << endl;
     return true;
 }

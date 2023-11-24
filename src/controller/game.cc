@@ -1,7 +1,7 @@
 #include "game.h"
 #include <iostream>
 
-Game::Game() : currentGame{nullptr} {
+Game::Game() : board{nullptr} {
     dout << "Game ctor is called" << endl;
 }
 
@@ -14,7 +14,7 @@ void Game::play() {
     dout << "Game::play() is called" << endl;
 }
 
-bool Game::isValidCmd() {
+bool Game::isValidCmd() const {
     dout << "Game::isValidCmd() is called" << endl;
     return true;
 }
