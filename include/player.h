@@ -1,20 +1,16 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "gameboard.h"
-#include "turn.h"
-
+#include "move.h"
 using namespace std;
 
 class Player {
  protected:
-  int score;
- 
- public:
+  int score = 0;
 
-  Player();
-  virtual ~Player();
-  virtual Turn &getNextTurn() = 0;
-  int getScore() const;
+ public:
+  virtual Move &getNextTurn() = 0;
+  virtual int getScore() const = 0;
 };
 
 #endif

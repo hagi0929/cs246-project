@@ -1,33 +1,36 @@
 CXX = g++-11 -std=c++20
 INC_DIR = ./include
+BUILD_DIR = ./build
 CXXFLAGS = -Wall -g -MMD -lX11 -I$(INC_DIR)
-SOURCES = $(wildcard **/*.cc)
-OBJS = ${SOURCES:.cc=.o}
-DEPENDS = ${OBJS:.o=.d}
-EXEC=chess
+SOURCES = $(wildcard src/*.cc)
+SOURCES += $(wildcard src/**/*.cc)
+SOURCES += $(wildcard src/**/**/*.cc)
+OBJS = $(patsubst src/%.cc,$(BUILD_DIR)/%.o,$(SOURCES))
+DEPENDS = $(OBJS:.o=.d)
+EXEC = chess
 D = 0
 
 $(EXEC): $(OBJS)
-	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(EXEC) 
-	@rm -f $(OBJS) $(DEPENDS)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(EXEC)
 	@echo "compiled successfully"
 
-%.o: %.cc
-	@echo "compiling..."
+$(BUILD_DIR)/%.o: src/%.cc
+	@echo "compiling $<"
+	@mkdir -p $(dir $@)
 	@$(CXX) -c -o $@ $< $(CXXFLAGS) -DDEBUG=$(D)
 
--include ${DEPENDS}
+-include $(DEPENDS)
 
-.PHONY: clean run runs
+.PHONY: clean superclean run runs
 
 clean:
-	@rm -f $(OBJS) $(DEPENDS)
+	@rm -f $(BUILD_DIR)/*.o $(BUILD_DIR)/*.d
 
 superclean:
-	@rm -f $(OBJS) $(DEPENDS) $(EXEC)
+	@rm -f $(BUILD_DIR)/*.o $(BUILD_DIR)/*.d $(EXEC)
 
-run:
+runs:
 	@if [ -f "$(EXEC)" ]; then ./$(EXEC); else make; ./$(EXEC); fi
 
-runs: $(EXEC)
+run: $(EXEC)
 	@./$(EXEC)
