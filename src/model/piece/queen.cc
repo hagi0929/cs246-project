@@ -1,10 +1,16 @@
 #include "queen.h"
 using namespace std;
 
-Queen::Queen (int team, int moveCount) : Piece{team, moveCount} {
-  cout << "King ctor is called" << endl;
+vector<unique_ptr<Move>> Queen::possibleMoves() const {
+  cout << "Queen possibleMoves() is called" << endl;
+  return {};
 }
-PieceType Queen::getType() const { 
-  cout << "Queen getType is called" << endl;
-  return PieceType::Queen; }
-vector<Coor> Queen::possibleMoves(Coor c) const { return {}; }
+
+char Queen::getType() const { 
+  cout << "Queen getType() is called" << endl;
+  return color == Color::White ? 'Q' : 'q';
+}
+
+void Queen::movePiece(Move &m) {
+  cout << "Queen movePiece() is called" << endl;
+}

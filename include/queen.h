@@ -1,13 +1,12 @@
 #ifndef QUEEN_H
 #define QUEEN_H
 #include "piece.h"
-using namespace std;
 
 class Queen : public Piece {
+  std::vector<std::unique_ptr<Move>> possibleMoves() const override;
  public:
-  Queen(int team, int moveCount);
-  PieceType getType() const override;
-  vector<Coor> possibleMoves(Coor c) const override;
+  char getType() const override;
+  void movePiece(Move &m) override;
 };
 
 #endif

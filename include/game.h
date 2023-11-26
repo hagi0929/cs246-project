@@ -1,5 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
+#include "display.h"
 #include "computer1.h"
 #include "computer2.h"
 #include "computer3.h"
@@ -7,20 +8,20 @@
 #include "gameboard.h"
 #include "human.h"
 
-using namespace std;
-
 const int NUMOFPLAYERS = 2;
 class Game {
-  shared_ptr<GameBoard> board;
-  shared_ptr<Player> players[NUMOFPLAYERS];
+  std::shared_ptr<GameBoard> board;
+  std::shared_ptr<Display> display;
+  std::shared_ptr<Player> players[NUMOFPLAYERS];
   bool gameStarted = false;
 
  public:
-  Game();
+  Game(GameBoard *board, Display *display);
   ~Game();
   void play();
   void activate();
-  vector<string> parseCmd(string cmd);
+  bool isValidCmd() const;
+  std::vector<std::string> parseCmd(std::string cmd);
 };
 
 #endif

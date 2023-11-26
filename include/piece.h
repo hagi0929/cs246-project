@@ -2,20 +2,27 @@
 #define PIECE_H
 #include <vector>
 #include <iostream>
-#include "coor.h"
-using namespace std;
+#include <memory>
+#include <string>
+#include "move.h"
+#include "eyes.h"
 
-enum class PieceType { King, Queen, Knight, Bishop, Rook, Pawn };
+enum class Color { White, Black };
 
 class Piece {
-  int team;
-  int moveCount;
+ protected:
+  Color color;
+  int row, col, moveCount;
+  std::shared_ptr<Eyes> eyes;
+
+ private:
+  Color getColor() const;
+  virtual std::vector<std::unique_ptr<Move>> possibleMoves() const = 0;
 
  public:
-  Piece(int team, int moveCount);
-  int getTeam() const;
-  virtual PieceType getType() const = 0;
-  virtual vector<Coor> possibleMoves(Coor c) const = 0;
+  Piece(Color color, int row, int col, int moveCount, std::shared_ptr<Eyes> eyes);
+  virtual void movePiece(Move &m) = 0;
+  virtual char getType() const = 0;
 };
 
 #endif

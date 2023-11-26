@@ -2,31 +2,31 @@
 #define GAMEBOARD_H
 
 #include <memory>
-#include "cell.h"
-#include "coor.h"
+#include <string>
+#include "move.h"
 #include "gamelog.h"
 #include "player.h"
-
-using namespace std;
+#include "piece.h"
+#include "cell.h"
 
 const int BOARD_SIZE = 8;
 
 class GameBoard {
-  Cell board[BOARD_SIZE][BOARD_SIZE];
-  GameLog log;
+  std::shared_ptr<Cell> board[BOARD_SIZE][BOARD_SIZE];
+  // GameLog log;
   int thisTurn;
   bool playerColors[2];
 
  public:
   GameBoard();
   ~GameBoard();
-  bool isValidMove(Move &t) const;
-  bool move(Coor c1, Coor c2);
-  void addPiece(Piece &p, Coor c);
-  void removePiece(Coor c);
+  void move(Move &m);
+  void addPiece(Piece &p, std::string coor);
+  void removePiece(std::string coor);
   void setBeginPlayer(int player);
   void undo(int moves);
   void redo(int moves);
   int getThisTurn() const;
 };
+
 #endif

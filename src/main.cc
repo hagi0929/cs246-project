@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
   try {
-    Game game{};
+    Game game{nullptr, nullptr};
     game.activate();
     cout << "Welcome tdo the game!" << endl;
     cout << "Welcome to the gsdfame!" << endl;

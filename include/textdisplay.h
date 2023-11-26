@@ -3,18 +3,17 @@
 
 #include <iostream>
 #include <vector>
-#include "observer.h"
+#include "cell.h"
+#include "display.h"
 
-using namespace std;
-
-class TextDisplay: public Observer {
-  std::vector<std::vector<char>> display;
-  const int gridSize;
+class TextDisplay: public Display {
+  std::vector<std::vector<char>> theDisplay;
 
  public:
   TextDisplay();
-  void notify(Turn &t) override;
   ~TextDisplay();
+  void display() override;
+  void notify(Cell &c) override;
   friend std::ostream &operator<<(std::ostream &out, const TextDisplay &td);
 };
 

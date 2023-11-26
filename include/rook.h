@@ -1,10 +1,12 @@
 #ifndef ROOK_H
 #define ROOK_H
 #include "piece.h"
-using namespace std;
+
 class Rook : public Piece {
+  std::vector<std::unique_ptr<Move>> possibleMoves() const override;
  public:
-  Rook(int team, int moveCount);
-  PieceType getType() const override;
-  vector<Coor> possibleMoves(Coor c) const override;
+  char getType() const override;
+  void movePiece(Move &m) override;
 };
+
+#endif

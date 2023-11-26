@@ -2,18 +2,18 @@
 #define MOVE_H
 
 #include <string>
-#include "coor.h"
-
-using namespace std;
 
 class Move {
-  Coor cur, dest;
-  string promotion;
+  std::string cur, dest, promotion;
+  int getRow(std::string coor) const;
+  int getCol(std::string coor) const;
 
  public:
-  Move(Coor cur, Coor dest, string promotion);
-  Coor getCur() const;
-  Coor getDest() const;
+  Move(std::string cur, std::string dest, std::string promotion);
+  int getCurRow(std::string coor) const;
+  int getCurCol(std::string coor) const;
+  int getDestRow(std::string coor) const;
+  int getDestCol(std::string coor) const;
 };
 
 #endif

@@ -4,10 +4,10 @@
 using namespace std;
 
 class Knight : public Piece {
+  std::vector<std::unique_ptr<Move>> possibleMoves() const override;
  public:
-  Knight(int team, int moveCount);
-  PieceType getType() const override;
-  vector<Coor> possibleMoves(Coor c) const override;
+  char getType() const override;
+  void movePiece(Move &m) override;
 };
 
 #endif

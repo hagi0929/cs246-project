@@ -1,7 +1,7 @@
-#ifndef _OBSERVER_H_
-#define _OBSERVER_H_
+#ifndef OBSERVER_H
+#define OBSERVER_H
 
-class Cell;
+#include "cell.h"
 
 class Observer {
   public:

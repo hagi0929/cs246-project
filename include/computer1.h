@@ -1,15 +1,10 @@
 #ifndef COMPUTER1_H
 #define COMPUTER1_H
-#include "move.h"
-#include "player.h"
+#include "computer.h"
 
-using namespace std;
-class Computer1 : public Player {
-  GameBoard *board;
-
+class Computer1 : public Computer {
  public:
-  Computer1(GameBoard *board);
-  Move &getNextTurn();
-  int getScore() const;
+  Move &getNextTurn() override;
 };
+
 #endif

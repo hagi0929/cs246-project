@@ -2,18 +2,35 @@
 
 using namespace std;
 
-Cell::Cell() : piece{nullptr} { cout << "Cell ctor is called" << endl; }
+Cell::Cell(int row, int col) : piece{nullptr}, row{row}, col{col} {
+    cout << "Cell ctor is called" << endl;
+}
+Cell::~Cell() {};
 
-Cell::~Cell() { cout << "Cell dtor is called" << endl; }
+shared_ptr<Piece> Cell::getPiece() {
+    return nullptr;
+}
 
-shared_ptr<Piece> Cell::getPiece() { return nullptr; }
+int Cell::getRow() const {
+    return row;
+}
 
-bool Cell::isEmpty() { return true; }
+int Cell::getCol() const {
+    return col;
+}
 
-void Cell::setPiece(shared_ptr<Piece> p) { piece = p; }
+bool Cell::isEmpty() {
+    return true;
+}
 
-void Cell::removePiece() { piece = nullptr; }
+void Cell::setPiece(shared_ptr<Piece> p) {
+    piece = p;
+}
 
-void Cell::notifyDisplay() {
-  // TODO
+void Cell::removePiece() {
+    piece = nullptr;
+}
+
+void Cell::notifyObservers() {
+    for (auto ob : observers) ob->notify(*this);
 }

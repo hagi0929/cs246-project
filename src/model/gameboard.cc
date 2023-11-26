@@ -1,23 +1,18 @@
 #include "gameboard.h"
 
-#include "move.h"
-
 using namespace std;
 
-GameBoard::GameBoard() { cout << "GameBoard ctor is called" << endl; }
+GameBoard::GameBoard() : board{ nullptr }, thisTurn{0}, playerColors{ {} } {
+  cout << "GameBoard ctor is called" << endl;
+}
 GameBoard::~GameBoard() { cout << "GameBoard dtor is called" << endl; }
-bool GameBoard::isValidMove(Move &t) const {
-  cout << "GameBoard::isValidMove is called" << endl;
-  return true;
-}
-bool GameBoard::move(Coor c1, Coor c2) {
+void GameBoard::move(Move &m) {
   cout << "GameBoard::move is called" << endl;
-  return true;
 }
-void GameBoard::addPiece(Piece &p, Coor c) {
+void GameBoard::addPiece(Piece &p, string coor) {
   cout << "GameBoard::addPiece is called" << endl;
 }
-void GameBoard::removePiece(Coor c) {
+void GameBoard::removePiece(string coor) {
   cout << "GameBoard::removePiece is called" << endl;
 }
 void GameBoard::setBeginPlayer(int player) {

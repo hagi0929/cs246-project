@@ -1,10 +1,16 @@
 #include "king.h"
 using namespace std;
 
-King::King (int team, int moveCount) : Piece{team, moveCount} {
-  cout << "King ctor is called" << endl;
+vector<unique_ptr<Move>> King::possibleMoves() const {
+  cout << "King possibleMoves() is called" << endl;
+  return {};
 }
-PieceType King::getType() const { 
-  cout << "King getType is called" << endl;
-  return PieceType::King; }
-vector<Coor> King::possibleMoves(Coor c) const { return {}; }
+
+char King::getType() const { 
+  cout << "King getType() is called" << endl;
+  return color == Color::White ? 'K' : 'k';
+}
+
+void King::movePiece(Move &m) {
+  cout << "King movePiece() is called" << endl;
+}
