@@ -24,10 +24,10 @@ $(BUILD_DIR)/%.o: src/%.cc
 .PHONY: clean superclean run runs
 
 clean:
-	@rm -f $(BUILD_DIR)/*.o $(BUILD_DIR)/*.d
+	@rm -f $(BUILD_DIR)/*.o $(BUILD_DIR)/*.d $(BUILD_DIR)/**/*.o $(BUILD_DIR)/**/*.d $(BUILD_DIR)/**/**/*.o $(BUILD_DIR)/**/**/*.d
 
 superclean:
-	@rm -f $(BUILD_DIR)/*.o $(BUILD_DIR)/*.d $(EXEC)
+	@rm -f /S $(BUILD_DIR)/*
 
 runs:
 	@if [ -f "$(EXEC)" ]; then ./$(EXEC); else make; ./$(EXEC); fi

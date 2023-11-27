@@ -1,10 +1,10 @@
 #ifndef GAME_H
 #define GAME_H
-#include "display.h"
 #include "computer1.h"
 #include "computer2.h"
 #include "computer3.h"
 #include "computer4.h"
+#include "display.h"
 #include "gameboard.h"
 #include "human.h"
 
@@ -16,11 +16,10 @@ class Game {
   bool gameStarted = false;
 
  public:
-  Game(GameBoard *board, Display *display);
+  Game(std::shared_ptr<GameBoard> board, std::shared_ptr<Display> display);
   ~Game();
   void play();
   void activate();
-  bool isValidCmd() const;
   std::vector<std::string> parseCmd(std::string cmd);
 };
 
