@@ -3,7 +3,6 @@
 #include <memory>
 #include <vector>
 #include <iostream>
-
 #include "rook.h"
 #include "bishop.h"
 #include "king.h"
@@ -13,6 +12,8 @@
 #include "subject.h"
 #include "observer.h"
 #include "display.h"
+
+class Piece;
 
 class Cell : public Subject
 {

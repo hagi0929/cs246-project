@@ -4,16 +4,20 @@
 #include <string>
 
 class Move {
-  std::string cur, dest, promotion;
+  int curRow, curCol, destRow, destCol;
+  std::string promotion;
   int getRow(std::string coor) const;
   int getCol(std::string coor) const;
 
  public:
   Move(std::string cur, std::string dest, std::string promotion);
-  int getCurRow(std::string coor) const;
-  int getCurCol(std::string coor) const;
-  int getDestRow(std::string coor) const;
-  int getDestCol(std::string coor) const;
+  Move(int curRow, int curCol, int destRow, int destCol, std::string promotion);
+  int getCurRow() const;
+  int getCurCol() const;
+  int getDestRow() const;
+  int getDestCol() const;
+  std::string getPromotion() const;
+  bool operator==(const Move &other) const;
 };
 
 #endif

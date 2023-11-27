@@ -4,10 +4,9 @@
 #include <vector>
 
 class Bishop : public Piece {
-  std::vector<std::unique_ptr<Move>> possibleMoves() const override;
  public:
+  std::vector<std::shared_ptr<Move>> possibleMoves() const override;
   char getType() const override;
-  void movePiece(Move &m) override;
 };
 
 #endif

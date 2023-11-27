@@ -1,16 +1,20 @@
 #include "king.h"
 using namespace std;
 
-vector<unique_ptr<Move>> King::possibleMoves() const {
+vector<shared_ptr<Move>> King::possibleMoves() const {
   cout << "King possibleMoves() is called" << endl;
-  return {};
+  vector<shared_ptr<Move>> validMoves;
+  for (int r = row - 1; r <= row + 1; ++r) {
+    if (r < 0 || r > 7) continue;
+    for (int c = col - 1; c <= col + 1; ++c) {
+      if (c < 0 || c > 7 || (r == row && c == col)) continue;
+      shared_ptr<Move> mp{ new Move{row, col, r, c, ""} };
+      validMoves.emplace_back(mp);
+    }
+  }
 }
 
 char King::getType() const { 
   cout << "King getType() is called" << endl;
   return color == Color::White ? 'K' : 'k';
-}
-
-void King::movePiece(Move &m) {
-  cout << "King movePiece() is called" << endl;
 }

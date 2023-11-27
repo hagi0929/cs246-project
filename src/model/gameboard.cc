@@ -24,3 +24,6 @@ int GameBoard::getThisTurn() const {
   cout << "GameBoard::getThisTurn is called" << endl;
   return 0;
 }
+shared_ptr<Cell> GameBoard::getCell(int row, int col) const {
+  return board[row][col];
+}

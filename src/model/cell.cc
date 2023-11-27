@@ -1,4 +1,5 @@
 #include "cell.h"
+#include "piece.h"
 
 using namespace std;
 

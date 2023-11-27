@@ -27,6 +27,7 @@ class GameBoard {
   void undo(int moves);
   void redo(int moves);
   int getThisTurn() const;
+  shared_ptr<Cell> getCell(int row, int col) const;
 };
 
 #endif
