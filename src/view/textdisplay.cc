@@ -6,7 +6,7 @@ using namespace std;
 TextDisplay::TextDisplay()
 {
   cout << "TextDisplay ctor is called" << endl;
-  
+
   for (int i = 0; i < getBoardSize(); ++i)
   {
     char c = '_';
@@ -22,6 +22,7 @@ TextDisplay::~TextDisplay()
 
 void TextDisplay::display()
 {
+  cout << "TextDisplay::display() is called" << endl;
 }
 
 void TextDisplay::notify(Cell &c)

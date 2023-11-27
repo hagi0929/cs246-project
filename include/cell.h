@@ -13,12 +13,13 @@
 #include "subject.h"
 #include "observer.h"
 #include "display.h"
-#include "textdisplay.h"
 
-class Cell : public Subject {
+class Cell : public Subject
+{
   std::shared_ptr<Piece> piece;
   int row, col;
- public:
+
+public:
   Cell(int row, int col);
   ~Cell();
   std::shared_ptr<Piece> getPiece();

@@ -4,14 +4,15 @@
 #include <memory>
 #include "observer.h"
 
-class Subject {
+class Subject
+{
 protected:
   std::vector<std::shared_ptr<Observer>> observers;
 
- public:
+public:
   Subject();
   void subscribe(std::shared_ptr<Observer> o);
-  virtual ~Subject()=0;
+  virtual ~Subject() = 0;
 };
 
 #endif
