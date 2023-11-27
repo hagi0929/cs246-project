@@ -3,6 +3,7 @@
 #include <memory>
 #include <vector>
 #include <iostream>
+#include "piece.h"
 #include "rook.h"
 #include "bishop.h"
 #include "king.h"

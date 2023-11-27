@@ -7,7 +7,7 @@ vector<shared_ptr<Move>> Queen::possibleMoves() const {
   return validMoves;
 }
 
-char King::getType() const { 
-  cout << "King getType() is called" << endl;
-  return color == Color::White ? 'K' : 'k';
+char Queen::getType() const { 
+  cout << "Queen getType() is called" << endl;
+  return color == Color::White ? 'Q' : 'q';
 }
