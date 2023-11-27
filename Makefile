@@ -21,7 +21,7 @@ $(BUILD_DIR)/%.o: src/%.cc
 
 -include $(DEPENDS)
 
-.PHONY: clean superclean run runs
+.PHONY: clean superclean run runs test
 
 clean:
 	@rm -f $(BUILD_DIR)/*.o $(BUILD_DIR)/*.d $(BUILD_DIR)/**/*.o $(BUILD_DIR)/**/*.d $(BUILD_DIR)/**/**/*.o $(BUILD_DIR)/**/**/*.d
@@ -34,3 +34,6 @@ runs:
 
 run: $(EXEC)
 	@./$(EXEC)
+
+test: $(EXEC)
+	@valgrind ./$(EXEC) < ./tests/test.in

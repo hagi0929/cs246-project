@@ -13,13 +13,15 @@ class Game {
   std::shared_ptr<GameBoard> board;
   std::shared_ptr<Display> display;
   std::shared_ptr<Player> players[NUMOFPLAYERS];
-  bool gameStarted = false;
+  bool gameInProgress = false;
+  std::istream &in;
 
  public:
-  Game(std::shared_ptr<GameBoard> board, std::shared_ptr<Display> display);
+  Game(std::istream &in);
   ~Game();
   void play();
   void activate();
+  void processCmd();
   std::vector<std::string> parseCmd(std::string cmd);
 };
 

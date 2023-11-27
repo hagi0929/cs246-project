@@ -1,13 +1,14 @@
 #ifndef HUMAN_H
 #define HUMAN_H
-#include "move.h"
 #include "player.h"
 
 class Human : public Player {
+  std::istream &in;
+
  public:
-  Human();
+  Human(std::istream &in);
   ~Human();
-  Move &getNextTurn() override;
+  userCmd getResponse() override;
 };
 
 #endif
