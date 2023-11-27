@@ -18,24 +18,9 @@ Game::~Game() {
 
 void Game::play() { cout << "Game::play() is called" << endl; }
 
-vector<string> Game::parseCmd(string cmd) {
-  vector<string> result;
-  string temp;
-  for (auto c : cmd) {
-    if (c == ' ') {
-      result.push_back(temp);
-      temp = "";
-    } else {
-      temp += c;
-    }
-  }
-  result.push_back(temp);
-  return result;
-}
-
 void Game::processCmd() {
   string rawCmd;
-  getline(cin, rawCmd);
+  getline(in, rawCmd);
   vector<string> cmd;
   boost::split(cmd, rawCmd, boost::is_any_of(" "));
 
@@ -84,19 +69,15 @@ void Game::activate() {
         } else if (cmdObj.type == cmdType::RESIGN) {
           board->resign();
         } else if (cmdObj.type == cmdType::MOVE) {
-          try {
-            Move m = Move{cmdObj.cmd[1], cmdObj.cmd[2], ""};
-            board->move(m);
-          } catch (runtime_error &e) {
-            cout << "LOGIC ERROR: " << e.what() << endl;
-          }
-        } else {
-          cout << "type command for general" << endl;
-          processCmd();
+          Move m = Move{cmdObj.cmd[1], cmdObj.cmd[2], ""};
+          board->move(m);
         }
+      } else {
+        cout << "type command for general" << endl;
+        processCmd();
       }
-      catch (runtime_error &e) {
-        cout << "CMD ERROR: " << e.what() << endl;
-      }
+    } catch (runtime_error &e) {
+      cout << "CMD ERROR: " << e.what() << endl;
     }
   }
+}
