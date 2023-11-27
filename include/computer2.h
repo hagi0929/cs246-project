@@ -4,7 +4,7 @@
 
 class Computer2 : public Computer {
  public:
-  Move &getNextTurn() override;
+  userCmd getResponse() override;
 };
 
 #endif

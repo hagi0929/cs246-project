@@ -26,6 +26,7 @@ class GameBoard {
   void setBeginPlayer(int player);
   void undo(int moves);
   void redo(int moves);
+  void resign();
   int getThisTurn() const;
 };
 
