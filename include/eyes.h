@@ -12,8 +12,8 @@ class Eyes {
   Color callerColor;
  public:
   Eyes(std::shared_ptr<GameBoard> board, Color callerColor);
-  bool isOccupied(Cell &c) const;
-  bool isOpponent(Cell &c) const;
+  bool isOccupied(int row, int col) const;
+  bool isOpponent(int row, int col) const;
 };
 
 #endif

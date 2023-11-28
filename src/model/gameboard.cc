@@ -2,8 +2,13 @@
 
 using namespace std;
 
-GameBoard::GameBoard() : board{ nullptr }, thisTurn{0}, playerColors{ {} } {
+GameBoard::GameBoard() : thisTurn{0}, playerColors{ {} } {
   cout << "GameBoard ctor is called" << endl;
+  for (int i = 0; i < BOARD_SIZE; ++i) {
+    for (int j = 0; j < BOARD_SIZE; ++j) {
+      board[i][j] = std::make_shared<Cell>(i, j);
+    }
+  }
 }
 GameBoard::~GameBoard() { cout << "GameBoard dtor is called" << endl; }
 void GameBoard::move(Move &m) {

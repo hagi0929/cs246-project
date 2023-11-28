@@ -8,14 +8,14 @@ Eyes::Eyes(shared_ptr<GameBoard> board, Color callerColor) :
   cout << "Eyes ctor was called" << endl;
 }
 
-bool Eyes::isOccupied(Cell &c) const {
+bool Eyes::isOccupied(int row, int col) const {
   cout << "isOccupied() was called" << endl;
-  if (board->getCell(c.getRow(), c.getCol())->isEmpty()) return false;
+  if (board->getCell(row, col)->isEmpty()) return false;
   return true;
 }
 
-bool Eyes::isOpponent(Cell &c) const {
+bool Eyes::isOpponent(int row, int col) const {
   cout << "isOpponent() was called" << endl;
-  if (isOccupied(c) && c.getPiece()->getColor() == callerColor) return true;
+  if (isOccupied(row, col) && board->getCell(row, col)->getPiece()->getColor() == callerColor) return true;
   return false;
 }
