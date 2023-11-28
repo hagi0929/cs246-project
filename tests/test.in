@@ -1,2 +1,6 @@
+setup
++ e1 K
++ e1 Q
++ e2 Q
+done
 game human human
-move a1 a2 q

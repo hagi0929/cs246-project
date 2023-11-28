@@ -1,16 +1,17 @@
 #include "queen.h"
 using namespace std;
 
-vector<unique_ptr<Move>> Queen::possibleMoves() const {
+Queen::Queen(pair<int, int> coor, int player, shared_ptr<Eyes> eyes)
+    : Piece{coor, player, eyes} {}
+
+
+vector<shared_ptr<Move>> Queen::possibleMoves() const {
   cout << "Queen possibleMoves() is called" << endl;
-  return {};
+  vector<shared_ptr<Move>> validMoves;
+  return validMoves;
 }
 
-char Queen::getType() const { 
+char Queen::getType() const {
   cout << "Queen getType() is called" << endl;
-  return color == Color::White ? 'Q' : 'q';
-}
-
-void Queen::movePiece(Move &m) {
-  cout << "Queen movePiece() is called" << endl;
+  return getPlayer() == 0 ? 'Q' : 'k';
 }

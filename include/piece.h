@@ -1,27 +1,28 @@
 #ifndef PIECE_H
 #define PIECE_H
-#include <vector>
 #include <iostream>
 #include <memory>
 #include <string>
-#include "move.h"
+#include <vector>
+
 #include "eyes.h"
+#include "move.h"
 
 enum class Color { White, Black };
 
+class InvalidMove {};
+
 class Piece {
  protected:
-  Color color;
-  int row, col, moveCount;
+  int player;
+  int moveCount;
   std::shared_ptr<Eyes> eyes;
-
- private:
-  Color getColor() const;
-  virtual std::vector<std::unique_ptr<Move>> possibleMoves() const = 0;
+  std::pair<int, int> coor;
 
  public:
-  Piece(Color color, int row, int col, int moveCount, std::shared_ptr<Eyes> eyes);
-  virtual void movePiece(Move &m) = 0;
+  Piece(std::pair<int, int> coor, int player, std::shared_ptr<Eyes> eyes);
+  virtual std::vector<std::shared_ptr<Move>> possibleMoves() const = 0;
+  int getPlayer() const;
   virtual char getType() const = 0;
 };
 

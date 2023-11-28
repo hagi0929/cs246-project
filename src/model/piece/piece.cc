@@ -1,11 +1,9 @@
 #include "piece.h"
 using namespace std;
 
-Piece::Piece(Color color, int row, int col, int moveCoun, shared_ptr<Eyes>) :
-             color{color}, row{row}, col{col}, moveCount{moveCount}, eyes{eyes} {
-  cout << "Piece ctor is called" << endl;
-}
+Piece::Piece(pair<int, int> coor, int player, std::shared_ptr<Eyes> eyes)
+    : coor{coor}, player{player}, eyes{eyes} {
+    cout << "Piece ctor was called" << endl;
+    }
 
-Color Piece::getColor() const {
-  return color;
-}
+int Piece::getPlayer() const { return player; }

@@ -1,26 +1,28 @@
 #ifndef CELL_H
 #define CELL_H
+#include <iostream>
 #include <memory>
 #include <vector>
-#include <iostream>
 
-#include "rook.h"
 #include "bishop.h"
-#include "king.h"
-#include "pawn.h"
-#include "queen.h"
-#include "knight.h"
-#include "subject.h"
-#include "observer.h"
 #include "display.h"
+#include "king.h"
+#include "knight.h"
+#include "observer.h"
+#include "pawn.h"
+#include "piece.h"
+#include "queen.h"
+#include "rook.h"
+#include "subject.h"
 
-class Cell : public Subject
-{
+class Piece;
+
+class Cell : public Subject {
   std::shared_ptr<Piece> piece;
-  int row, col;
+  pair<int, int> coor;
 
-public:
-  Cell(int row, int col);
+ public:
+  Cell(pair<int, int> coor);
   ~Cell();
   std::shared_ptr<Piece> getPiece();
   void setPiece(std::shared_ptr<Piece>);

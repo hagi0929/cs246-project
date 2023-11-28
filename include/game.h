@@ -10,10 +10,11 @@
 
 const int NUMOFPLAYERS = 2;
 class Game {
-  std::shared_ptr<GameBoard> board;
+  std::shared_ptr<GameBoard> gameBoard;
   std::shared_ptr<Display> display;
   std::shared_ptr<Player> players[NUMOFPLAYERS];
   bool gameInProgress = false;
+  bool setupInProgress = false;
   std::istream &in;
 
  public:
@@ -21,6 +22,7 @@ class Game {
   ~Game();
   void play();
   void activate();
+  void setupCmd();
   void processCmd();
   std::vector<std::string> parseCmd(std::string cmd);
 };
