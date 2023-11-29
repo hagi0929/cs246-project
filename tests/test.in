@@ -1,12 +1,2 @@
-setup
-+ e1 K
-+ e3 Q
-+ b1 N
-+ e1 r
-+ b4 p
-+ b5 q
-+ b7 n
-+ b8 B
-+ b2 b
-done
 game human human
+move b1 c3
