@@ -15,14 +15,14 @@ vector<shared_ptr<Move>> Pawn::possibleMoves() const {
         shared_ptr<Move> mp{new Move{coor, {coor.first - 2, coor.second}, ""}};
         validMoves.emplace_back(mp);
       } else {
-        shared_ptr<Move> mp{new Move{coor, {coor.first - 2, coor.second}, "queen"}};
-        validMoves.emplace_back(mp);
-        shared_ptr<Move> mp{new Move{coor, {coor.first - 2, coor.second}, "rook"}};
-        validMoves.emplace_back(mp);
-        shared_ptr<Move> mp{new Move{coor, {coor.first - 2, coor.second}, "knight"}};
-        validMoves.emplace_back(mp);
-        shared_ptr<Move> mp{new Move{coor, {coor.first - 2, coor.second}, "bishop"}};
-        validMoves.emplace_back(mp);
+        shared_ptr<Move> mpQueen{new Move{coor, {coor.first - 2, coor.second}, "queen"}};
+        validMoves.emplace_back(mpQueen);
+        shared_ptr<Move> mpRook{new Move{coor, {coor.first - 2, coor.second}, "rook"}};
+        validMoves.emplace_back(mpRook);
+        shared_ptr<Move> mpKnight{new Move{coor, {coor.first - 2, coor.second}, "knight"}};
+        validMoves.emplace_back(mpKnight);
+        shared_ptr<Move> mpBishop{new Move{coor, {coor.first - 2, coor.second}, "bishop"}};
+        validMoves.emplace_back(mpBishop);
       }
     }
     if (coor.first - 1 >= 0) {
@@ -31,14 +31,14 @@ vector<shared_ptr<Move>> Pawn::possibleMoves() const {
           shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second}, ""}};
           validMoves.emplace_back(mp);
         } else {
-          shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second}, "queen"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second}, "rook"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second}, "knight"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second}, "bishop"}};
-          validMoves.emplace_back(mp);
+          shared_ptr<Move> mpQueen{new Move{coor, {coor.first - 1, coor.second}, "queen"}};
+          validMoves.emplace_back(mpQueen);
+          shared_ptr<Move> mpRook{new Move{coor, {coor.first - 1, coor.second}, "rook"}};
+          validMoves.emplace_back(mpRook);
+          shared_ptr<Move> mpKnight{new Move{coor, {coor.first - 1, coor.second}, "knight"}};
+          validMoves.emplace_back(mpKnight);
+          shared_ptr<Move> mpBishop{new Move{coor, {coor.first - 1, coor.second}, "bishop"}};
+          validMoves.emplace_back(mpBishop);
         }
       }
       if (eyes->isOccupied({coor.first - 1, coor.second - 1}) &&
@@ -47,14 +47,14 @@ vector<shared_ptr<Move>> Pawn::possibleMoves() const {
           shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second - 1}, ""}};
           validMoves.emplace_back(mp);
         } else {
-          shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second - 1}, "queen"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second - 1}, "rook"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second - 1}, "knight"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second - 1}, "bishop"}};
-          validMoves.emplace_back(mp);
+          shared_ptr<Move> mpQueen{new Move{coor, {coor.first - 1, coor.second - 1}, "queen"}};
+          validMoves.emplace_back(mpQueen);
+          shared_ptr<Move> mpRook{new Move{coor, {coor.first - 1, coor.second - 1}, "rook"}};
+          validMoves.emplace_back(mpRook);
+          shared_ptr<Move> mpKnight{new Move{coor, {coor.first - 1, coor.second - 1}, "knight"}};
+          validMoves.emplace_back(mpKnight);
+          shared_ptr<Move> mpBishop{new Move{coor, {coor.first - 1, coor.second - 1}, "bishop"}};
+          validMoves.emplace_back(mpBishop);
         }
       }
       if (eyes->isOccupied({coor.first - 1, coor.second + 1}) &&
@@ -63,14 +63,14 @@ vector<shared_ptr<Move>> Pawn::possibleMoves() const {
           shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second + 1}, ""}};
           validMoves.emplace_back(mp);
         } else {
-          shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second + 1}, "queen"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second + 1}, "rook"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second + 1}, "knight"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first - 1, coor.second + 1}, "bishop"}};
-          validMoves.emplace_back(mp);
+          shared_ptr<Move> mpQueen{new Move{coor, {coor.first - 1, coor.second + 1}, "queen"}};
+          validMoves.emplace_back(mpQueen);
+          shared_ptr<Move> mpRook{new Move{coor, {coor.first - 1, coor.second + 1}, "rook"}};
+          validMoves.emplace_back(mpRook);
+          shared_ptr<Move> mpKnight{new Move{coor, {coor.first - 1, coor.second + 1}, "knight"}};
+          validMoves.emplace_back(mpKnight);
+          shared_ptr<Move> mpBishop{new Move{coor, {coor.first - 1, coor.second + 1}, "bishop"}};
+          validMoves.emplace_back(mpBishop);
         }
       }
     }
@@ -81,14 +81,14 @@ vector<shared_ptr<Move>> Pawn::possibleMoves() const {
         shared_ptr<Move> mp{new Move{coor, {coor.first + 2, coor.second}, ""}};
         validMoves.emplace_back(mp);
       } else {
-        shared_ptr<Move> mp{new Move{coor, {coor.first + 2, coor.second}, "queen"}};
-        validMoves.emplace_back(mp);
-        shared_ptr<Move> mp{new Move{coor, {coor.first + 2, coor.second}, "rook"}};
-        validMoves.emplace_back(mp);
-        shared_ptr<Move> mp{new Move{coor, {coor.first + 2, coor.second}, "knight"}};
-        validMoves.emplace_back(mp);
-        shared_ptr<Move> mp{new Move{coor, {coor.first + 2, coor.second}, "bishop"}};
-        validMoves.emplace_back(mp);
+        shared_ptr<Move> mpQueen{new Move{coor, {coor.first + 2, coor.second}, "queen"}};
+        validMoves.emplace_back(mpQueen);
+        shared_ptr<Move> mpRook{new Move{coor, {coor.first + 2, coor.second}, "rook"}};
+        validMoves.emplace_back(mpRook);
+        shared_ptr<Move> mpKnight{new Move{coor, {coor.first + 2, coor.second}, "knight"}};
+        validMoves.emplace_back(mpKnight);
+        shared_ptr<Move> mpBishop{new Move{coor, {coor.first + 2, coor.second}, "bishop"}};
+        validMoves.emplace_back(mpBishop);
       }
     }
     if (coor.first + 1 <= 7) {
@@ -97,14 +97,14 @@ vector<shared_ptr<Move>> Pawn::possibleMoves() const {
           shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second}, ""}};
           validMoves.emplace_back(mp);
         } else {
-          shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second}, "queen"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second}, "rook"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second}, "knight"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second}, "bishop"}};
-          validMoves.emplace_back(mp);
+          shared_ptr<Move> mpQueen{new Move{coor, {coor.first + 1, coor.second}, "queen"}};
+          validMoves.emplace_back(mpQueen);
+          shared_ptr<Move> mpRook{new Move{coor, {coor.first + 1, coor.second}, "rook"}};
+          validMoves.emplace_back(mpRook);
+          shared_ptr<Move> mpKnight{new Move{coor, {coor.first + 1, coor.second}, "knight"}};
+          validMoves.emplace_back(mpKnight);
+          shared_ptr<Move> mpBishop{new Move{coor, {coor.first + 1, coor.second}, "bishop"}};
+          validMoves.emplace_back(mpBishop);
         }
       }
       if (eyes->isOccupied({coor.first + 1, coor.second - 1}) &&
@@ -113,14 +113,14 @@ vector<shared_ptr<Move>> Pawn::possibleMoves() const {
           shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second - 1}, ""}};
           validMoves.emplace_back(mp);
         } else {
-          shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second - 1}, "queen"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second - 1}, "rook"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second - 1}, "knight"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second - 1}, "bishop"}};
-          validMoves.emplace_back(mp);
+          shared_ptr<Move> mpQueen{new Move{coor, {coor.first + 1, coor.second - 1}, "queen"}};
+          validMoves.emplace_back(mpQueen);
+          shared_ptr<Move> mpRook{new Move{coor, {coor.first + 1, coor.second - 1}, "rook"}};
+          validMoves.emplace_back(mpRook);
+          shared_ptr<Move> mpKnight{new Move{coor, {coor.first + 1, coor.second - 1}, "knight"}};
+          validMoves.emplace_back(mpKnight);
+          shared_ptr<Move> mpBishop{new Move{coor, {coor.first + 1, coor.second - 1}, "bishop"}};
+          validMoves.emplace_back(mpBishop);
         }
       }
       if (eyes->isOccupied({coor.first + 1, coor.second + 1}) &&
@@ -129,14 +129,14 @@ vector<shared_ptr<Move>> Pawn::possibleMoves() const {
           shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second + 1}, ""}};
           validMoves.emplace_back(mp);
         } else {
-          shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second + 1}, "queen"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second + 1}, "rook"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second + 1}, "knight"}};
-          validMoves.emplace_back(mp);
-          shared_ptr<Move> mp{new Move{coor, {coor.first + 1, coor.second + 1}, "bishop"}};
-          validMoves.emplace_back(mp);
+          shared_ptr<Move> mpQueen{new Move{coor, {coor.first + 1, coor.second + 1}, "queen"}};
+          validMoves.emplace_back(mpQueen);
+          shared_ptr<Move> mpRook{new Move{coor, {coor.first + 1, coor.second + 1}, "rook"}};
+          validMoves.emplace_back(mpRook);
+          shared_ptr<Move> mpKnight{new Move{coor, {coor.first + 1, coor.second + 1}, "knight"}};
+          validMoves.emplace_back(mpKnight);
+          shared_ptr<Move> mpBishop{new Move{coor, {coor.first + 1, coor.second + 1}, "bishop"}};
+          validMoves.emplace_back(mpBishop);
         }
       }
     }
