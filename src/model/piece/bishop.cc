@@ -7,7 +7,6 @@ Bishop::Bishop(pair<int, int> coor, int player, shared_ptr<Eyes> eyes)
 
 vector<shared_ptr<Move>> Bishop::possibleMoves() const
 {
-    cout << "Bishop possibleMoves() is called" << endl;
     vector<shared_ptr<Move>> validMoves;
 
     int dirR[] = {-1, -1, 1, 1};
@@ -43,6 +42,5 @@ vector<shared_ptr<Move>> Bishop::possibleMoves() const
 
 char Bishop::getType() const
 {
-    cout << "Bishop getType() is called" << endl;
     return getPlayer() == 0 ? 'B' : 'b';
 }

@@ -7,7 +7,6 @@ using namespace std;
 
 TextDisplay::TextDisplay()
 {
-  cout << "TextDisplay ctor is called" << endl;
 
   theDisplay.resize(getBoardSize(), std::vector<char>(8));
 
@@ -27,13 +26,12 @@ TextDisplay::TextDisplay()
   }
 }
 
-TextDisplay::~TextDisplay() { cout << "TextDisplay dtor is called" << endl; }
+TextDisplay::~TextDisplay() {}
 
 void TextDisplay::display() { cout << *this; }
 
 void TextDisplay::notify(Cell &c)
 {
-  cout << "TextDisplay::notify() is called" << endl;
   int row = c.getRow();
   int col = c.getCol();
 

@@ -4,8 +4,8 @@
 #include <iostream>
 using namespace std;
 
-Human::Human(istream &in) : in{in} { cout << "Human has been created" << endl; }
-Human::~Human() { cout << "Human has been destroyed" << endl; }
+Human::Human(istream &in) : in{in} {}
+Human::~Human() {}
 
 userCmd Human::getResponse() {
   string rawCmd;

@@ -24,17 +24,17 @@ class GameBoard : public std::enable_shared_from_this<GameBoard> {
  public:
   GameBoard();
   ~GameBoard();
-  void init(shared_ptr<Observer> o);
+  void init(std::shared_ptr<Observer> o);
   void move(Move &m);
-  void addPiece(shared_ptr<Piece> p, pair<int, int> coor);
-  void removePiece(pair<int, int> coor);
+  void addPiece(std::shared_ptr<Piece> p, std::pair<int, int> coor);
+  void removePiece(std::pair<int, int> coor);
   void setTurn(int player);
   void undo(int moves);
   void redo(int moves);
   void resign();
   int getThisTurn() const;
-  void createPiece(pair<int, int> coor, char p, int playerNo = -1);
-  shared_ptr<Cell> getCell(pair<int, int> coor) const;
+  void createPiece(std::pair<int, int> coor, char p, int playerNo = -1);
+  std::shared_ptr<Cell> getCell(std::pair<int, int> coor) const;
 };
 
 #endif

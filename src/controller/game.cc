@@ -9,7 +9,6 @@ using namespace std;
 
 Game::Game(std::istream &in)
     : gameBoard{nullptr}, display{nullptr}, gameInProgress{false}, in{in} {
-  cout << "Game ctor is called" << endl;
   gameBoard = make_shared<GameBoard>();
   display = make_shared<TextDisplay>();
   gameBoard->init(display);
@@ -17,10 +16,9 @@ Game::Game(std::istream &in)
 
 Game::~Game() {
   // delete currentGame;
-  cout << "Game dtor is called" << endl;
 }
 
-void Game::play() { cout << "Game::play() is called" << endl; }
+void Game::play() {}
 
 // • setup enters setup mode, within which you can set up your own initial board
 // configurations. This can only be done

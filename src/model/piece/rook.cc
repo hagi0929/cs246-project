@@ -7,7 +7,6 @@ Rook::Rook(pair<int, int> coor, int player, shared_ptr<Eyes> eyes)
 
 vector<shared_ptr<Move>> Rook::possibleMoves() const
 {
-    cout << "Rook possibleMoves() is called" << endl;
     vector<shared_ptr<Move>> validMoves;
 
     for (int i = 0; i < 8; ++i)
@@ -39,6 +38,5 @@ vector<shared_ptr<Move>> Rook::possibleMoves() const
 
 char Rook::getType() const
 {
-    cout << "Rook getType() is called" << endl;
     return getPlayer() == 0 ? 'R' : 'r';
 }

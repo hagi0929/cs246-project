@@ -19,10 +19,10 @@ class Piece;
 
 class Cell : public Subject {
   std::shared_ptr<Piece> piece;
-  pair<int, int> coor;
+  std::pair<int, int> coor;
 
  public:
-  Cell(pair<int, int> coor);
+  Cell(std::pair<int, int> coor);
   ~Cell();
   std::shared_ptr<Piece> getPiece();
   void setPiece(std::shared_ptr<Piece>);

@@ -18,7 +18,6 @@ bool Cell::isEmpty() { return piece == nullptr; }
 void Cell::setPiece(shared_ptr<Piece> p)
 {
   piece = p;
-  cout << "piece: " << piece.get() << endl;
   notifyObservers();
 }
 
