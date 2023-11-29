@@ -10,7 +10,7 @@ class Display : public Observer
 public:
     virtual void display() = 0;
     virtual void notify(Cell &c) = 0;
-    int getBoardSize();
+    int getBoardSize() const;
 };
 
 #endif

@@ -5,51 +5,63 @@
 
 using namespace std;
 
-TextDisplay::TextDisplay() {
+TextDisplay::TextDisplay()
+{
   cout << "TextDisplay ctor is called" << endl;
 
-  theDisplay.resize(getBoardSize() + 2, std::vector<char>(10));
+  theDisplay.resize(getBoardSize(), std::vector<char>(8));
 
-  for (int i = 0; i < getBoardSize(); ++i) {
-    int rowNum = 8 - i;
-    char rowChar = to_string(rowNum)[0];
+  int rows[] = {8, 7, 6, 5, 4, 3, 2, 1};
+  char tiles[2][2] = {
+      {' ', '_'}, // tiles for even rows
+      {'_', ' '}  // tiles for odd rows
+  };
 
-    theDisplay[i][0] = rowChar;
-    theDisplay[i][1] = ' ';
-    for (int j = 2; j < getBoardSize() + 2; ++j) {
-      if ((i + j) % 2 == 0) {
-        theDisplay[i][j] = ' ';
-      } else {
-        theDisplay[i][j] = '_';
-      }
+  for (int r = 0; r < getBoardSize(); r++)
+  {
+    for (int c = 0; c < getBoardSize(); c++)
+    {
+      int i = r % 2, j = c % 2;
+      theDisplay[r][c] = tiles[i][j];
     }
   }
-  theDisplay[getBoardSize() + 1] = {' ', ' ', 'a', 'b', 'c',
-                                    'd', 'e', 'f', 'g', 'h'};
 }
 
 TextDisplay::~TextDisplay() { cout << "TextDisplay dtor is called" << endl; }
 
 void TextDisplay::display() { cout << *this; }
 
-void TextDisplay::notify(Cell &c) {
+void TextDisplay::notify(Cell &c)
+{
   cout << "TextDisplay::notify() is called" << endl;
   int row = c.getRow();
-  int col = c.getCol() + 2;
+  int col = c.getCol();
 
-  if (c.isEmpty()) {
+  if (c.isEmpty())
+  {
     theDisplay[row][col] = ((row + col) % 2 == 0) ? ' ' : '_';
-  } else {
+  }
+  else
+  {
     theDisplay[row][col] = c.getPiece()->getType();
   }
 }
 
-ostream &operator<<(ostream &out, const TextDisplay &td) {
-  for (auto r : td.theDisplay) {
-    for (auto c : r) {
-      out << c;
+ostream &operator<<(ostream &out, const TextDisplay &td)
+{
+  int rows[] = {8, 7, 6, 5, 4, 3, 2, 1};
+
+  for (int r = 0; r < td.getBoardSize(); r++)
+  {
+    out << rows[r] << " ";
+    for (int c = 0; c < td.getBoardSize(); c++)
+    {
+      out << td.theDisplay[r][c];
     }
     out << endl;
   }
+  out << endl;
+  out << "  abcdefgh" << endl;
+
   return out;
 }

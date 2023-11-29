@@ -4,14 +4,14 @@ using namespace std;
 Queen::Queen(pair<int, int> coor, int player, shared_ptr<Eyes> eyes)
     : Piece{coor, player, eyes} {}
 
-
-vector<shared_ptr<Move>> Queen::possibleMoves() const {
+vector<shared_ptr<Move>> Queen::possibleMoves() const
+{
   cout << "Queen possibleMoves() is called" << endl;
   vector<shared_ptr<Move>> validMoves;
-  return validMoves;
 }
 
-char Queen::getType() const {
+char Queen::getType() const
+{
   cout << "Queen getType() is called" << endl;
-  return getPlayer() == 0 ? 'Q' : 'k';
+  return getPlayer() == 0 ? 'Q' : 'q';
 }

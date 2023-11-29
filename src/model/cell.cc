@@ -15,16 +15,21 @@ int Cell::getCol() const { return coor.second; }
 
 bool Cell::isEmpty() { return piece == nullptr; }
 
-void Cell::setPiece(shared_ptr<Piece> p) {
+void Cell::setPiece(shared_ptr<Piece> p)
+{
   piece = p;
+  cout << "piece: " << piece.get() << endl;
   notifyObservers();
 }
 
-void Cell::removePiece() {
+void Cell::removePiece()
+{
   piece = nullptr;
   notifyObservers();
 }
 
-void Cell::notifyObservers() {
-  for (auto ob : observers) ob->notify(*this);
+void Cell::notifyObservers()
+{
+  for (auto ob : observers)
+    ob->notify(*this);
 }
