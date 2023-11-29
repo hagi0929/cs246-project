@@ -8,4 +8,4 @@ int Piece::getPlayer() const { return player; }
 
 void Piece::addMove() { ++moveCount; }
 
-void Piece::setCoor(pair<int, int> coor) { coor = coor; }
+void Piece::setCoor(pair<int, int> c) { coor = c; }

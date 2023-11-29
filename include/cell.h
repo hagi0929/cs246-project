@@ -25,7 +25,7 @@ class Cell : public Subject {
   Cell(std::pair<int, int> coor);
   ~Cell();
   std::shared_ptr<Piece> getPiece();
-  void setPiece(std::shared_ptr<Piece>);
+  void setPiece(std::shared_ptr<Piece> p);
   int getRow() const;
   int getCol() const;
   bool isEmpty();

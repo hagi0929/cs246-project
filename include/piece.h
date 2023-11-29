@@ -23,7 +23,7 @@ class Piece {
   int getPlayer() const;
   virtual char getType() const = 0;
   void addMove();
-  void setCoor(std::pair<int, int> coor);
+  void setCoor(std::pair<int, int> c);
 };
 
 #endif

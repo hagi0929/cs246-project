@@ -68,32 +68,25 @@ void GameBoard::movePiece(Move &m)
 
   vector<shared_ptr<Move>> validMoves = getCell(m.getCur())->getPiece()->possibleMoves();
   bool accepted = false;
+
   for (auto move : validMoves)
   {
     if (*move == m)
     {
       accepted = true;
       shared_ptr<Piece> thisPiece = getCell(m.getCur())->getPiece();
-      int destRow = m.getDestRow();
-      int destCol = m.getDestCol();
-      int curRow = m.getCurRow();
-      int curCol = m.getCurCol();
 
-      if (getCell(m.getDest())->getPiece()->getPlayer() != thisTurn)
-      { // player captures enemy piece
+      // player captures enemy piece
+      if (!getCell(m.getDest())->isEmpty() && getCell(m.getDest())->getPiece()->getPlayer() != thisTurn)
+      {
         removePiece(m.getDest());
-        board[destRow][destCol]->getPiece() = board[curRow][curCol]->getPiece();
-        board[curRow][curCol]->getPiece() = nullptr;
-        board[destRow][destCol]->getPiece()->setCoor(m.getDest());
       }
-      else
-      { // normal move
-        board[destRow][destCol]->getPiece() = board[curRow][curCol]->getPiece();
-        board[curRow][curCol]->getPiece() = nullptr;
-        board[destRow][destCol]->getPiece()->setCoor(m.getDest());
-      }
-
       getCell(m.getCur())->getPiece()->addMove();
+
+      board[m.getDestRow()][m.getDestCol()]->setPiece(board[m.getCurRow()][m.getCurCol()]->getPiece());
+      board[m.getCurRow()][m.getCurCol()]->setPiece(nullptr);
+      board[m.getDestRow()][m.getDestCol()]->getPiece()->setCoor(m.getDest());
+
       thisTurn = (thisTurn + 1) % 2;
       return;
     }

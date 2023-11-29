@@ -158,7 +158,6 @@ void Game::processCmd()
         continue;
       }
     }
-    gameBoard = make_shared<GameBoard>();
     gameInProgress = true;
   }
   else

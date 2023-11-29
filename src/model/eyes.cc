@@ -6,11 +6,14 @@ using namespace std;
 
 Eyes::Eyes(weak_ptr<GameBoard> board) : board{board} {}
 
-bool Eyes::isOccupied(pair<int, int> coor) const {
+bool Eyes::isOccupied(pair<int, int> coor) const
+{
   return !(board.lock()->getCell(coor)->isEmpty());
 }
 
-bool Eyes::isOpponent(pair<int, int> coor) const {
+bool Eyes::isOpponent(pair<int, int> coor) const
+{
   return board.lock()->getThisTurn() !=
          board.lock()->getCell(coor)->getPiece()->getPlayer();
 }
+
