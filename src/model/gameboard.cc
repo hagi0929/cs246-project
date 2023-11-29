@@ -16,6 +16,38 @@ void GameBoard::init(shared_ptr<Observer> o) {
     }
   }
   eyes = make_shared<Eyes>(shared_from_this());
+  createPiece(make_pair(7, 0), 'R');
+  createPiece(make_pair(7, 1), 'N');
+  createPiece(make_pair(7, 2), 'B');
+  createPiece(make_pair(7, 3), 'Q');
+  createPiece(make_pair(7, 4), 'K');
+  createPiece(make_pair(7, 5), 'B');
+  createPiece(make_pair(7, 6), 'N');
+  createPiece(make_pair(7, 7), 'R');
+  createPiece(make_pair(6, 0), 'P');
+  createPiece(make_pair(6, 1), 'P');
+  createPiece(make_pair(6, 2), 'P');
+  createPiece(make_pair(6, 3), 'P');
+  createPiece(make_pair(6, 4), 'P');
+  createPiece(make_pair(6, 5), 'P');
+  createPiece(make_pair(6, 6), 'P');
+  createPiece(make_pair(6, 7), 'P');
+  createPiece(make_pair(0, 0), 'r', 1);
+  createPiece(make_pair(0, 1), 'n', 1);
+  createPiece(make_pair(0, 2), 'b', 1);
+  createPiece(make_pair(0, 3), 'q', 1);
+  createPiece(make_pair(0, 4), 'k', 1);
+  createPiece(make_pair(0, 5), 'b', 1);
+  createPiece(make_pair(0, 6), 'n', 1);
+  createPiece(make_pair(0, 7), 'r', 1);
+  createPiece(make_pair(1, 0), 'p', 1);
+  createPiece(make_pair(1, 1), 'p', 1);
+  createPiece(make_pair(1, 2), 'p', 1);
+  createPiece(make_pair(1, 3), 'p', 1);
+  createPiece(make_pair(1, 4), 'p', 1);
+  createPiece(make_pair(1, 5), 'p', 1);
+  createPiece(make_pair(1, 6), 'p', 1);
+  createPiece(make_pair(1, 7), 'p', 1);
 }
 
 GameBoard::~GameBoard() {}
