@@ -11,13 +11,11 @@ vector<shared_ptr<Move>> King::possibleMoves() const {
     if (r < 0 || r > 7) continue;
     for (int c = coor.second - 1; c <= coor.second + 1; ++c) {
       if (c < 0 || c > 7 || (r == coor.first && c == coor.second) ||
-          ((eyes->isOccupied(coor)) && !eyes->isOpponent(coor))) {
+          (eyes->isOccupied({r, c}) && !eyes->isOpponent({r, c}))) {
         continue;
       }
       shared_ptr<Move> mp{new Move{coor, {r, c}, ""}};
       validMoves.emplace_back(mp);
-      cout << mp->getCurRow() << "," << mp->getCurCol() + " "
-           << mp->getDestRow() << "," << mp->getDestCol() << endl;
     }
   }
 
