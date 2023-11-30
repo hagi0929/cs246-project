@@ -10,11 +10,9 @@
 
 enum class Color { White, Black };
 
-class InvalidMove {};
-
 class Piece {
  protected:
-  int player;
+  int player = 0;
   int moveCount;
   std::shared_ptr<Eyes> eyes;
   std::pair<int, int> coor;
@@ -26,6 +24,8 @@ class Piece {
   std::pair<int, int> getCoor() const;
   void setCoor(std::pair<int, int> c);
   virtual char getType() const = 0;
+  void addMove();
+  void setCoor(std::pair<int, int> c);
 };
 
 #endif

@@ -1,12 +1,9 @@
-setup
-+ e1 K
-+ e3 Q
-+ b1 N
-+ e1 r
-+ b4 p
-+ b5 q
-+ b7 n
-+ b8 B
-+ b2 b
-done
 game human human
+move d2 d4
+move e7 e5
+move d4 e5
+move e5 e7
+move d8 g5
+move e5 e6
+move g5 g2
+move f1 g2

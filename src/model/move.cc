@@ -4,9 +4,9 @@
 using namespace std;
 
 Move::Move(string cur, string dest, string promotion) {
-  curRow = 8 - (cur[1] - '1');
+  curRow = 7 - (cur[1] - '1');
   curCol = cur[0] - 'a';
-  destRow = 8 - (dest[1] - '1');
+  destRow = 7 - (dest[1] - '1');
   destCol = dest[0] - 'a';
   promotion = promotion;
 }
@@ -26,10 +26,6 @@ Move::Move(pair<int, int> cur, pair<int, int> dest, std::string promotion)
       destCol{dest.second},
       promotion{promotion} {}
 
-int Move::getRow(string coor) const { return 8 - (coor[1] - '1'); }
-
-int Move::getCol(string coor) const { return coor[0] - 'a'; }
-
 int Move::getCurRow() const { return curRow; }
 
 int Move::getCurCol() const { return curCol; }
@@ -37,6 +33,10 @@ int Move::getCurCol() const { return curCol; }
 int Move::getDestRow() const { return destRow; }
 
 int Move::getDestCol() const { return destCol; }
+
+pair<int, int> Move::getCur() const { return make_pair(curRow, curCol); }
+
+pair<int, int> Move::getDest() const { return make_pair(destRow, destCol); }
 
 string Move::getPromotion() const { return promotion; }
 

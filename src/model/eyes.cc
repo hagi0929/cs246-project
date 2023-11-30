@@ -104,3 +104,4 @@ void Eyes::removePiece(std::shared_ptr<Piece> p) {
     }
   }
 }
+

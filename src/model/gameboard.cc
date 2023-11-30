@@ -2,21 +2,25 @@
 
 using namespace std;
 
-GameBoard::GameBoard() : thisTurn{0}, playerColors{{}} {
-  for (int i = 0; i < BOARD_SIZE; ++i) {
-    for (int j = 0; j < BOARD_SIZE; ++j) {
-      board[i][j] = make_shared<Cell>(make_pair(j, i));
+GameBoard::GameBoard() : thisTurn{0}, playerColors{{}}
+{
+  for (int i = 0; i < BOARD_SIZE; ++i)
+  {
+    for (int j = 0; j < BOARD_SIZE; ++j)
+    {
+      board[i][j] = make_shared<Cell>(make_pair(i, j));
     }
   }
 }
-
-void GameBoard::init(shared_ptr<Observer> o) {
-  for (int i = 0; i < BOARD_SIZE; ++i) {
-    for (int j = 0; j < BOARD_SIZE; ++j) {
+void GameBoard::init(shared_ptr<Observer> o)
+{
+  for (int i = 0; i < BOARD_SIZE; ++i)
+  {
+    for (int j = 0; j < BOARD_SIZE; ++j)
+    {
       board[i][j]->subscribe(o);
     }
   }
-
   createPiece(make_pair(7, 0), 'R');
   createPiece(make_pair(7, 1), 'N');
   createPiece(make_pair(7, 2), 'B');
@@ -33,82 +37,122 @@ void GameBoard::init(shared_ptr<Observer> o) {
   createPiece(make_pair(6, 5), 'P');
   createPiece(make_pair(6, 6), 'P');
   createPiece(make_pair(6, 7), 'P');
-  createPiece(make_pair(0, 0), 'r', 1);
-  createPiece(make_pair(0, 1), 'n', 1);
-  createPiece(make_pair(0, 2), 'b', 1);
-  createPiece(make_pair(0, 3), 'q', 1);
-  createPiece(make_pair(0, 4), 'k', 1);
-  createPiece(make_pair(0, 5), 'b', 1);
-  createPiece(make_pair(0, 6), 'n', 1);
-  createPiece(make_pair(0, 7), 'r', 1);
-  createPiece(make_pair(1, 0), 'p', 1);
-  createPiece(make_pair(1, 1), 'p', 1);
-  createPiece(make_pair(1, 2), 'p', 1);
-  createPiece(make_pair(1, 3), 'p', 1);
-  createPiece(make_pair(1, 4), 'p', 1);
-  createPiece(make_pair(1, 5), 'p', 1);
-  createPiece(make_pair(1, 6), 'p', 1);
-  createPiece(make_pair(1, 7), 'p', 1);
-
+  createPiece(make_pair(0, 0), 'r');
+  createPiece(make_pair(0, 1), 'n');
+  createPiece(make_pair(0, 2), 'b');
+  createPiece(make_pair(0, 3), 'q');
+  createPiece(make_pair(0, 4), 'k');
+  createPiece(make_pair(0, 5), 'b');
+  createPiece(make_pair(0, 6), 'n');
+  createPiece(make_pair(0, 7), 'r');
+  createPiece(make_pair(1, 0), 'p');
+  createPiece(make_pair(1, 1), 'p');
+  createPiece(make_pair(1, 2), 'p');
+  createPiece(make_pair(1, 3), 'p');
+  createPiece(make_pair(1, 4), 'p');
+  createPiece(make_pair(1, 5), 'p');
+  createPiece(make_pair(1, 6), 'p');
+  createPiece(make_pair(1, 7), 'p');
   eyes = make_shared<Eyes>(shared_from_this());
 }
 
 GameBoard::~GameBoard() {}
 
-void GameBoard::move(Move &m) { thisTurn = (thisTurn + 1) % 2; }
+void GameBoard::movePiece(Move &m)
+{
+  pair<int, int> cur = m.getCur();
+  if (!getCell(cur)->getPiece() || getCell(cur)->getPiece()->getPlayer() != thisTurn)
+  {
+    throw runtime_error("Wrong piece selected");
+  }
 
-void GameBoard::addPiece(shared_ptr<Piece> p, pair<int, int> coor) {
+  vector<shared_ptr<Move>> validMoves = getCell(m.getCur())->getPiece()->possibleMoves();
+  bool accepted = false;
+
+  for (auto move : validMoves)
+  {
+    if (*move == m)
+    {
+      accepted = true;
+      shared_ptr<Piece> thisPiece = getCell(m.getCur())->getPiece();
+
+      // player captures enemy piece
+      if (!getCell(m.getDest())->isEmpty() && getCell(m.getDest())->getPiece()->getPlayer() != thisTurn)
+      {
+        removePiece(m.getDest());
+      }
+      getCell(m.getCur())->getPiece()->addMove();
+
+      board[m.getDestRow()][m.getDestCol()]->setPiece(board[m.getCurRow()][m.getCurCol()]->getPiece());
+      board[m.getCurRow()][m.getCurCol()]->setPiece(nullptr);
+      board[m.getDestRow()][m.getDestCol()]->getPiece()->setCoor(m.getDest());
+
+      thisTurn = (thisTurn + 1) % 2;
+      return;
+    }
+  }
+
+  throw runtime_error("Invalid move");
+}
+void GameBoard::addPiece(shared_ptr<Piece> p, pair<int, int> coor)
+{
   board[coor.first][coor.second]->setPiece(p);
 }
-
-void GameBoard::removePiece(pair<int, int> coor) {
+void GameBoard::removePiece(pair<int, int> coor)
+{
   board[coor.first][coor.second]->removePiece();
 }
-
 void GameBoard::setTurn(int player) { thisTurn = player; }
-
 void GameBoard::undo(int moves) {}
-
 void GameBoard::redo(int moves) {}
-
 int GameBoard::getThisTurn() const { return thisTurn; }
-
-void GameBoard::resign() {
+void GameBoard::resign()
+{
   cout << "player " << thisTurn << " has resigned" << endl;
 }
-
-shared_ptr<Cell> GameBoard::getCell(pair<int, int> coor) const {
+shared_ptr<Cell> GameBoard::getCell(pair<int, int> coor) const
+{
   return board[coor.first][coor.second];
 }
 
-void GameBoard::createPiece(pair<int, int> coor, char p, int playerNo) {
+void GameBoard::createPiece(pair<int, int> coor, char p)
+{
   shared_ptr<Piece> piece;
-  p = tolower(p);
-  if (playerNo == -1) {
-    playerNo = thisTurn;
+  int playerNo;
+
+  if (isupper(p))
+  {
+    playerNo = 0;
   }
-  switch (p) {
-    case 'p':
-      piece = make_shared<Pawn>(coor, playerNo, eyes);
-      break;
-    case 'r':
-      piece = make_shared<Rook>(coor, playerNo, eyes);
-      break;
-    case 'n':
-      piece = make_shared<Knight>(coor, playerNo, eyes);
-      break;
-    case 'b':
-      piece = make_shared<Bishop>(coor, playerNo, eyes);
-      break;
-    case 'q':
-      piece = make_shared<Queen>(coor, playerNo, eyes);
-      break;
-    case 'k':
-      piece = make_shared<King>(coor, playerNo, eyes);
-      break;
-    default:
-      cerr << "Invalid piece type" << endl;
-      return;
+  else
+  {
+    playerNo = 1;
+  }
+  p = tolower(p);
+
+  switch (p)
+  {
+  case 'p':
+    piece = make_shared<Pawn>(coor, playerNo, eyes);
+    break;
+  case 'r':
+    piece = make_shared<Rook>(coor, playerNo, eyes);
+    break;
+  case 'n':
+    piece = make_shared<Knight>(coor, playerNo, eyes);
+    break;
+  case 'b':
+    piece = make_shared<Bishop>(coor, playerNo, eyes);
+    break;
+  case 'q':
+    piece = make_shared<Queen>(coor, playerNo, eyes);
+    break;
+  case 'k':
+    piece = make_shared<King>(coor, playerNo, eyes);
+    break;
+  default:
+    cerr << "Invalid piece type" << endl;
+    return;
   }
   addPiece(piece, coor);
 }
