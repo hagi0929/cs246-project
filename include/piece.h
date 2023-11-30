@@ -23,6 +23,8 @@ class Piece {
   Piece(std::pair<int, int> coor, int player, std::shared_ptr<Eyes> eyes);
   virtual std::vector<std::shared_ptr<Move>> possibleMoves() const = 0;
   int getPlayer() const;
+  std::pair<int, int> getCoor() const;
+  void setCoor(std::pair<int, int> c);
   virtual char getType() const = 0;
 };
 

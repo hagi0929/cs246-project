@@ -9,13 +9,14 @@ GameBoard::GameBoard() : thisTurn{0}, playerColors{{}} {
     }
   }
 }
+
 void GameBoard::init(shared_ptr<Observer> o) {
   for (int i = 0; i < BOARD_SIZE; ++i) {
     for (int j = 0; j < BOARD_SIZE; ++j) {
       board[i][j]->subscribe(o);
     }
   }
-  eyes = make_shared<Eyes>(shared_from_this());
+
   createPiece(make_pair(7, 0), 'R');
   createPiece(make_pair(7, 1), 'N');
   createPiece(make_pair(7, 2), 'B');
@@ -48,23 +49,34 @@ void GameBoard::init(shared_ptr<Observer> o) {
   createPiece(make_pair(1, 5), 'p', 1);
   createPiece(make_pair(1, 6), 'p', 1);
   createPiece(make_pair(1, 7), 'p', 1);
+
+  eyes = make_shared<Eyes>(shared_from_this());
 }
 
 GameBoard::~GameBoard() {}
+
 void GameBoard::move(Move &m) { thisTurn = (thisTurn + 1) % 2; }
+
 void GameBoard::addPiece(shared_ptr<Piece> p, pair<int, int> coor) {
   board[coor.first][coor.second]->setPiece(p);
 }
+
 void GameBoard::removePiece(pair<int, int> coor) {
   board[coor.first][coor.second]->removePiece();
 }
+
 void GameBoard::setTurn(int player) { thisTurn = player; }
+
 void GameBoard::undo(int moves) {}
+
 void GameBoard::redo(int moves) {}
+
 int GameBoard::getThisTurn() const { return thisTurn; }
+
 void GameBoard::resign() {
   cout << "player " << thisTurn << " has resigned" << endl;
 }
+
 shared_ptr<Cell> GameBoard::getCell(pair<int, int> coor) const {
   return board[coor.first][coor.second];
 }
