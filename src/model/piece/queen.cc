@@ -30,12 +30,12 @@ vector<shared_ptr<Move>> Queen::possibleMoves() const
       {
         if (eyes->isOpponent(nextCoor))
         {
-          validMoves.emplace_back(make_shared<Move>(coor, nextCoor, ""));
+          validMoves.emplace_back(make_shared<Move>(coor, nextCoor, ' '));
         }
         break;
       }
 
-      validMoves.emplace_back(make_shared<Move>(coor, nextCoor, ""));
+      validMoves.emplace_back(make_shared<Move>(coor, nextCoor, ' '));
     }
   }
 

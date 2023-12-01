@@ -17,7 +17,7 @@ enum class Color
 class Piece
 {
 protected:
-  int player = 0;
+  int player;
   int moveCount;
   std::shared_ptr<Eyes> eyes;
   std::pair<int, int> coor;
@@ -30,6 +30,9 @@ public:
   void setCoor(std::pair<int, int> c);
   virtual char getType() const = 0;
   void addMove();
+  void subtractMove();
+  int getMoveCount() const;
+  void setMoveCount(int count);
 };
 
 #endif

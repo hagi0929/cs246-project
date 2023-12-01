@@ -3,37 +3,21 @@
 #include <iostream>
 using namespace std;
 
-EmptyStackException::~EmptyStackException() {}
-
-RedoEmptyStackException::~RedoEmptyStackException() {}
-
-UndoEmptyStackException::~UndoEmptyStackException() {}
-
-const char *RedoEmptyStackException::what() const noexcept
+void Stack::showStack()
 {
-    return "Redo stack is empty";
-}
-
-const char *UndoEmptyStackException::what() const noexcept
-{
-    return "Undo stack is empty";
-}
-
-Move Stack::pop()
-{
-    if (isEmpty())
+    for (vector<shared_ptr<Move>>::reverse_iterator it = stack.rbegin(); it != stack.rend(); it++)
     {
-        throw EmptyStackException();
+        cout << *it << endl;
     }
-    Move top = peek();
+}
+
+shared_ptr<Move> Stack::pop()
+{
+    shared_ptr<Move> top = peek();
     stack.pop_back();
     return top;
-    /*
-    1st Get to the top of the elements
-    2nd Remove the element
-    */
 }
-void Stack::push(Move m)
+void Stack::push(shared_ptr<Move> m)
 {
     stack.emplace_back(m);
 }
@@ -45,51 +29,58 @@ int Stack::getSize()
 {
     return stack.size();
 }
-Move Stack::peek()
+shared_ptr<Move> Stack::peek()
 {
     return stack.back();
+}
+void Stack::clearStack() {
+    stack.clear();
 }
 
 GameLog::GameLog() {}
 GameLog::~GameLog() {}
 
-Move GameLog::redo(int n = 0)
+shared_ptr<Move> GameLog::redo()
 {
-    try
+    if (redoStack.isEmpty())
     {
-        Move lastMove = redoStack.pop();
-        undoStack.push(lastMove);
-        return lastMove;
+        throw runtime_error("Redo stack is empty");
     }
-    catch (EmptyStackException &e)
-    {
-        throw RedoEmptyStackException();
-    }
+    shared_ptr<Move> lastMove = redoStack.pop();
+    undoStack.push(lastMove);
+    return lastMove;
 }
-Move GameLog::undo(int n = 0)
+shared_ptr<Move> GameLog::undo()
 {
-    try
+    if (undoStack.isEmpty())
     {
-        Move lastMove = undoStack.pop();
-        redoStack.push(lastMove);
-        return lastMove;
+        throw runtime_error("Undo stack is empty");
     }
-    catch (EmptyStackException &e)
-    {
-        throw UndoEmptyStackException();
-    }
+    shared_ptr<Move> lastMove = undoStack.pop();
+    redoStack.push(lastMove);
+    return lastMove;
 }
-void GameLog::save(Move m)
+void GameLog::save(shared_ptr<Move> m)
 {
     undoStack.push(m);
+    redoStack.clearStack();
 }
 
-void GameLog::showLog()
+void GameLog::showUndoStack()
 {
-    // TO DO: show all game log to player
+    cout << "Undo Stack" << endl;
+    cout << "----------" << endl;
+    undoStack.showStack();
 }
 
-void GameLog::save()
+void GameLog::showRedoStack()
+{
+    cout << "Redo Stack" << endl;
+    cout << "----------" << endl;
+    redoStack.showStack();
+}
+
+void GameLog::saveToFile()
 {
     // TO DO:save all moves into a file(ex : game1.txt)
 }

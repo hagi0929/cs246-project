@@ -37,6 +37,10 @@ userCmd Human::getResponse() {
     type = cmdType::QUIT;
   } else if (cmd.front() == "resign") {
     type = cmdType::RESIGN;
+  } else if (cmd.front() == "undo") {
+    type = cmdType::UNDO;
+  } else if (cmd.front() == "redo") {
+    type = cmdType::REDO;
   } else {
     throw runtime_error("Invalid head command ");
   }

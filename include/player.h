@@ -3,7 +3,7 @@
 #include "gameboard.h"
 #include "move.h"
 
-enum class cmdType { MOVE, QUIT, RESIGN };
+enum class cmdType { MOVE, QUIT, RESIGN, UNDO, REDO };
 
 struct userCmd {
   cmdType type;

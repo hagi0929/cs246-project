@@ -3,38 +3,21 @@
 
 #include <string>
 #include <vector>
-#include <move.h>
-
-class EmptyStackException : public std::exception
-{
-public:
-  ~EmptyStackException();
-};
-
-class RedoEmptyStackException : public EmptyStackException
-{
-public:
-  ~RedoEmptyStackException();
-  const char *what() const noexcept;
-};
-
-class UndoEmptyStackException : public EmptyStackException
-{
-public:
-  ~UndoEmptyStackException();
-  const char *what() const noexcept;
-};
+#include <memory>
+#include "move.h"
 
 class Stack
 {
-  std::vector<Move> stack;
+  std::vector<std::shared_ptr<Move>> stack;
 
-public:
-  Move pop();
-  void push(Move m);
+ public:
+  std::shared_ptr<Move> pop();
+  void push(std::shared_ptr<Move> m);
   bool isEmpty();
   int getSize();
-  Move peek();
+  std::shared_ptr<Move> peek();
+  void showStack();
+  void clearStack();
 };
 
 class GameLog
@@ -42,14 +25,15 @@ class GameLog
   Stack undoStack;
   Stack redoStack;
 
-public:
+ public:
   GameLog();
   ~GameLog();
-  Move redo(int n = 0);
-  Move undo(int n = 0);
-  void save(Move m); // push a single move to a stack
-  void showLog();
-  void save(); // save all moves into a file (ex: game1.txt)
+  std::shared_ptr<Move> redo();
+  std::shared_ptr<Move> undo();
+  void save(std::shared_ptr<Move> m); // push a single move to a stack
+  void showUndoStack();
+  void showRedoStack();
+  void saveToFile(); // save all moves into a file (ex: game1.txt)
 };
 
 #endif

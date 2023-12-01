@@ -192,8 +192,14 @@ void Game::activate()
         }
         else if (cmdObj.type == cmdType::MOVE)
         {
-          Move m = Move{cmdObj.cmd[1], cmdObj.cmd[2], ""};
+          shared_ptr<Move> m = make_shared<Move>(cmdObj.cmd[1], cmdObj.cmd[2], ' ');
           gameBoard->movePiece(m);
+        }
+        else if (cmdObj.type == cmdType::UNDO) {
+          gameBoard->undo();
+        }
+        else if (cmdObj.type == cmdType::REDO) {
+          gameBoard->redo();
         }
       }
       else if (setupInProgress)
