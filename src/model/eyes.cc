@@ -7,26 +7,26 @@ using namespace std;
 
 const int NUM_PLAYERS = 2;
 
-Eyes::Eyes(shared_ptr<GameBoard> board) : board{board}, isChecked{false}, isCheckmated{false}, isStalemate{false} {
+Eyes::Eyes(weak_ptr<GameBoard> board) : board{board}, isChecked{false}, isCheckmated{false}, isStalemate{false} {
   for (int i = 0; i < NUM_PLAYERS; ++i) {
     pieces.emplace_back();
   }
   for (int i = 0; i < BOARD_SIZE; ++i) {
     for (int j = 0; j < BOARD_SIZE; ++j) {
-      if (board->getCell(make_pair(i, j))->getPiece()) {
-        pieces[board->getCell(make_pair(i, j))->getPiece()->getPlayer()].emplace_back(board->getCell(make_pair(i, j))->getPiece());
+      if (board.lock()->getCell(make_pair(i, j))->getPiece()) {
+        pieces[board.lock()->getCell(make_pair(i, j))->getPiece()->getPlayer()].emplace_back(board.lock()->getCell(make_pair(i, j))->getPiece());
       }
     }
   }
 }
 
 bool Eyes::isOccupied(pair<int, int> coor) const {
-  return !(board->getCell(coor)->isEmpty());
+  return !(board.lock()->getCell(coor)->isEmpty());
 }
 
 bool Eyes::isOpponent(pair<int, int> coor) const {
-  return board->getThisTurn() !=
-         board->getCell(coor)->getPiece()->getPlayer();
+  return board.lock()->getThisTurn() !=
+         board.lock()->getCell(coor)->getPiece()->getPlayer();
 }
 
 bool Eyes::getIsChecked(int player) const {
