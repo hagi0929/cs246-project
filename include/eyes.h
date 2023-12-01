@@ -3,6 +3,7 @@
 #include <iostream>
 #include <memory>
 #include <utility>
+#include <vector>
 
 class GameBoard;
 class Cell;

@@ -25,7 +25,6 @@ class Piece {
   void setCoor(std::pair<int, int> c);
   virtual char getType() const = 0;
   void addMove();
-  void setCoor(std::pair<int, int> c);
 };
 
 #endif
