@@ -99,13 +99,14 @@ void GameBoard::movePiece(shared_ptr<Move> m)
       doValidMove(m);
       log.clearRedoStack();
       eyes->updateState((thisTurn + 1) % 2, thisTurn);
+      /*
       if (eyes->getIsCheckmated(thisTurn)) {
         cout << "Checkmate! Player " << (thisTurn + 1) % 2 << " Wins!" << endl;
       } else if (eyes->getIsChecked(thisTurn)) {
         cout << "Player " << (thisTurn + 1) % 2 << " checked Player " << thisTurn << endl;
       } else if (eyes->getIsStalemate()) {
         cout << "Stalemate! The game is a draw." << endl;
-      }
+      }*/
       return;
     }
   }
