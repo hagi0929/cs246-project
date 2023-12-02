@@ -30,7 +30,9 @@ class GameLog
   ~GameLog();
   std::shared_ptr<Move> redo();
   std::shared_ptr<Move> undo();
-  void save(std::shared_ptr<Move> m); // push a single move to a stack
+  void undoPush(std::shared_ptr<Move> m); // push a single move onto undoStack
+  void redoPush(std::shared_ptr<Move> m); // push a single move onto redoStack
+  void clearRedoStack();
   void showUndoStack();
   void showRedoStack();
   void saveToFile(); // save all moves into a file (ex: game1.txt)

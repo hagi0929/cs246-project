@@ -16,8 +16,7 @@ class Eyes {
   std::vector<bool> isChecked;
   std::vector<bool> isCheckmated;
   bool isStalemate;
-  bool checked(std::pair<int, int> kingCoor, int attacker) const;
-  void updateIsCheckmated(std::pair<int, int> kingCoor, int defender);
+  void updateIsCheckmated(std::pair<int, int> kingCoor, int attacker, int defender);
   void updateIsChecked(int attacker, int defender);
   void updateIsStalemate(int defender);
 
@@ -25,6 +24,7 @@ class Eyes {
   Eyes(std::shared_ptr<GameBoard> board);
   bool isOccupied(std::pair<int, int> coor) const;
   bool isOpponent(std::pair<int, int> coor) const;
+  bool checked(std::pair<int, int> kingCoor, int attacker) const;
   bool getIsChecked(int player) const;
   bool getIsCheckmated(int player) const;
   bool getIsStalemate() const;

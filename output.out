@@ -1,0 +1,283 @@
+type command for general
+8 rnbqkbnr
+7 pppppppp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPPPPPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+8 rnbqkbnr
+7 pppppppp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _P_ _
+3 _ _ _ _ 
+2 PPPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 1
+8 rnbqkbnr
+7 _ppppppp
+6 p_ _ _ _
+5 _ _ _ _ 
+4  _ _P_ _
+3 _ _ _ _ 
+2 PPPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+8 rnbqkbnr
+7 _ppppppp
+6 p_ _ _ _
+5 _ _ P _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 1
+8 rnbqkbnr
+7 _ppppppp
+6  _ _ _ _
+5 p _ P _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+8 rnbqkbnr
+7 _ppppppp
+6  _ _P_ _
+5 p _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PPPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 1
+8 rnbqkbnr
+7 _ppppppp
+6  _ _P_ _
+5 _ _ _ _ 
+4 p_ _ _ _
+3 _ _ _ _ 
+2 PPPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+8 rnbqkbnr
+7 _ppppPpp
+6  _ _ _ _
+5 _ _ _ _ 
+4 p_ _ _ _
+3 _ _ _ _ 
+2 PPPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 1
+8 rnbqkbnr
+7 _ppppPpp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 p _ _ _ 
+2 PPPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+8 rnbqkbQr
+7 _pppp pp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 p _ _ _ 
+2 PPPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 1
+8 rnbqkbQr
+7 _pppp pp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PpPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+
+undo called
+-----------
+8 rnbqkbQr
+7 _pppp pp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 p _ _ _ 
+2 PPPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 1
+
+undo called
+-----------
+8 rnbqkbnr
+7 _ppppPpp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 p _ _ _ 
+2 PPPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+
+redo called
+-----------
+
+8 rnbqkbQr
+7 _pppp pp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 p _ _ _ 
+2 PPPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 1
+
+redo called
+-----------
+
+8 rnbqkbQr
+7 _pppp pp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PpPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+
+redo called
+-----------
+CMD ERROR: Redo stack is empty
+8 rnbqkbQr
+7 _pppp pp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PpPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+
+redo called
+-----------
+CMD ERROR: Redo stack is empty
+8 rnbqkbQr
+7 _pppp pp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PpPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+
+redo called
+-----------
+CMD ERROR: Redo stack is empty
+8 rnbqkbQr
+7 _pppp pp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PpPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+
+redo called
+-----------
+CMD ERROR: Redo stack is empty
+8 rnbqkbQr
+7 _pppp pp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PpPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+
+redo called
+-----------
+CMD ERROR: Redo stack is empty
+8 rnbqkbQr
+7 _pppp pp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PpPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+
+redo called
+-----------
+CMD ERROR: Redo stack is empty
+8 rnbqkbQr
+7 _pppp pp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PpPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+CMD ERROR: Invalid head command 
+8 rnbqkbQr
+7 _pppp pp
+6  _ _ _ _
+5 _ _ _ _ 
+4  _ _ _ _
+3 _ _ _ _ 
+2 PpPP PPP
+1 RNBQKBNR
+
+  abcdefgh
+type command for player 0
+CMD ERROR: Invalid head command 

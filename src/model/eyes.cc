@@ -53,14 +53,20 @@ bool Eyes::checked(pair<int, int> kingCoor, int attacker) const {
   return false;
 }
 
-// *****IMPLEMENT UNDO THEN THIS*****
-void Eyes::updateIsCheckmated(pair<int, int> kingCoor, int defender) {
+void Eyes::updateIsCheckmated(pair<int, int> kingCoor, int attacker, int defender) {
   for (auto piece : pieces[defender]) {
     vector<shared_ptr<Move>> defenderValidMoves = piece->possibleMoves();
     for (auto move : defenderValidMoves) {
-      
+      board->doValidMove(move);
+      if (!checked(kingCoor, attacker)) {
+        isCheckmated[defender] = false;
+        board->undo(false);
+        return;
+      }
+      board->undo(false);
     }
   }
+  isCheckmated[defender] = true;
 }
 
 void Eyes::updateIsChecked(int attacker, int defender) {
@@ -74,20 +80,28 @@ void Eyes::updateIsChecked(int attacker, int defender) {
 
   if (checked(kingCoor, attacker)) {
     isChecked[defender] = true;
-    updateIsCheckmated(kingCoor, defender);
+    updateIsCheckmated(kingCoor, attacker, defender);
   } else {
     isChecked[defender] = false;
   }
 }
 
 void Eyes::updateIsStalemate(int defender) {
-  for (auto piece : pieces[defender]) {
-    if (!piece->possibleMoves().empty()) {
-      isStalemate = false;
-      return;
-    }
+  if (pieces[0].size() == 1 && pieces[0].size() == 1) {
+    isStalemate = true;
+    return;
   }
-  isStalemate = true;
+  if (!isChecked[defender]) {
+    for (auto piece : pieces[defender]) {
+      if (!piece->possibleMoves().empty()) {
+        isStalemate = false;
+        return;
+      }
+    }
+    isStalemate = true;
+  } else {
+    isStalemate = false;
+  }
 }
 
 void Eyes::updateState(int attacker, int defender) {

@@ -201,7 +201,7 @@ void Game::activate()
           gameBoard->movePiece(m);
         }
         else if (cmdObj.type == cmdType::UNDO) {
-          gameBoard->undo();
+          gameBoard->undo(true);
         }
         else if (cmdObj.type == cmdType::REDO) {
           gameBoard->redo();

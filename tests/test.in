@@ -1,14 +1,21 @@
 game human human
 move e2 e4
-move a7 a6
-move e4 e5
-move a6 a5
-move e5 e6
-move a5 a4
-move e6 f7
-move a4 a3
-move f7 g8 Q
-undo
-undo
-undo
-undo
+move e7 e5
+move g1 f3
+move b8 c6
+move f1 c4
+move g8 f6
+move d2 d4
+move e5 d4
+move f3 d4
+move d7 d6
+move c4 b5
+move c6 b5
+move c2 c3
+move b5 c4
+move d1 c2
+move f6 g4
+move h2 g3
+move f8 h6
+move g3 h4
+

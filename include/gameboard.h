@@ -26,11 +26,12 @@ public:
   GameBoard();
   ~GameBoard();
   void init(std::shared_ptr<Observer> o);
+  void doValidMove(std::shared_ptr<Move> m);
   void movePiece(std::shared_ptr<Move> m);
   void addPiece(std::shared_ptr<Piece> p, std::pair<int, int> coor);
   void removePiece(std::pair<int, int> coor);
   void setTurn(int player);
-  void undo();
+  void undo(bool push);
   void redo();
   void resign();
   int getThisTurn() const;

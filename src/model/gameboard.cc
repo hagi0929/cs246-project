@@ -58,6 +58,31 @@ void GameBoard::init(shared_ptr<Observer> o)
 
 GameBoard::~GameBoard() {}
 
+void GameBoard::doValidMove(shared_ptr<Move> m) {
+  // player captures enemy piece
+  if (!getCell(m->getDest())->isEmpty() && getCell(m->getDest())->getPiece()->getPlayer() != thisTurn)
+  {
+    m->setCapturedPiece(getCell(m->getDest())->getPiece()->getType());
+    m->setCapturedMoveCount(getCell(m->getDest())->getPiece()->getMoveCount());
+    removePiece(m->getDest());
+  }
+
+  board[m->getDestRow()][m->getDestCol()]->setPiece(board[m->getCurRow()][m->getCurCol()]->getPiece());
+  board[m->getCurRow()][m->getCurCol()]->setPiece(nullptr);
+  board[m->getDestRow()][m->getDestCol()]->getPiece()->setCoor(m->getDest());
+
+  if (m->getPromotion() != ' ') {
+    int moveCount = getCell(m->getDest())->getPiece()->getMoveCount();
+    removePiece(m->getDest());
+    createPiece(m->getDest(), m->getPromotion());
+    getCell(m->getDest())->getPiece()->setMoveCount(moveCount);
+  }
+
+  getCell(m->getDest())->getPiece()->addMove();
+  thisTurn = (thisTurn + 1) % 2;
+  log.undoPush(m);
+}
+
 void GameBoard::movePiece(shared_ptr<Move> m)
 {
   pair<int, int> cur = m->getCur();
@@ -65,37 +90,22 @@ void GameBoard::movePiece(shared_ptr<Move> m)
   {
     throw runtime_error("Wrong piece selected");
   }
-  
+
   vector<shared_ptr<Move>> validMoves = getCell(m->getCur())->getPiece()->possibleMoves();
-  if (validMoves.empty()) cout << "its empty" << endl;
   for (auto move : validMoves)
   {
     if (*move == *m)
     {
-      shared_ptr<Piece> thisPiece = getCell(m->getCur())->getPiece();
-
-      // player captures enemy piece
-      if (!getCell(m->getDest())->isEmpty() && getCell(m->getDest())->getPiece()->getPlayer() != thisTurn)
-      {
-        m->setCapturedPiece(getCell(m->getDest())->getPiece()->getType());
-        m->setCapturedMoveCount(getCell(m->getDest())->getPiece()->getMoveCount());
-        removePiece(m->getDest());
+      doValidMove(m);
+      log.clearRedoStack();
+      eyes->updateState((thisTurn + 1) % 2, thisTurn);
+      if (eyes->getIsCheckmated(thisTurn)) {
+        cout << "Checkmate! Player " << (thisTurn + 1) % 2 << " Wins!" << endl;
+      } else if (eyes->getIsChecked(thisTurn)) {
+        cout << "Player " << (thisTurn + 1) % 2 << " checked Player " << thisTurn << endl;
+      } else if (eyes->getIsStalemate()) {
+        cout << "Stalemate! The game is a draw." << endl;
       }
-
-      board[m->getDestRow()][m->getDestCol()]->setPiece(board[m->getCurRow()][m->getCurCol()]->getPiece());
-      board[m->getCurRow()][m->getCurCol()]->setPiece(nullptr);
-      board[m->getDestRow()][m->getDestCol()]->getPiece()->setCoor(m->getDest());
-
-      if (m->getPromotion() != ' ') {
-        int moveCount = getCell(m->getDest())->getPiece()->getMoveCount();
-        removePiece(m->getDest());
-        createPiece(m->getDest(), m->getPromotion());
-        getCell(m->getDest())->getPiece()->setMoveCount(moveCount);
-      }
-
-      log.save(m);
-      getCell(m->getDest())->getPiece()->addMove();
-      thisTurn = (thisTurn + 1) % 2;
       return;
     }
   }
@@ -111,9 +121,13 @@ void GameBoard::removePiece(pair<int, int> coor)
   board[coor.first][coor.second]->removePiece();
 }
 void GameBoard::setTurn(int player) { thisTurn = player; }
-void GameBoard::undo() {
+void GameBoard::undo(bool push) {
   try {
+    cout << endl;
+    cout << "undo called" << endl;
+    cout << "-----------" << endl;
     shared_ptr<Move> m = log.undo();
+    if (push) log.redoPush(m);
     thisTurn = (thisTurn + 1) % 2;
 
     if (m->getPromotion() != ' ') {
@@ -137,8 +151,21 @@ void GameBoard::undo() {
     throw;
   }
 }
-void GameBoard::redo() {
-  
+void GameBoard::redo()
+{
+  try
+  {
+    cout << endl;
+    cout << "redo called" << endl;
+    cout << "-----------" << endl;
+    shared_ptr<Move> m = log.redo();
+    doValidMove(m);
+    cout << endl;
+  }
+  catch (runtime_error &e)
+  {
+    throw;
+  }
 }
 int GameBoard::getThisTurn() const { return thisTurn; }
 void GameBoard::resign()
