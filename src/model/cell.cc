@@ -18,6 +18,7 @@ bool Cell::isEmpty() { return piece == nullptr; }
 void Cell::setPiece(shared_ptr<Piece> p)
 {
   piece = p;
+  if (piece) piece->setCoor(coor);
   notifyObservers();
 }
 
