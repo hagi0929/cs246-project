@@ -192,10 +192,19 @@ void Game::activate()
         }
         else if (cmdObj.type == cmdType::MOVE)
         {
-          Move m{cmdObj.cmd[1], cmdObj.cmd[2], ' '};
-          
-          cout << "in game.cc" << m << endl;
+          shared_ptr<Move> m;
+          if (cmdObj.cmd.size() == 4) {
+            m = make_shared<Move>(cmdObj.cmd[1], cmdObj.cmd[2], cmdObj.cmd[3][0]);
+          } else {
+            m = make_shared<Move>(cmdObj.cmd[1], cmdObj.cmd[2], ' ');
+          }
           gameBoard->movePiece(m);
+        }
+        else if (cmdObj.type == cmdType::UNDO) {
+          gameBoard->undo();
+        }
+        else if (cmdObj.type == cmdType::REDO) {
+          gameBoard->redo();
         }
       }
       else if (setupInProgress)

@@ -28,8 +28,8 @@ userCmd Human::getResponse() {
     }
     if (cmd.size() == 4 &&
         (cmd[3].size() != 1 ||
-         (cmd[3][0] != 'q' && cmd[3][0] != 'r' && cmd[3][0] != 'b' &&
-          cmd[3][0] != 'k' && cmd[3][0] != 'n' && cmd[3][0] != 'p'))) {
+         (cmd[3][0] != 'q' && cmd[3][0] != 'r' && cmd[3][0] != 'b' && cmd[3][0] != 'n' &&
+          cmd[3][0] != 'Q' && cmd[3][0] != 'R' && cmd[3][0] != 'B' && cmd[3][0] != 'N'))) {
       throw runtime_error("Invalid promotion");
     }
     type = cmdType::MOVE;
@@ -37,6 +37,10 @@ userCmd Human::getResponse() {
     type = cmdType::QUIT;
   } else if (cmd.front() == "resign") {
     type = cmdType::RESIGN;
+  } else if (cmd.front() == "undo") {
+    type = cmdType::UNDO;
+  } else if (cmd.front() == "redo") {
+    type = cmdType::REDO;
   } else {
     throw runtime_error("Invalid head command ");
   }

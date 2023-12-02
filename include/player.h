@@ -3,7 +3,7 @@
 #include "gameboard.h"
 #include "move.h"
 
-enum class cmdType { MOVE, QUIT, RESIGN };
+enum class cmdType { MOVE, QUIT, RESIGN, UNDO, REDO };
 
 struct userCmd {
   cmdType type;
@@ -17,6 +17,7 @@ class Player {
  public:
   virtual userCmd getResponse() = 0;
   int getScore() const;
+  bool hasPromotion() const;
 };
 
 #endif
