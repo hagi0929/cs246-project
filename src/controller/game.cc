@@ -192,7 +192,9 @@ void Game::activate()
         }
         else if (cmdObj.type == cmdType::MOVE)
         {
-          Move m = Move{cmdObj.cmd[1], cmdObj.cmd[2], ""};
+          Move m{cmdObj.cmd[1], cmdObj.cmd[2], ' '};
+          
+          cout << "in game.cc" << m << endl;
           gameBoard->movePiece(m);
         }
       }

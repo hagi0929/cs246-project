@@ -28,13 +28,13 @@ vector<shared_ptr<Move>> Bishop::possibleMoves() const {
             if (eyes->isOccupied({r, c})) {
                 // If occupied by an opponent, add as a valid move, then break
                 if (eyes->isOpponent({r, c})) {
-                    validMoves.emplace_back(make_shared<Move>(coor, make_pair(r, c), ""));
+                    validMoves.emplace_back(make_shared<Move>(coor, make_pair(r, c), ' '));
                 }
                 break;
             }
 
             // Add the move if the cell is not occupied
-            validMoves.emplace_back(make_shared<Move>(coor, make_pair(r, c), ""));
+            validMoves.emplace_back(make_shared<Move>(coor, make_pair(r, c), ' '));
         }
     }
     return validMoves;

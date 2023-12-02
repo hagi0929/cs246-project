@@ -68,7 +68,6 @@ void GameBoard::movePiece(Move &m)
 
   vector<shared_ptr<Move>> validMoves = getCell(m.getCur())->getPiece()->possibleMoves();
   bool accepted = false;
-
   for (auto move : validMoves)
   {
     if (*move == m)

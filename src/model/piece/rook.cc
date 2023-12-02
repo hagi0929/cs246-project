@@ -15,10 +15,8 @@ vector<shared_ptr<Move>> Rook::possibleMoves() const
         {
             if (!eyes->isOccupied({coor.first, i}) || eyes->isOpponent({coor.first, i}))
             {
-                shared_ptr<Move> mp{new Move{coor, {coor.first, i}, ""}};
+                shared_ptr<Move> mp{new Move{coor, {coor.first, i}, ' '}};
                 validMoves.emplace_back(mp);
-                cout << mp->getCurRow() << "," << mp->getCurCol() + " "
-                     << mp->getDestRow() << "," << mp->getDestCol() << endl;
             }
         }
 
@@ -26,10 +24,8 @@ vector<shared_ptr<Move>> Rook::possibleMoves() const
         {
             if (!eyes->isOccupied({i, coor.second}) || eyes->isOpponent({i, coor.second}))
             {
-                shared_ptr<Move> mp{new Move{coor, {i, coor.second}, ""}};
+                shared_ptr<Move> mp{new Move{coor, {i, coor.second}, ' '}};
                 validMoves.emplace_back(mp);
-                cout << mp->getCurRow() << "," << mp->getCurCol() + " "
-                     << mp->getDestRow() << "," << mp->getDestCol() << endl;
             }
         }
     }

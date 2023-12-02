@@ -12,14 +12,14 @@ vector<shared_ptr<Move>> Knight::possibleMoves() const {
         (!eyes->isOccupied({coor.first - 2, coor.second - 1}) ||
          eyes->isOpponent({coor.first - 2, coor.second - 1}))) {
       shared_ptr<Move> mp{
-          new Move{coor, {coor.first - 2, coor.second - 1}, ""}};
+          new Move{coor, {coor.first - 2, coor.second - 1}, ' '}};
       validMoves.emplace_back(mp);
     }
     if (coor.second + 1 <= 7 &&
         (!eyes->isOccupied({coor.first - 2, coor.second + 1}) ||
          eyes->isOpponent({coor.first - 2, coor.second + 1}))) {
       shared_ptr<Move> mp{
-          new Move{coor, {coor.first - 2, coor.second + 1}, ""}};
+          new Move{coor, {coor.first - 2, coor.second + 1}, ' '}};
       validMoves.emplace_back(mp);
     }
   }
@@ -28,14 +28,14 @@ vector<shared_ptr<Move>> Knight::possibleMoves() const {
         (!eyes->isOccupied({coor.first - 1, coor.second - 2}) ||
          eyes->isOpponent({coor.first - 1, coor.second - 2}))) {
       shared_ptr<Move> mp{
-          new Move{coor, {coor.first - 1, coor.second - 2}, ""}};
+          new Move{coor, {coor.first - 1, coor.second - 2}, ' '}};
       validMoves.emplace_back(mp);
     }
     if (coor.second + 2 <= 7 &&
         (!eyes->isOccupied({coor.first - 1, coor.second + 2}) ||
          eyes->isOpponent({coor.first - 1, coor.second + 2}))) {
       shared_ptr<Move> mp{
-          new Move{coor, {coor.first - 1, coor.second + 2}, ""}};
+          new Move{coor, {coor.first - 1, coor.second + 2}, ' '}};
       validMoves.emplace_back(mp);
     }
   }
@@ -44,14 +44,14 @@ vector<shared_ptr<Move>> Knight::possibleMoves() const {
         (!eyes->isOccupied({coor.first + 1, coor.second - 2}) ||
          eyes->isOpponent({coor.first + 1, coor.second - 2}))) {
       shared_ptr<Move> mp{
-          new Move{coor, {coor.first + 1, coor.second - 2}, ""}};
+          new Move{coor, {coor.first + 1, coor.second - 2}, ' '}};
       validMoves.emplace_back(mp);
     }
     if (coor.second + 2 <= 7 &&
         (!eyes->isOccupied({coor.first + 1, coor.second + 2}) ||
          eyes->isOpponent({coor.first + 1, coor.second + 2}))) {
       shared_ptr<Move> mp{
-          new Move{coor, {coor.first + 1, coor.second + 2}, ""}};
+          new Move{coor, {coor.first + 1, coor.second + 2}, ' '}};
       validMoves.emplace_back(mp);
     }
   }
@@ -60,14 +60,14 @@ vector<shared_ptr<Move>> Knight::possibleMoves() const {
         (!eyes->isOccupied({coor.first + 2, coor.second - 1}) ||
          eyes->isOpponent({coor.first + 2, coor.second - 1}))) {
       shared_ptr<Move> mp{
-          new Move{coor, {coor.first + 2, coor.second - 1}, ""}};
+          new Move{coor, {coor.first + 2, coor.second - 1}, ' '}};
       validMoves.emplace_back(mp);
     }
     if (coor.second + 1 <= 7 &&
         (!eyes->isOccupied({coor.first + 2, coor.second + 1}) ||
          eyes->isOpponent({coor.first + 2, coor.second + 1}))) {
       shared_ptr<Move> mp{
-          new Move{coor, {coor.first + 2, coor.second + 1}, ""}};
+          new Move{coor, {coor.first + 2, coor.second + 1}, ' '}};
       validMoves.emplace_back(mp);
     }
   }

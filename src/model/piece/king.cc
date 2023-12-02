@@ -13,7 +13,7 @@ vector<shared_ptr<Move>> King::possibleMoves() const {
           (eyes->isOccupied({r, c}) && !eyes->isOpponent({r, c}))) {
         continue;
       }
-      shared_ptr<Move> mp{new Move{coor, {r, c}, ""}};
+      shared_ptr<Move> mp{new Move{coor, {r, c}, ' '}};
       validMoves.emplace_back(mp);
     }
   }
