@@ -21,6 +21,7 @@ void GameBoard::init(shared_ptr<Observer> o)
       board[i][j]->subscribe(o);
     }
   }
+  eyes = make_shared<Eyes>(shared_from_this());
   createPiece(make_pair(7, 0), 'R');
   createPiece(make_pair(7, 1), 'N');
   createPiece(make_pair(7, 2), 'B');
@@ -53,7 +54,6 @@ void GameBoard::init(shared_ptr<Observer> o)
   createPiece(make_pair(1, 5), 'p');
   createPiece(make_pair(1, 6), 'p');
   createPiece(make_pair(1, 7), 'p');
-  eyes = make_shared<Eyes>(shared_from_this());
 }
 
 GameBoard::~GameBoard() {}
@@ -65,8 +65,7 @@ void GameBoard::movePiece(shared_ptr<Move> m)
   {
     throw runtime_error("Wrong piece selected");
   }
-  cout << getCell(m->getCur())->getPiece()->getCoor().first << ", ";
-  cout << getCell(m->getCur())->getPiece()->getCoor().second << endl;
+  
   vector<shared_ptr<Move>> validMoves = getCell(m->getCur())->getPiece()->possibleMoves();
   if (validMoves.empty()) cout << "its empty" << endl;
   for (auto move : validMoves)

@@ -53,7 +53,6 @@ int Move::getCapturedMoveCount() const { return capturedMoveCount; }
 void Move::setCapturedMoveCount(int count) { capturedMoveCount = count; }
 
 bool Move::operator==(const Move &other) const {
-  cout << other << endl;
   return (curRow == other.getCurRow() &&
           curCol == other.getCurCol() &&
           destRow == other.getDestRow() &&
@@ -64,13 +63,6 @@ bool Move::operator==(const Move &other) const {
 }
 
 ostream &operator<<(ostream &out, const Move &move)
-{
-  cout << "[Cur: ] (" << move.getCurRow() << ", " << move.getCurCol() << "), ";
-  cout << "Dest: ] (" << move.getDestRow() << ", " << move.getDestCol() << "), ";
-  cout << "Promo: " << move.getPromotion()<< "]";
-}
-
-ostream &operator<<(ostream &out, Move &move)
 {
   cout << "[Cur: ] (" << move.getCurRow() << ", " << move.getCurCol() << "), ";
   cout << "Dest: ] (" << move.getDestRow() << ", " << move.getDestCol() << "), ";
