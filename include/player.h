@@ -17,6 +17,7 @@ class Player {
  public:
   virtual userCmd getResponse() = 0;
   int getScore() const;
+  bool hasPromotion() const;
 };
 
 #endif

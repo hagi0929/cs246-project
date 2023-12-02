@@ -192,7 +192,12 @@ void Game::activate()
         }
         else if (cmdObj.type == cmdType::MOVE)
         {
-          shared_ptr<Move> m = make_shared<Move>(cmdObj.cmd[1], cmdObj.cmd[2], ' ');
+          shared_ptr<Move> m;
+          if (cmdObj.cmd.size() == 4) {
+            m = make_shared<Move>(cmdObj.cmd[1], cmdObj.cmd[2], cmdObj.cmd[3][0]);
+          } else {
+            m = make_shared<Move>(cmdObj.cmd[1], cmdObj.cmd[2], ' ');
+          }
           gameBoard->movePiece(m);
         }
         else if (cmdObj.type == cmdType::UNDO) {

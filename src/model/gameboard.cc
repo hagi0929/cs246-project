@@ -65,9 +65,10 @@ void GameBoard::movePiece(shared_ptr<Move> m)
   {
     throw runtime_error("Wrong piece selected");
   }
-
+  cout << getCell(m->getCur())->getPiece()->getCoor().first << ", ";
+  cout << getCell(m->getCur())->getPiece()->getCoor().second << endl;
   vector<shared_ptr<Move>> validMoves = getCell(m->getCur())->getPiece()->possibleMoves();
-
+  if (validMoves.empty()) cout << "its empty" << endl;
   for (auto move : validMoves)
   {
     if (*move == *m)

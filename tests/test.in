@@ -1,2 +1,14 @@
 game human human
-move b1 a3
+move e2 e4
+move a7 a6
+move e4 e5
+move a6 a5
+move e5 e6
+move a5 a4
+move e6 f7
+move a4 a3
+move f7 g8 Q
+undo
+undo
+undo
+undo

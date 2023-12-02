@@ -5,8 +5,8 @@
 #include <utility>
 
 class Move {
-  int curRow, curCol, destRow, destCol, capturedMoveCount;
-  char promotion, capturedPiece;
+  int curRow, curCol, destRow, destCol, capturedMoveCount = 0;
+  char promotion, capturedPiece = ' ';
   int getRow(std::string coor) const;
   int getCol(std::string coor) const;
 
@@ -27,7 +27,7 @@ class Move {
   int getCapturedMoveCount() const;
   void setCapturedMoveCount(int count);
   bool operator==(const Move &other) const;
-  friend std::ostream &operator<<(std::ostream &out, Move &move);
+  friend std::ostream &operator<<(std::ostream &out, const Move &move);
 };
 
 #endif

@@ -3,15 +3,14 @@
 #include <iostream>
 using namespace std;
 
-Move::Move(string cur, string dest, char promotion) {
-  curRow = 7 - (cur[1] - '1');
-  curCol = cur[0] - 'a';
-  destRow = 7 - (dest[1] - '1');
-  destCol = dest[0] - 'a';
-  capturedMoveCount = 0;
-  promotion = promotion;
-  capturedPiece = ' ';
-}
+Move::Move(string cur, string dest, char promotion)
+  : curRow{7 - (cur[1] - '1')},
+    curCol{cur[0] - 'a'},
+    destRow{7 - (dest[1] - '1')},
+    destCol{dest[0] - 'a'},
+    capturedMoveCount{0},
+    promotion{promotion},
+    capturedPiece{' '} {}
 
 Move::Move(int curRow, int curCol, int destRow, int destCol, char promotion)
     : curRow{curRow},
@@ -54,11 +53,21 @@ int Move::getCapturedMoveCount() const { return capturedMoveCount; }
 void Move::setCapturedMoveCount(int count) { capturedMoveCount = count; }
 
 bool Move::operator==(const Move &other) const {
-  return (getCurRow() == other.getCurRow() &&
-          getCurCol() == other.getCurCol() &&
-          getDestRow() == other.getDestRow() &&
-          getDestCol() == other.getDestCol() &&
-          getPromotion() == other.getPromotion());
+  cout << other << endl;
+  return (curRow == other.getCurRow() &&
+          curCol == other.getCurCol() &&
+          destRow == other.getDestRow() &&
+          destCol == other.getDestCol() &&
+          promotion == other.getPromotion() &&
+          capturedMoveCount == other.getCapturedMoveCount() &&
+          capturedPiece == other.getCapturedPiece());
+}
+
+ostream &operator<<(ostream &out, const Move &move)
+{
+  cout << "[Cur: ] (" << move.getCurRow() << ", " << move.getCurCol() << "), ";
+  cout << "Dest: ] (" << move.getDestRow() << ", " << move.getDestCol() << "), ";
+  cout << "Promo: " << move.getPromotion()<< "]";
 }
 
 ostream &operator<<(ostream &out, Move &move)
