@@ -4,6 +4,7 @@
 
 #include "player.h"
 #include "textdisplay.h"
+#include "graphicdisplay.h"
 
 using namespace std;
 
@@ -11,7 +12,8 @@ Game::Game(std::istream &in)
     : gameBoard{nullptr}, display{nullptr}, gameInProgress{false}, in{in}
 {
   gameBoard = make_shared<GameBoard>();
-  display = make_shared<TextDisplay>();
+  // display = make_shared<TextDisplay>();
+  display = make_shared<GraphicsDisplay>();
   gameBoard->init(display);
 }
 
@@ -193,17 +195,22 @@ void Game::activate()
         else if (cmdObj.type == cmdType::MOVE)
         {
           shared_ptr<Move> m;
-          if (cmdObj.cmd.size() == 4) {
+          if (cmdObj.cmd.size() == 4)
+          {
             m = make_shared<Move>(cmdObj.cmd[1], cmdObj.cmd[2], cmdObj.cmd[3][0]);
-          } else {
+          }
+          else
+          {
             m = make_shared<Move>(cmdObj.cmd[1], cmdObj.cmd[2], ' ');
           }
           gameBoard->movePiece(m);
         }
-        else if (cmdObj.type == cmdType::UNDO) {
+        else if (cmdObj.type == cmdType::UNDO)
+        {
           gameBoard->undo(true);
         }
-        else if (cmdObj.type == cmdType::REDO) {
+        else if (cmdObj.type == cmdType::REDO)
+        {
           gameBoard->redo();
         }
       }

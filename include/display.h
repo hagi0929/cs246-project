@@ -3,8 +3,9 @@
 
 #include "observer.h"
 
-class Display : public Observer
+class View : public Observer
 {
+protected:
     int boardSize = 8;
 
 public:

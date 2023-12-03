@@ -9,15 +9,16 @@
 #include "human.h"
 
 const int NUMOFPLAYERS = 2;
-class Game {
+class Game
+{
   std::shared_ptr<GameBoard> gameBoard;
-  std::shared_ptr<Display> display;
+  std::shared_ptr<View> display;
   std::shared_ptr<Player> players[NUMOFPLAYERS];
   bool gameInProgress = false;
   bool setupInProgress = false;
   std::istream &in;
 
- public:
+public:
   Game(std::istream &in);
   ~Game();
   void play();

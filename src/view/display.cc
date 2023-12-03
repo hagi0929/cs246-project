@@ -1,3 +1,3 @@
 #include "display.h"
 
-int Display::getBoardSize() const { return boardSize; }
+int View::getBoardSize() const { return boardSize; }
