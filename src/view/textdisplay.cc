@@ -8,7 +8,7 @@ using namespace std;
 TextDisplay::TextDisplay()
 {
 
-  theDisplay.resize(getBoardSize(), std::vector<char>(8));
+  theDisplay.resize(getBoardSize(), vector<char>(8));
 
   int rows[] = {8, 7, 6, 5, 4, 3, 2, 1};
   char tiles[2][2] = {

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-GameBoard::GameBoard() : thisTurn{0}, playerColors{{}}
+GameBoard::GameBoard() : thisTurn{0}, playerColors{{}}, eyes{nullptr}
 {
   for (int i = 0; i < BOARD_SIZE; ++i)
   {
@@ -64,6 +64,7 @@ void GameBoard::doValidMove(shared_ptr<Move> m) {
   {
     m->setCapturedPiece(getCell(m->getDest())->getPiece()->getType());
     m->setCapturedMoveCount(getCell(m->getDest())->getPiece()->getMoveCount());
+    eyes->removePiece(getCell(m->getDest())->getPiece());
     removePiece(m->getDest());
   }
 
@@ -73,6 +74,7 @@ void GameBoard::doValidMove(shared_ptr<Move> m) {
 
   if (m->getPromotion() != ' ') {
     int moveCount = getCell(m->getDest())->getPiece()->getMoveCount();
+    eyes->removePiece(getCell(m->getDest())->getPiece());
     removePiece(m->getDest());
     createPiece(m->getDest(), m->getPromotion());
     getCell(m->getDest())->getPiece()->setMoveCount(moveCount);
@@ -88,6 +90,7 @@ void GameBoard::movePiece(shared_ptr<Move> m)
   pair<int, int> cur = m->getCur();
   if (!getCell(cur)->getPiece() || getCell(cur)->getPiece()->getPlayer() != thisTurn)
   {
+    if (!getCell(cur)->getPiece()) cout << "no piece at " << getCell(cur)->getRow() << "," << getCell(cur)->getCol() << endl;
     throw runtime_error("Wrong piece selected");
   }
 
@@ -98,15 +101,18 @@ void GameBoard::movePiece(shared_ptr<Move> m)
     {
       doValidMove(m);
       log.clearRedoStack();
+      cout << getThisTurn() << "'s turn" <<endl;
       eyes->updateState((thisTurn + 1) % 2, thisTurn);
-      /*
+      cout << "state updated" <<endl;
+      cout << getThisTurn() << "'s turn" <<endl;
+      
       if (eyes->getIsCheckmated(thisTurn)) {
         cout << "Checkmate! Player " << (thisTurn + 1) % 2 << " Wins!" << endl;
       } else if (eyes->getIsChecked(thisTurn)) {
         cout << "Player " << (thisTurn + 1) % 2 << " checked Player " << thisTurn << endl;
       } else if (eyes->getIsStalemate()) {
         cout << "Stalemate! The game is a draw." << endl;
-      }*/
+      }
       return;
     }
   }
@@ -133,6 +139,7 @@ void GameBoard::undo(bool push) {
 
     if (m->getPromotion() != ' ') {
       int moveCount = getCell(m->getDest())->getPiece()->getMoveCount();
+      eyes->removePiece(getCell(m->getDest())->getPiece());
       removePiece(m->getDest());
       createPiece(m->getDest(), thisTurn == 0 ? 'P' : 'p');
       getCell(m->getDest())->getPiece()->setMoveCount(moveCount);
@@ -218,4 +225,5 @@ void GameBoard::createPiece(pair<int, int> coor, char p)
     return;
   }
   addPiece(piece, coor);
+  eyes->addPiece(piece);
 }

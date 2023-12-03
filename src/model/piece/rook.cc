@@ -9,24 +9,33 @@ vector<shared_ptr<Move>> Rook::possibleMoves() const
 {
     vector<shared_ptr<Move>> validMoves;
 
-    for (int i = 0; i < 8; ++i)
-    {
-        if (i != coor.second)
-        {
-            if (!eyes->isOccupied({coor.first, i}) || eyes->isOpponent({coor.first, i}))
-            {
-                shared_ptr<Move> mp{new Move{coor, {coor.first, i}, ' '}};
-                validMoves.emplace_back(mp);
-            }
-        }
+    // Directions: up, down, left, right
+    pair<int, int> directions[4] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
-        if (i != coor.first)
-        {
-            if (!eyes->isOccupied({i, coor.second}) || eyes->isOpponent({i, coor.second}))
-            {
-                shared_ptr<Move> mp{new Move{coor, {i, coor.second}, ' '}};
-                validMoves.emplace_back(mp);
+    for (auto &dir : directions) {
+        pair<int, int> nextCoor = coor;
+
+        while (true) {
+            nextCoor.first += dir.first;
+            nextCoor.second += dir.second;
+
+            // Check if the next coordinate is within the board boundaries
+            if (nextCoor.first < 0 || nextCoor.first >= 8 ||
+                nextCoor.second < 0 || nextCoor.second >= 8) {
+                break;
             }
+
+            // Check if the next cell is occupied
+            if (eyes->isOccupied(nextCoor)) {
+                // If occupied by an opponent, add as a valid move, then break
+                if (eyes->isOpponent(nextCoor)) {
+                    validMoves.emplace_back(make_shared<Move>(coor, nextCoor, ' '));
+                }
+                break;
+            }
+
+            // Add the move if the cell is not occupied
+            validMoves.emplace_back(make_shared<Move>(coor, nextCoor, ' '));
         }
     }
     return validMoves;

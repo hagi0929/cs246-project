@@ -1,3 +1,5 @@
+compiling src/model/eyes.cc
+compiled successfully
 type command for general
 8 rnbqkbnr
 7 pppppppp
@@ -10,6 +12,74 @@ type command for general
 
   abcdefgh
 type command for player 0
+1's turn
+found king 0,4
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 4
+checking a move [Cur: ] (7, 3), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (7, 3), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (7, 3), Dest: ] (4, 6), Promo:  ]
+checking a move [Cur: ] (7, 3), Dest: ] (3, 7), Promo:  ]
+checking piece K
+found 1
+checking a move [Cur: ] (7, 4), Dest: ] (6, 4), Promo:  ]
+checking piece B
+found 5
+checking a move [Cur: ] (7, 5), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (5, 3), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (4, 2), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (3, 1), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (2, 0), Promo:  ]
+checking piece N
+found 2
+checking a move [Cur: ] (7, 6), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (7, 6), Dest: ] (5, 7), Promo:  ]
+checking piece R
+found 0
+checking piece P
+found 2
+checking a move [Cur: ] (6, 0), Dest: ] (4, 0), Promo:  ]
+checking a move [Cur: ] (6, 0), Dest: ] (5, 0), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 1), Dest: ] (4, 1), Promo:  ]
+checking a move [Cur: ] (6, 1), Dest: ] (5, 1), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 2), Dest: ] (4, 2), Promo:  ]
+checking a move [Cur: ] (6, 2), Dest: ] (5, 2), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 3), Dest: ] (4, 3), Promo:  ]
+checking a move [Cur: ] (6, 3), Dest: ] (5, 3), Promo:  ]
+checking piece P
+found 1
+checking a move [Cur: ] (4, 4), Dest: ] (3, 4), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (6, 5), Dest: ] (5, 5), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 6), Dest: ] (4, 6), Promo:  ]
+checking a move [Cur: ] (6, 6), Dest: ] (5, 6), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 7), Dest: ] (4, 7), Promo:  ]
+checking a move [Cur: ] (6, 7), Dest: ] (5, 7), Promo:  ]
+1's turn
+16
+state updated
+1's turn
 8 rnbqkbnr
 7 pppppppp
 6  _ _ _ _
@@ -21,10 +91,78 @@ type command for player 0
 
   abcdefgh
 type command for player 1
+0's turn
+found king 7,4
+checked called 0
+checking piece r
+found 0
+checking piece n
+found 2
+checking a move [Cur: ] (0, 1), Dest: ] (2, 0), Promo:  ]
+checking a move [Cur: ] (0, 1), Dest: ] (2, 2), Promo:  ]
+checking piece b
+found 0
+checking piece q
+found 4
+checking a move [Cur: ] (0, 3), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (3, 6), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (4, 7), Promo:  ]
+checking piece k
+found 1
+checking a move [Cur: ] (0, 4), Dest: ] (1, 4), Promo:  ]
+checking piece b
+found 5
+checking a move [Cur: ] (0, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (2, 3), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (3, 2), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (4, 1), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (5, 0), Promo:  ]
+checking piece n
+found 3
+checking a move [Cur: ] (0, 6), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 6), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (0, 6), Dest: ] (2, 7), Promo:  ]
+checking piece r
+found 0
+checking piece p
+found 2
+checking a move [Cur: ] (1, 0), Dest: ] (3, 0), Promo:  ]
+checking a move [Cur: ] (1, 0), Dest: ] (2, 0), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 1), Dest: ] (3, 1), Promo:  ]
+checking a move [Cur: ] (1, 1), Dest: ] (2, 1), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 2), Dest: ] (3, 2), Promo:  ]
+checking a move [Cur: ] (1, 2), Dest: ] (2, 2), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 3), Dest: ] (3, 3), Promo:  ]
+checking a move [Cur: ] (1, 3), Dest: ] (2, 3), Promo:  ]
+checking piece p
+found 0
+checking piece p
+found 2
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 6), Dest: ] (3, 6), Promo:  ]
+checking a move [Cur: ] (1, 6), Dest: ] (2, 6), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 7), Dest: ] (3, 7), Promo:  ]
+checking a move [Cur: ] (1, 7), Dest: ] (2, 7), Promo:  ]
+0's turn
+16
+state updated
+0's turn
 8 rnbqkbnr
-7 _ppppppp
-6 p_ _ _ _
-5 _ _ _ _ 
+7 pppp_ppp
+6  _ _ _ _
+5 _ _ p _ 
 4  _ _P_ _
 3 _ _ _ _ 
 2 PPPP PPP
@@ -32,251 +170,1909 @@ type command for player 1
 
   abcdefgh
 type command for player 0
+1's turn
+found king 0,4
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 13
+checking a move [Cur: ] (3, 7), Dest: ] (2, 7), Promo:  ]
+checking a move [Cur: ] (3, 7), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (3, 7), Dest: ] (4, 7), Promo:  ]
+checking a move [Cur: ] (3, 7), Dest: ] (5, 7), Promo:  ]
+checking a move [Cur: ] (3, 7), Dest: ] (3, 6), Promo:  ]
+checking a move [Cur: ] (3, 7), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (3, 7), Dest: ] (3, 4), Promo:  ]
+checking a move [Cur: ] (3, 7), Dest: ] (2, 6), Promo:  ]
+checking a move [Cur: ] (3, 7), Dest: ] (1, 5), Promo:  ]
+checking a move [Cur: ] (3, 7), Dest: ] (4, 6), Promo:  ]
+checking a move [Cur: ] (3, 7), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (3, 7), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (3, 7), Dest: ] (7, 3), Promo:  ]
+checking piece K
+found 2
+checking a move [Cur: ] (7, 4), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (7, 4), Dest: ] (7, 3), Promo:  ]
+checking piece B
+found 5
+checking a move [Cur: ] (7, 5), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (5, 3), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (4, 2), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (3, 1), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (2, 0), Promo:  ]
+checking piece N
+found 2
+checking a move [Cur: ] (7, 6), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (7, 6), Dest: ] (5, 7), Promo:  ]
+checking piece R
+found 0
+checking piece P
+found 2
+checking a move [Cur: ] (6, 0), Dest: ] (4, 0), Promo:  ]
+checking a move [Cur: ] (6, 0), Dest: ] (5, 0), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 1), Dest: ] (4, 1), Promo:  ]
+checking a move [Cur: ] (6, 1), Dest: ] (5, 1), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 2), Dest: ] (4, 2), Promo:  ]
+checking a move [Cur: ] (6, 2), Dest: ] (5, 2), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 3), Dest: ] (4, 3), Promo:  ]
+checking a move [Cur: ] (6, 3), Dest: ] (5, 3), Promo:  ]
+checking piece P
+found 0
+checking piece P
+found 2
+checking a move [Cur: ] (6, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (6, 5), Dest: ] (5, 5), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 6), Dest: ] (4, 6), Promo:  ]
+checking a move [Cur: ] (6, 6), Dest: ] (5, 6), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 7), Dest: ] (4, 7), Promo:  ]
+checking a move [Cur: ] (6, 7), Dest: ] (5, 7), Promo:  ]
+1's turn
+16
+state updated
+1's turn
 8 rnbqkbnr
-7 _ppppppp
-6 p_ _ _ _
-5 _ _ P _ 
-4  _ _ _ _
+7 pppp_ppp
+6  _ _ _ _
+5 _ _ p _Q
+4  _ _P_ _
 3 _ _ _ _ 
 2 PPPP PPP
-1 RNBQKBNR
+1 RNB KBNR
 
   abcdefgh
 type command for player 1
+0's turn
+found king 7,4
+checked called 0
+checking piece r
+found 0
+checking piece n
+found 2
+checking a move [Cur: ] (0, 1), Dest: ] (2, 0), Promo:  ]
+checking a move [Cur: ] (0, 1), Dest: ] (2, 2), Promo:  ]
+checking piece b
+found 0
+checking piece q
+found 4
+checking a move [Cur: ] (0, 3), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (3, 6), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (4, 7), Promo:  ]
+checking piece k
+found 1
+checking a move [Cur: ] (0, 4), Dest: ] (1, 4), Promo:  ]
+checking piece b
+found 7
+checking a move [Cur: ] (0, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (2, 7), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (2, 3), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (3, 2), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (4, 1), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (5, 0), Promo:  ]
+checking piece n
+found 3
+checking a move [Cur: ] (0, 6), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 6), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (0, 6), Dest: ] (2, 7), Promo:  ]
+checking piece r
+found 0
+checking piece p
+found 2
+checking a move [Cur: ] (1, 0), Dest: ] (3, 0), Promo:  ]
+checking a move [Cur: ] (1, 0), Dest: ] (2, 0), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 1), Dest: ] (3, 1), Promo:  ]
+checking a move [Cur: ] (1, 1), Dest: ] (2, 1), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 2), Dest: ] (3, 2), Promo:  ]
+checking a move [Cur: ] (1, 2), Dest: ] (2, 2), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 3), Dest: ] (3, 3), Promo:  ]
+checking a move [Cur: ] (1, 3), Dest: ] (2, 3), Promo:  ]
+checking piece p
+found 0
+checking piece p
+found 2
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (2, 6), Dest: ] (3, 6), Promo:  ]
+checking a move [Cur: ] (2, 6), Dest: ] (3, 7), Promo:  ]
+checking piece p
+found 1
+checking a move [Cur: ] (1, 7), Dest: ] (2, 7), Promo:  ]
+0's turn
+16
+state updated
+0's turn
 8 rnbqkbnr
-7 _ppppppp
-6  _ _ _ _
-5 p _ P _ 
-4  _ _ _ _
+7 pppp_p_p
+6  _ _ _p_
+5 _ _ p _Q
+4  _ _P_ _
 3 _ _ _ _ 
 2 PPPP PPP
-1 RNBQKBNR
+1 RNB KBNR
 
   abcdefgh
 type command for player 0
-8 rnbqkbnr
-7 _ppppppp
-6  _ _P_ _
-5 p _ _ _ 
-4  _ _ _ _
-3 _ _ _ _ 
-2 PPPP PPP
-1 RNBQKBNR
-
-  abcdefgh
-type command for player 1
-8 rnbqkbnr
-7 _ppppppp
-6  _ _P_ _
-5 _ _ _ _ 
-4 p_ _ _ _
-3 _ _ _ _ 
-2 PPPP PPP
-1 RNBQKBNR
-
-  abcdefgh
-type command for player 0
-8 rnbqkbnr
-7 _ppppPpp
-6  _ _ _ _
-5 _ _ _ _ 
-4 p_ _ _ _
-3 _ _ _ _ 
-2 PPPP PPP
-1 RNBQKBNR
-
-  abcdefgh
-type command for player 1
-8 rnbqkbnr
-7 _ppppPpp
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 p _ _ _ 
-2 PPPP PPP
-1 RNBQKBNR
-
-  abcdefgh
-type command for player 0
-8 rnbqkbQr
-7 _pppp pp
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 p _ _ _ 
-2 PPPP PPP
-1 RNBQKBNR
-
-  abcdefgh
-type command for player 1
-8 rnbqkbQr
-7 _pppp pp
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 _ _ _ _ 
-2 PpPP PPP
-1 RNBQKBNR
-
-  abcdefgh
-type command for player 0
+1's turn
+found king 0,4
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 19
+checking a move [Cur: ] (3, 4), Dest: ] (2, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+checkmate called
+tried move
+0's turn
+checked called 0
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 19
+checking a move [Cur: ] (3, 4), Dest: ] (2, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
 
 undo called
 -----------
-8 rnbqkbQr
-7 _pppp pp
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 p _ _ _ 
-2 PPPP PPP
-1 RNBQKBNR
-
-  abcdefgh
-type command for player 1
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 19
+checking a move [Cur: ] (3, 4), Dest: ] (2, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
 
 undo called
 -----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 19
+checking a move [Cur: ] (3, 4), Dest: ] (2, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 19
+checking a move [Cur: ] (3, 4), Dest: ] (2, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 19
+checking a move [Cur: ] (3, 4), Dest: ] (2, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 19
+checking a move [Cur: ] (3, 4), Dest: ] (2, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 19
+checking a move [Cur: ] (3, 4), Dest: ] (2, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 19
+checking a move [Cur: ] (3, 4), Dest: ] (2, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 18
+checking a move [Cur: ] (3, 4), Dest: ] (2, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (3, 3), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (3, 2), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (3, 1), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (3, 0), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (3, 6), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (3, 7), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (2, 3), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (1, 2), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (0, 7), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (4, 3), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (5, 2), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (3, 4), Dest: ] (5, 6), Promo:  ]
+checking piece K
+found 2
+checking a move [Cur: ] (7, 4), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (7, 4), Dest: ] (7, 3), Promo:  ]
+checking piece B
+found 5
+checking a move [Cur: ] (7, 5), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (5, 3), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (4, 2), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (3, 1), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (2, 0), Promo:  ]
+checking piece N
+found 2
+checking a move [Cur: ] (7, 6), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (7, 6), Dest: ] (5, 7), Promo:  ]
+checking piece R
+found 0
+checking piece P
+found 2
+checking a move [Cur: ] (6, 0), Dest: ] (4, 0), Promo:  ]
+checking a move [Cur: ] (6, 0), Dest: ] (5, 0), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 1), Dest: ] (4, 1), Promo:  ]
+checking a move [Cur: ] (6, 1), Dest: ] (5, 1), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 2), Dest: ] (4, 2), Promo:  ]
+checking a move [Cur: ] (6, 2), Dest: ] (5, 2), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 3), Dest: ] (4, 3), Promo:  ]
+checking a move [Cur: ] (6, 3), Dest: ] (5, 3), Promo:  ]
+checking piece P
+found 0
+checking piece P
+found 2
+checking a move [Cur: ] (6, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (6, 5), Dest: ] (5, 5), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 6), Dest: ] (4, 6), Promo:  ]
+checking a move [Cur: ] (6, 6), Dest: ] (5, 6), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 7), Dest: ] (4, 7), Promo:  ]
+checking a move [Cur: ] (6, 7), Dest: ] (5, 7), Promo:  ]
+1's turn
+
+undo called
+-----------
+0's turn, boutta return
+state updated
+0's turn
 8 rnbqkbnr
-7 _ppppPpp
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 p _ _ _ 
+7 pppp_p_p
+6  _ _ _p_
+5 _ _ Q _ 
+4  _ _P_ _
+3 _ _ _ _ 
 2 PPPP PPP
-1 RNBQKBNR
+1 RNB KBNR
 
   abcdefgh
 type command for player 0
-
-redo called
------------
-
-8 rnbqkbQr
-7 _pppp pp
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 p _ _ _ 
+CMD ERROR: Wrong piece selected
+8 rnbqkbnr
+7 pppp_p_p
+6  _ _ _p_
+5 _ _ Q _ 
+4  _ _P_ _
+3 _ _ _ _ 
 2 PPPP PPP
-1 RNBQKBNR
+1 RNB KBNR
+
+  abcdefgh
+type command for player 0
+1's turn
+found king 0,4
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 7
+checking a move [Cur: ] (0, 7), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (0, 7), Dest: ] (0, 6), Promo:  ]
+checking a move [Cur: ] (0, 7), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (0, 7), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (0, 7), Dest: ] (3, 4), Promo:  ]
+checking a move [Cur: ] (0, 7), Dest: ] (4, 3), Promo:  ]
+checking a move [Cur: ] (0, 7), Dest: ] (5, 2), Promo:  ]
+checking piece K
+found 2
+checking a move [Cur: ] (7, 4), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (7, 4), Dest: ] (7, 3), Promo:  ]
+checking piece B
+found 5
+checking a move [Cur: ] (7, 5), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (5, 3), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (4, 2), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (3, 1), Promo:  ]
+checking a move [Cur: ] (7, 5), Dest: ] (2, 0), Promo:  ]
+checking piece N
+found 2
+checking a move [Cur: ] (7, 6), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (7, 6), Dest: ] (5, 7), Promo:  ]
+checking piece R
+found 0
+checking piece P
+found 2
+checking a move [Cur: ] (6, 0), Dest: ] (4, 0), Promo:  ]
+checking a move [Cur: ] (6, 0), Dest: ] (5, 0), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 1), Dest: ] (4, 1), Promo:  ]
+checking a move [Cur: ] (6, 1), Dest: ] (5, 1), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 2), Dest: ] (4, 2), Promo:  ]
+checking a move [Cur: ] (6, 2), Dest: ] (5, 2), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 3), Dest: ] (4, 3), Promo:  ]
+checking a move [Cur: ] (6, 3), Dest: ] (5, 3), Promo:  ]
+checking piece P
+found 1
+checking a move [Cur: ] (4, 4), Dest: ] (3, 4), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (6, 5), Dest: ] (5, 5), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 6), Dest: ] (4, 6), Promo:  ]
+checking a move [Cur: ] (6, 6), Dest: ] (5, 6), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 7), Dest: ] (4, 7), Promo:  ]
+checking a move [Cur: ] (6, 7), Dest: ] (5, 7), Promo:  ]
+1's turn
+14
+state updated
+1's turn
+8 rnbqkbnQ
+7 pppp_p_p
+6  _ _ _p_
+5 _ _ _ _ 
+4  _ _P_ _
+3 _ _ _ _ 
+2 PPPP PPP
+1 RNB KBNR
 
   abcdefgh
 type command for player 1
-
-redo called
------------
-
-8 rnbqkbQr
-7 _pppp pp
-6  _ _ _ _
+no piece at 1,4
+CMD ERROR: Wrong piece selected
+8 rnbqkbnQ
+7 pppp_p_p
+6  _ _ _p_
 5 _ _ _ _ 
-4  _ _ _ _
+4  _ _P_ _
 3 _ _ _ _ 
-2 PpPP PPP
-1 RNBQKBNR
+2 PPPP PPP
+1 RNB KBNR
+
+  abcdefgh
+type command for player 1
+CMD ERROR: Wrong piece selected
+8 rnbqkbnQ
+7 pppp_p_p
+6  _ _ _p_
+5 _ _ _ _ 
+4  _ _P_ _
+3 _ _ _ _ 
+2 PPPP PPP
+1 RNB KBNR
+
+  abcdefgh
+type command for player 1
+0's turn
+found king 7,4
+checked called 0
+checking piece r
+found 0
+checking piece n
+found 1
+checking a move [Cur: ] (0, 1), Dest: ] (2, 0), Promo:  ]
+checking piece q
+found 7
+checking a move [Cur: ] (0, 3), Dest: ] (1, 2), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (2, 1), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (3, 0), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (3, 6), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (4, 7), Promo:  ]
+checking piece b
+found 7
+checking a move [Cur: ] (0, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (2, 7), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (2, 3), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (3, 2), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (4, 1), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (5, 0), Promo:  ]
+checking piece n
+found 3
+checking a move [Cur: ] (0, 6), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 6), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (0, 6), Dest: ] (2, 7), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 0), Dest: ] (3, 0), Promo:  ]
+checking a move [Cur: ] (1, 0), Dest: ] (2, 0), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking piece p
+found 1
+checking a move [Cur: ] (2, 6), Dest: ] (3, 6), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 7), Dest: ] (3, 7), Promo:  ]
+checking a move [Cur: ] (1, 7), Dest: ] (2, 7), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 1), Dest: ] (3, 1), Promo:  ]
+checking a move [Cur: ] (1, 1), Dest: ] (2, 1), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 3), Dest: ] (3, 3), Promo:  ]
+checking a move [Cur: ] (1, 3), Dest: ] (2, 3), Promo:  ]
+checking piece b
+found 0
+checking piece k
+found 1
+checking a move [Cur: ] (0, 4), Dest: ] (1, 4), Promo:  ]
+checking piece p
+found 1
+checking a move [Cur: ] (2, 2), Dest: ] (3, 2), Promo:  ]
+0's turn
+16
+state updated
+0's turn
+8 rnbqkbnQ
+7 pp_p_p_p
+6  _p_ _p_
+5 _ _ _ _ 
+4  _ _P_ _
+3 _ _ _ _ 
+2 PPPP PPP
+1 RNB KBNR
 
   abcdefgh
 type command for player 0
-
-redo called
------------
-CMD ERROR: Redo stack is empty
-8 rnbqkbQr
-7 _pppp pp
-6  _ _ _ _
+no piece at 2,5
+CMD ERROR: Wrong piece selected
+8 rnbqkbnQ
+7 pp_p_p_p
+6  _p_ _p_
 5 _ _ _ _ 
-4  _ _ _ _
+4  _ _P_ _
 3 _ _ _ _ 
-2 PpPP PPP
-1 RNBQKBNR
+2 PPPP PPP
+1 RNB KBNR
 
   abcdefgh
 type command for player 0
-
-redo called
------------
-CMD ERROR: Redo stack is empty
-8 rnbqkbQr
-7 _pppp pp
-6  _ _ _ _
+CMD ERROR: Wrong piece selected
+8 rnbqkbnQ
+7 pp_p_p_p
+6  _p_ _p_
 5 _ _ _ _ 
-4  _ _ _ _
+4  _ _P_ _
 3 _ _ _ _ 
-2 PpPP PPP
-1 RNBQKBNR
+2 PPPP PPP
+1 RNB KBNR
 
   abcdefgh
 type command for player 0
-
-redo called
------------
-CMD ERROR: Redo stack is empty
-8 rnbqkbQr
-7 _pppp pp
-6  _ _ _ _
+1's turn
+found king 0,4
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 7
+checking a move [Cur: ] (0, 7), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (0, 7), Dest: ] (0, 6), Promo:  ]
+checking a move [Cur: ] (0, 7), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (0, 7), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (0, 7), Dest: ] (3, 4), Promo:  ]
+checking a move [Cur: ] (0, 7), Dest: ] (4, 3), Promo:  ]
+checking a move [Cur: ] (0, 7), Dest: ] (5, 2), Promo:  ]
+checking piece K
+found 3
+checking a move [Cur: ] (7, 4), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (7, 4), Dest: ] (7, 3), Promo:  ]
+checking a move [Cur: ] (7, 4), Dest: ] (7, 5), Promo:  ]
+checking piece B
+found 9
+checking a move [Cur: ] (4, 2), Dest: ] (3, 1), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (2, 0), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (3, 3), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (2, 4), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (1, 5), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (5, 3), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (7, 5), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (5, 1), Promo:  ]
+checking piece N
+found 2
+checking a move [Cur: ] (7, 6), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (7, 6), Dest: ] (5, 7), Promo:  ]
+checking piece R
+found 0
+checking piece P
+found 2
+checking a move [Cur: ] (6, 0), Dest: ] (4, 0), Promo:  ]
+checking a move [Cur: ] (6, 0), Dest: ] (5, 0), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 1), Dest: ] (4, 1), Promo:  ]
+checking a move [Cur: ] (6, 1), Dest: ] (5, 1), Promo:  ]
+checking piece P
+found 1
+checking a move [Cur: ] (6, 2), Dest: ] (5, 2), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 3), Dest: ] (4, 3), Promo:  ]
+checking a move [Cur: ] (6, 3), Dest: ] (5, 3), Promo:  ]
+checking piece P
+found 1
+checking a move [Cur: ] (4, 4), Dest: ] (3, 4), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (6, 5), Dest: ] (5, 5), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 6), Dest: ] (4, 6), Promo:  ]
+checking a move [Cur: ] (6, 6), Dest: ] (5, 6), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 7), Dest: ] (4, 7), Promo:  ]
+checking a move [Cur: ] (6, 7), Dest: ] (5, 7), Promo:  ]
+1's turn
+14
+state updated
+1's turn
+8 rnbqkbnQ
+7 pp_p_p_p
+6  _p_ _p_
 5 _ _ _ _ 
-4  _ _ _ _
+4  _B_P_ _
 3 _ _ _ _ 
-2 PpPP PPP
-1 RNBQKBNR
+2 PPPP PPP
+1 RNB K NR
+
+  abcdefgh
+type command for player 1
+0's turn
+found king 7,4
+checked called 0
+checking piece r
+found 0
+checking piece n
+found 2
+checking a move [Cur: ] (0, 1), Dest: ] (2, 0), Promo:  ]
+checking a move [Cur: ] (0, 1), Dest: ] (2, 2), Promo:  ]
+checking piece q
+found 7
+checking a move [Cur: ] (0, 3), Dest: ] (1, 2), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (2, 1), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (3, 0), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (3, 6), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (4, 7), Promo:  ]
+checking piece b
+found 4
+checking a move [Cur: ] (0, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (2, 7), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (2, 3), Promo:  ]
+checking piece n
+found 3
+checking a move [Cur: ] (0, 6), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 6), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (0, 6), Dest: ] (2, 7), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 0), Dest: ] (3, 0), Promo:  ]
+checking a move [Cur: ] (1, 0), Dest: ] (2, 0), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking piece p
+found 1
+checking a move [Cur: ] (2, 6), Dest: ] (3, 6), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 7), Dest: ] (3, 7), Promo:  ]
+checking a move [Cur: ] (1, 7), Dest: ] (2, 7), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 1), Dest: ] (3, 1), Promo:  ]
+checking a move [Cur: ] (1, 1), Dest: ] (2, 1), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 3), Dest: ] (3, 3), Promo:  ]
+checking a move [Cur: ] (1, 3), Dest: ] (2, 3), Promo:  ]
+checking piece b
+found 0
+checking piece k
+found 1
+checking a move [Cur: ] (0, 4), Dest: ] (1, 4), Promo:  ]
+checking piece p
+found 0
+0's turn
+16
+state updated
+0's turn
+8 rnbqkbnQ
+7 pp_p_p_p
+6  _ _ _p_
+5 _ p _ _ 
+4  _B_P_ _
+3 _ _ _ _ 
+2 PPPP PPP
+1 RNB K NR
 
   abcdefgh
 type command for player 0
-
-redo called
------------
-CMD ERROR: Redo stack is empty
-8 rnbqkbQr
-7 _pppp pp
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
+1's turn
+found king 0,4
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 9
+checking a move [Cur: ] (1, 7), Dest: ] (0, 7), Promo:  ]
+checking a move [Cur: ] (1, 7), Dest: ] (2, 7), Promo:  ]
+checking a move [Cur: ] (1, 7), Dest: ] (3, 7), Promo:  ]
+checking a move [Cur: ] (1, 7), Dest: ] (4, 7), Promo:  ]
+checking a move [Cur: ] (1, 7), Dest: ] (5, 7), Promo:  ]
+checking a move [Cur: ] (1, 7), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 7), Dest: ] (1, 5), Promo:  ]
+checking a move [Cur: ] (1, 7), Dest: ] (0, 6), Promo:  ]
+checking a move [Cur: ] (1, 7), Dest: ] (2, 6), Promo:  ]
+checking piece K
+found 3
+checking a move [Cur: ] (7, 4), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (7, 4), Dest: ] (7, 3), Promo:  ]
+checking a move [Cur: ] (7, 4), Dest: ] (7, 5), Promo:  ]
+checking piece B
+found 9
+checking a move [Cur: ] (4, 2), Dest: ] (3, 1), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (2, 0), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (3, 3), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (2, 4), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (1, 5), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (5, 3), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (6, 4), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (7, 5), Promo:  ]
+checking a move [Cur: ] (4, 2), Dest: ] (5, 1), Promo:  ]
+checking piece N
+found 2
+checking a move [Cur: ] (7, 6), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (7, 6), Dest: ] (5, 7), Promo:  ]
+checking piece R
+found 0
+checking piece P
+found 2
+checking a move [Cur: ] (6, 0), Dest: ] (4, 0), Promo:  ]
+checking a move [Cur: ] (6, 0), Dest: ] (5, 0), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 1), Dest: ] (4, 1), Promo:  ]
+checking a move [Cur: ] (6, 1), Dest: ] (5, 1), Promo:  ]
+checking piece P
+found 1
+checking a move [Cur: ] (6, 2), Dest: ] (5, 2), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 3), Dest: ] (4, 3), Promo:  ]
+checking a move [Cur: ] (6, 3), Dest: ] (5, 3), Promo:  ]
+checking piece P
+found 1
+checking a move [Cur: ] (4, 4), Dest: ] (3, 4), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (6, 5), Dest: ] (5, 5), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 6), Dest: ] (4, 6), Promo:  ]
+checking a move [Cur: ] (6, 6), Dest: ] (5, 6), Promo:  ]
+checking piece P
+found 2
+checking a move [Cur: ] (6, 7), Dest: ] (4, 7), Promo:  ]
+checking a move [Cur: ] (6, 7), Dest: ] (5, 7), Promo:  ]
+1's turn
+13
+state updated
+1's turn
+8 rnbqkbn_
+7 pp_p_p_Q
+6  _ _ _p_
+5 _ p _ _ 
+4  _B_P_ _
 3 _ _ _ _ 
-2 PpPP PPP
-1 RNBQKBNR
+2 PPPP PPP
+1 RNB K NR
+
+  abcdefgh
+type command for player 1
+0's turn
+found king 7,4
+checked called 0
+checking piece r
+found 0
+checking piece n
+found 2
+checking a move [Cur: ] (0, 1), Dest: ] (2, 0), Promo:  ]
+checking a move [Cur: ] (0, 1), Dest: ] (2, 2), Promo:  ]
+checking piece q
+found 5
+checking a move [Cur: ] (0, 3), Dest: ] (1, 2), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (3, 6), Promo:  ]
+checking a move [Cur: ] (0, 3), Dest: ] (4, 7), Promo:  ]
+checking piece b
+found 4
+checking a move [Cur: ] (0, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (2, 7), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 5), Dest: ] (2, 3), Promo:  ]
+checking piece n
+found 3
+checking a move [Cur: ] (0, 6), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (0, 6), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (0, 6), Dest: ] (2, 7), Promo:  ]
+checking piece p
+found 3
+checking a move [Cur: ] (1, 0), Dest: ] (3, 0), Promo:  ]
+checking a move [Cur: ] (1, 0), Dest: ] (2, 0), Promo:  ]
+checking a move [Cur: ] (1, 0), Dest: ] (2, -1), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking piece p
+found 1
+checking a move [Cur: ] (2, 6), Dest: ] (3, 6), Promo:  ]
+checking piece p
+found 1
+checking a move [Cur: ] (2, 1), Dest: ] (3, 1), Promo:  ]
+checking piece p
+found 2
+checking a move [Cur: ] (1, 3), Dest: ] (3, 3), Promo:  ]
+checking a move [Cur: ] (1, 3), Dest: ] (2, 3), Promo:  ]
+checking piece b
+found 2
+checking a move [Cur: ] (0, 2), Dest: ] (1, 1), Promo:  ]
+checking a move [Cur: ] (0, 2), Dest: ] (2, 0), Promo:  ]
+checking piece k
+found 1
+checking a move [Cur: ] (0, 4), Dest: ] (1, 4), Promo:  ]
+checking piece p
+found 0
+0's turn
+16
+state updated
+0's turn
+8 rnbqkbn_
+7 p _p_p_Q
+6  p _ _p_
+5 _ p _ _ 
+4  _B_P_ _
+3 _ _ _ _ 
+2 PPPP PPP
+1 RNB K NR
 
   abcdefgh
 type command for player 0
+1's turn
+found king 0,4
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+checkmate called
+tried move
+0's turn
+checked called 0
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
 
-redo called
+undo called
 -----------
-CMD ERROR: Redo stack is empty
-8 rnbqkbQr
-7 _pppp pp
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 _ _ _ _ 
-2 PpPP PPP
-1 RNBQKBNR
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
 
-  abcdefgh
-type command for player 0
-
-redo called
+undo called
 -----------
-CMD ERROR: Redo stack is empty
-8 rnbqkbQr
-7 _pppp pp
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
-3 _ _ _ _ 
-2 PpPP PPP
-1 RNBQKBNR
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
 
-  abcdefgh
-type command for player 0
-CMD ERROR: Invalid head command 
-8 rnbqkbQr
-7 _pppp pp
-6  _ _ _ _
-5 _ _ _ _ 
-4  _ _ _ _
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 13
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 11
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 13
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 13
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 13
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 11
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 15
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 17
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 2), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 1), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 0), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 17
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 2), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 1), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 0), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+tried move
+1's turn
+checked called 1
+checking piece R
+found 0
+checking piece N
+found 2
+checking a move [Cur: ] (7, 1), Dest: ] (5, 0), Promo:  ]
+checking a move [Cur: ] (7, 1), Dest: ] (5, 2), Promo:  ]
+checking piece B
+found 0
+checking piece Q
+found 14
+checking a move [Cur: ] (1, 5), Dest: ] (0, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (2, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (3, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (4, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (5, 5), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 4), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 3), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 6), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (1, 7), Promo:  ]
+checking a move [Cur: ] (1, 5), Dest: ] (0, 4), Promo:  ]
+found king in move
+1's turn
+
+undo called
+-----------
+0's turn, didnt
+state updated
+0's turn
+8 rnbqkbn_
+7 p _p_Q_ 
+6  p _ _p_
+5 _ p _ _ 
+4  _B_P_ _
 3 _ _ _ _ 
-2 PpPP PPP
-1 RNBQKBNR
+2 PPPP PPP
+1 RNB K NR
 
   abcdefgh
 type command for player 0

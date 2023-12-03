@@ -7,17 +7,12 @@ using namespace std;
 
 const int NUM_PLAYERS = 2;
 
-Eyes::Eyes(shared_ptr<GameBoard> board) : board{board}, isChecked{false}, isCheckmated{false}, isStalemate{false} {
+Eyes::Eyes(shared_ptr<GameBoard> board) : board{board}, isStalemate{false} {
   for (int i = 0; i < NUM_PLAYERS; ++i) {
-    pieces.emplace_back();
+    isChecked.emplace_back(false);
+    isCheckmated.emplace_back(false);
   }
-  for (int i = 0; i < BOARD_SIZE; ++i) {
-    for (int j = 0; j < BOARD_SIZE; ++j) {
-      if (board->getCell(make_pair(i, j))->getPiece()) {
-        pieces[board->getCell(make_pair(i, j))->getPiece()->getPlayer()].emplace_back(board->getCell(make_pair(i, j))->getPiece());
-      }
-    }
-  }
+  pieces.resize(NUM_PLAYERS);
 }
 
 bool Eyes::isOccupied(pair<int, int> coor) const {
@@ -41,29 +36,44 @@ bool Eyes::getIsStalemate() const {
   return isStalemate;
 }
 
-bool Eyes::checked(pair<int, int> kingCoor, int attacker) const {
+bool Eyes::checked(pair<int, int> kingCoor, int attacker, int defender) const {
+  cout << "checked called " << board->getThisTurn() << endl;
   for (auto piece : pieces[attacker]) {
+    cout << "checking piece " << piece->getType() << endl;
+    board->setTurn(attacker);
     vector<shared_ptr<Move>> attackerValidMoves = piece->possibleMoves();
+    board->setTurn(defender);
+    cout << "found " << attackerValidMoves.size() << endl;
     for (auto move : attackerValidMoves) {
+      cout << "checking a move " << *move << endl;
       if (move->getDest() == kingCoor) {
+        cout << "found king in move" << endl;
+        cout << board->getThisTurn() << "'s turn" <<endl;
         return true;
       }
     }
   }
+  cout << board->getThisTurn() << "'s turn" <<endl;
   return false;
 }
 
 void Eyes::updateIsCheckmated(pair<int, int> kingCoor, int attacker, int defender) {
+  cout << "checkmate called" << endl;
   for (auto piece : pieces[defender]) {
     vector<shared_ptr<Move>> defenderValidMoves = piece->possibleMoves();
     for (auto move : defenderValidMoves) {
       board->doValidMove(move);
-      if (!checked(kingCoor, attacker)) {
+      cout << "tried move" <<endl;
+      cout << board->getThisTurn() << "'s turn" <<endl;
+
+      if (!checked(kingCoor, attacker, defender)) {
         isCheckmated[defender] = false;
         board->undo(false);
+        cout << board->getThisTurn() << "'s turn, boutta return" <<endl;
         return;
       }
       board->undo(false);
+      cout << board->getThisTurn() << "'s turn, didnt" <<endl;
     }
   }
   isCheckmated[defender] = true;
@@ -74,11 +84,12 @@ void Eyes::updateIsChecked(int attacker, int defender) {
   for (auto piece : pieces[defender]) {
     if (piece->getType() == 'K' || piece->getType() == 'k') {
       kingCoor = piece->getCoor();
+      cout << "found king " << kingCoor.first << "," << kingCoor.second << endl;
       break;
     }
   }
 
-  if (checked(kingCoor, attacker)) {
+  if (checked(kingCoor, attacker, defender)) {
     isChecked[defender] = true;
     updateIsCheckmated(kingCoor, attacker, defender);
   } else {
@@ -86,12 +97,13 @@ void Eyes::updateIsChecked(int attacker, int defender) {
   }
 }
 
-void Eyes::updateIsStalemate(int defender) {
-  if (pieces[0].size() == 1 && pieces[0].size() == 1) {
+void Eyes::updateIsStalemate(int attacker, int defender) {
+  if (pieces[attacker].size() == 1 && pieces[defender].size() == 1) {
     isStalemate = true;
     return;
   }
   if (!isChecked[defender]) {
+    cout << pieces[defender].size() << endl;
     for (auto piece : pieces[defender]) {
       if (!piece->possibleMoves().empty()) {
         isStalemate = false;
@@ -104,12 +116,7 @@ void Eyes::updateIsStalemate(int defender) {
   }
 }
 
-void Eyes::updateState(int attacker, int defender) {
-  updateIsChecked(attacker, defender);
-  updateIsStalemate(defender);
-}
-
-void Eyes::removePiece(std::shared_ptr<Piece> p) {
+void Eyes::removePiece(shared_ptr<Piece> p) {
   int player = p->getPlayer();
   for (auto it = pieces[player].begin(); it != pieces[player].end(); ++it) {
     if (*it == p) {
@@ -117,4 +124,14 @@ void Eyes::removePiece(std::shared_ptr<Piece> p) {
       break;
     }
   }
+}
+
+void Eyes::addPiece(shared_ptr<Piece> p) {
+  int player = p->getPlayer();
+  pieces[player].emplace_back(p);
+}
+
+void Eyes::updateState(int attacker, int defender) {
+  updateIsChecked(attacker, defender);
+  updateIsStalemate(attacker, defender);
 }
