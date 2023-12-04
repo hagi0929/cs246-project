@@ -50,17 +50,34 @@ GraphicsDisplay::~GraphicsDisplay()
 void GraphicsDisplay::notify(Cell &c)
 {
     int x = c.getCol(), y = c.getRow(), wh = 0;
-    // TO DO: implement code to get colour from the cell
-    bool colour = true;
-    transformation(x, y, wh);
-    view->fillRectangle(x, y, wh, wh, colour);
-}
-
-void GraphicsDisplay::displayText(std::string text)
-{
-    int x = 226, y = 498;
-    view->drawString(x, y, "\n");
-    view->drawString(x, y, text);
+    if (c.isEmpty()) {
+        int tiles[2][2] = {
+            {1, 0}, // tiles for even rows
+            {0, 1}  // tiles for odd rows
+        };
+        int i = y % 2, j = x % 2;
+        transformation(x, y, wh);
+        view->fillRectangle(x, y, wh, wh, tiles[i][j]);
+    } else {
+        int backgroundColor;
+        transformation(x, y, wh);
+        int pieceColor = c.getPiece()->getPlayer();
+        if (pieceColor == 0) {
+            backgroundColor = 5;
+        } else if (pieceColor == 1) {
+            backgroundColor = 5;
+        }
+        int backgroundWh = wh * 3/4;
+        int backgroundX = x + 3 + backgroundWh/8;
+        int backgroundY = y + 3 + backgroundWh/8;
+        view->fillGreyCircle(backgroundX, backgroundY, backgroundWh, backgroundWh);
+        int pieceX = x + 2 + 4 * backgroundWh/8;
+        int pieceY = y + 2 + 6 * backgroundWh/8;
+        char pieceType = c.getPiece()->getType();
+        string pieceString(1, pieceType);
+        string font = "-adobe-helvetica-bold-r-normal--20-140-100-100-p-105-iso8859-3";
+        view->drawString(pieceX, pieceY, pieceString, pieceColor, font);
+    }
 }
 
 void GraphicsDisplay::display() {}

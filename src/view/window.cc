@@ -70,7 +70,22 @@ void Xwindow::fillRectangle(int x, int y, int width, int height, int colour)
   XSetForeground(d, gc, colours[Black]);
 }
 
-void Xwindow::drawString(int x, int y, string msg)
-{
-  XDrawString(d, w, DefaultGC(d, s), x, y, msg.c_str(), msg.length());
+void Xwindow::fillGreyCircle(int x, int y, int width, int height) {
+  XSetForeground(d, gc, 0xA9A9A9);
+  XFillArc(d, w, gc, x, y, width, height, 0, 360 * 64);
+}
+
+void Xwindow::setUpFont(const string& fontname) {
+    XFontStruct * font = XLoadQueryFont(d, fontname.c_str() );
+    if (! font ) {
+        cerr << "unable to load font " << fontname << ": using fixed" << endl;
+        font = XLoadQueryFont(d, "lucidasans-12");
+    }
+    XSetFont(d, gc, font->fid);
+}
+
+void Xwindow::drawString(int x, int y, string msg, int colour, const string& fontName) {
+    XSetForeground(d, gc, colours[colour]);
+    setUpFont(fontName);
+    XDrawString(d, w, gc, x, y, msg.c_str(), msg.length());
 }

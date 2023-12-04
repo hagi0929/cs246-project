@@ -27,9 +27,9 @@ public:
 
   // Draws a rectangle
   void fillRectangle(int x, int y, int width, int height, int colour = Black);
-
-  // Draws a string
-  void drawString(int x, int y, std::string msg);
+  void fillGreyCircle(int x, int y, int width, int height);
+  void setUpFont(const std::string& fontname);
+  void drawString(int x, int y, std::string msg, int colour, const std::string& fontName);
 };
 
 #endif
