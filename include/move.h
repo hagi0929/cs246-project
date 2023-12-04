@@ -7,9 +7,6 @@
 class Move {
   int curRow, curCol, destRow, destCol, capturedMoveCount = 0;
   char promotion, capturedPiece = ' ';
-  int getRow(std::string coor) const;
-  int getCol(std::string coor) const;
-
 
  public:
   Move(std::string cur, std::string dest, char promotion);
