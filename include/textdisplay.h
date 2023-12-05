@@ -6,10 +6,11 @@
 #include "cell.h"
 #include "display.h"
 
-class TextDisplay: public Display {
+class TextDisplay : public View
+{
   std::vector<std::vector<char>> theDisplay;
 
- public:
+public:
   TextDisplay();
   ~TextDisplay();
   void display() override;

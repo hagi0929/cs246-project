@@ -1,7 +1,7 @@
 CXX = g++-11 -std=c++20
 INC_DIR = ./include
 BUILD_DIR = ./build
-CXXFLAGS = -Wall -g -MMD -lX11 -I$(INC_DIR)
+CXXFLAGS = -Wall -g -MMD -I$(INC_DIR)
 SOURCES = $(wildcard src/*.cc)
 SOURCES += $(wildcard src/**/*.cc)
 SOURCES += $(wildcard src/**/**/*.cc)
@@ -11,7 +11,7 @@ EXEC = chess
 D = 0
 
 $(EXEC): $(OBJS)
-	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(EXEC)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -lX11 -o $(EXEC)
 	@echo "compiled successfully"
 
 $(BUILD_DIR)/%.o: src/%.cc
