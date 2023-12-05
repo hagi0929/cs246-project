@@ -26,7 +26,7 @@ class GameBoard : public std::enable_shared_from_this<GameBoard> {
   ~GameBoard();
   void init(std::shared_ptr<Observer> o);
   void doValidMove(std::shared_ptr<Move> m);
-  void movePiece(std::shared_ptr<Move> m);
+  void movePiece(std::shared_ptr<Move> m, bool AI);
   void addPiece(std::shared_ptr<Piece> p, std::pair<int, int> coor);
   void removePiece(std::pair<int, int> coor);
   void setTurn(int player);

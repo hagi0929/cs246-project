@@ -138,7 +138,7 @@ void Eyes::updateState(int attacker, int defender) {
 }
 
 bool Eyes::isSafeMove(shared_ptr<Move> m) {
-
+  cout << "in isSafeMove" << endl;
   board->doValidMove(m);
   // cout << "tried move " << *m << " for " <<
   // board->getCell(m->getDest())->getPiece()->getType() << endl; cout <<

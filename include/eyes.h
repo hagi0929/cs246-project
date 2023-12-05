@@ -18,7 +18,6 @@ class Eyes {
   std::vector<bool> isCheckmated;
   bool isStalemate;
   void updateIsCheckmated(int attacker, int defender);
-  void updateIsChecked(int attacker, int defender);
   void updateIsStalemate(int attacker, int defender);
 
  public:
@@ -31,6 +30,7 @@ class Eyes {
   bool getIsStalemate() const;
   void removePiece(std::shared_ptr<Piece> p);
   void addPiece(std::shared_ptr<Piece> p);
+  void updateIsChecked(int attacker, int defender);
   // Updates isChecked, isCheckmated, and isStalemate
   // where defender is the player getting attacked
   void updateState(int attacker, int defender);

@@ -14,7 +14,7 @@ userCmd Computer2::getResponse() {
     vector<shared_ptr<Move>> pieceValidMoves = piece->possibleMoves(true);
     for (auto move : pieceValidMoves) {
       int score = 0;
-      eye->getBoard()->movePiece(move);
+      eye->getBoard()->movePiece(move, true);
       if (move->getCapturedPiece() != ' ') {
         score += 10;
       }

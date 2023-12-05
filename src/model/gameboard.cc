@@ -68,9 +68,13 @@ void GameBoard::doValidMove(shared_ptr<Move> m) {
     removePiece(m->getDest());
   }
 
+  if (!board[m->getCurRow()][m->getCurCol()]->getPiece()) cout << "no cur piece" << endl;
   board[m->getDestRow()][m->getDestCol()]->setPiece(
       board[m->getCurRow()][m->getCurCol()]->getPiece());
   board[m->getCurRow()][m->getCurCol()]->setPiece(nullptr);
+  cout << m->getCurRow() << ", " << m->getCurCol() << "to" << endl;
+  cout << m->getDestRow() << ", " << m->getDestCol() << endl;
+  if (!board[m->getDestRow()][m->getDestCol()]->getPiece()) cout << "no piece" << endl;
   board[m->getDestRow()][m->getDestCol()]->getPiece()->setCoor(m->getDest());
 
   if (m->getPromotion() != ' ') {
@@ -86,7 +90,7 @@ void GameBoard::doValidMove(shared_ptr<Move> m) {
   log.undoPush(m);
 }
 
-void GameBoard::movePiece(shared_ptr<Move> m) {
+void GameBoard::movePiece(shared_ptr<Move> m, bool AI) {
   pair<int, int> cur = m->getCur();
   if (!getCell(cur)->getPiece() ||
       getCell(cur)->getPiece()->getPlayer() != thisTurn) {
@@ -109,13 +113,15 @@ void GameBoard::movePiece(shared_ptr<Move> m) {
       // cout << "state updated" <<endl;
       // cout << getThisTurn() << "'s turn" <<endl;
 
-      if (eyes->getIsCheckmated(thisTurn)) {
-        cout << "Checkmate! Player " << (thisTurn + 1) % 2 << " Wins!" << endl;
-      } else if (eyes->getIsChecked(thisTurn)) {
-        cout << "Player " << (thisTurn + 1) % 2 << " checked Player "
-             << thisTurn << "!" << endl;
-      } else if (eyes->getIsStalemate()) {
-        cout << "Stalemate! The game is a draw." << endl;
+      if (!AI) {
+        if (eyes->getIsCheckmated(thisTurn)) {
+          cout << "Checkmate! Player " << (thisTurn + 1) % 2 << " Wins!" << endl;
+        } else if (eyes->getIsChecked(thisTurn)) {
+          cout << "Player " << (thisTurn + 1) % 2 << " checked Player "
+              << thisTurn << "!" << endl;
+        } else if (eyes->getIsStalemate()) {
+          cout << "Stalemate! The game is a draw." << endl;
+        }
       }
       return;
     }
@@ -132,10 +138,11 @@ void GameBoard::setTurn(int player) { thisTurn = player; }
 void GameBoard::undo(bool push) {
   try {
     // cout << endl;
-    // cout << "undo called" << endl;
+    cout << "undo called";
     // cout << "-----------" << endl;
     shared_ptr<Move> m = log.undo();
     if (push) log.redoPush(m);
+    cout << " on " << m->getCurRow() << "," << m->getCurCol() << "->" << m->getDestRow() << "," << m->getDestCol() << endl;
     thisTurn = (thisTurn + 1) % 2;
 
     if (m->getPromotion() != ' ') {
@@ -147,7 +154,7 @@ void GameBoard::undo(bool push) {
     }
 
     board[m->getCurRow()][m->getCurCol()]->setPiece(
-        board[m->getDestRow()][m->getDestCol()]->getPiece());
+    board[m->getDestRow()][m->getDestCol()]->getPiece());
     board[m->getDestRow()][m->getDestCol()]->setPiece(nullptr);
     board[m->getCurRow()][m->getCurCol()]->getPiece()->setCoor(m->getCur());
 
@@ -156,14 +163,11 @@ void GameBoard::undo(bool push) {
       getCell(m->getDest())
           ->getPiece()
           ->setMoveCount(m->getCapturedMoveCount());
+      eyes->addPiece(getCell(m->getDest())->getPiece());
     }
 
     getCell(m->getCur())->getPiece()->subtractMove();
-    eyes->updateState(thisTurn, (thisTurn + 1) % 2);
-    if (eyes->getIsChecked((thisTurn + 1) % 2)) {
-      cout << "Player " << thisTurn << " checked Player "
-            << (thisTurn + 1) % 2 << "!" << endl;
-    }
+    eyes->updateIsChecked((thisTurn + 1) % 2, thisTurn);
   } catch (runtime_error &e) {
     throw;
   }
@@ -177,11 +181,7 @@ void GameBoard::redo() {
     cout << "redo " << *m << endl;
     doValidMove(m);
     cout << endl;
-    eyes->updateState((thisTurn + 1) % 2, thisTurn);
-    if (eyes->getIsChecked(thisTurn)) {
-      cout << "Player " << (thisTurn + 1) % 2 << " checked Player "
-            << thisTurn << "!" << endl;
-    }
+    eyes->updateIsChecked((thisTurn + 1) % 2, thisTurn);
   } catch (runtime_error &e) {
     throw;
   }

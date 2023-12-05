@@ -150,7 +150,7 @@ void Game::activate() {
           } else {
             m = make_shared<Move>(cmdObj.cmd[1], cmdObj.cmd[2], ' ');
           }
-          gameBoard->movePiece(m);
+          gameBoard->movePiece(m, false);
         } else if (cmdObj.type == cmdType::UNDO) {
           gameBoard->undo(true);
         } else if (cmdObj.type == cmdType::REDO) {
