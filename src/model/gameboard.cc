@@ -94,22 +94,24 @@ void GameBoard::movePiece(shared_ptr<Move> m)
     throw runtime_error("Wrong piece selected");
   }
 
-  vector<shared_ptr<Move>> validMoves = getCell(m->getCur())->getPiece()->possibleMoves();
+  vector<shared_ptr<Move>> validMoves = getCell(m->getCur())->getPiece()->possibleMoves(true);
+  //cout << "got " << validMoves.size() << " valid moves" << endl;
   for (auto move : validMoves)
   {
     if (*move == *m)
     {
       doValidMove(m);
+      //cout << "tried valid in gameboard" << endl;
       log.clearRedoStack();
-      cout << getThisTurn() << "'s turn" <<endl;
+      //cout << getThisTurn() << "'s turn" <<endl;
       eyes->updateState((thisTurn + 1) % 2, thisTurn);
-      cout << "state updated" <<endl;
-      cout << getThisTurn() << "'s turn" <<endl;
+      //cout << "state updated" <<endl;
+      //cout << getThisTurn() << "'s turn" <<endl;
       
       if (eyes->getIsCheckmated(thisTurn)) {
         cout << "Checkmate! Player " << (thisTurn + 1) % 2 << " Wins!" << endl;
       } else if (eyes->getIsChecked(thisTurn)) {
-        cout << "Player " << (thisTurn + 1) % 2 << " checked Player " << thisTurn << endl;
+        cout << "Player " << (thisTurn + 1) % 2 << " checked Player " << thisTurn << "!" << endl;
       } else if (eyes->getIsStalemate()) {
         cout << "Stalemate! The game is a draw." << endl;
       }
@@ -130,9 +132,9 @@ void GameBoard::removePiece(pair<int, int> coor)
 void GameBoard::setTurn(int player) { thisTurn = player; }
 void GameBoard::undo(bool push) {
   try {
-    cout << endl;
-    cout << "undo called" << endl;
-    cout << "-----------" << endl;
+    //cout << endl;
+    //cout << "undo called" << endl;
+    //cout << "-----------" << endl;
     shared_ptr<Move> m = log.undo();
     if (push) log.redoPush(m);
     thisTurn = (thisTurn + 1) % 2;
@@ -163,9 +165,9 @@ void GameBoard::redo()
 {
   try
   {
-    cout << endl;
-    cout << "redo called" << endl;
-    cout << "-----------" << endl;
+    //cout << endl;
+    //cout << "redo called" << endl;
+    //cout << "-----------" << endl;
     shared_ptr<Move> m = log.redo();
     doValidMove(m);
     cout << endl;

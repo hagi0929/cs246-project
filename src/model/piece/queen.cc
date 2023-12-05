@@ -4,7 +4,7 @@ using namespace std;
 Queen::Queen(pair<int, int> coor, int player, shared_ptr<Eyes> eyes)
     : Piece{coor, player, eyes} {}
 
-vector<shared_ptr<Move>> Queen::possibleMoves() const
+vector<shared_ptr<Move>> Queen::possibleMoves(bool checkSafety) const
 {
   vector<shared_ptr<Move>> validMoves;
 
@@ -30,12 +30,14 @@ vector<shared_ptr<Move>> Queen::possibleMoves() const
       {
         if (eyes->isOpponent(nextCoor))
         {
-          validMoves.emplace_back(make_shared<Move>(coor, nextCoor, ' '));
+          shared_ptr<Move> m = make_shared<Move>(coor, nextCoor, ' ');
+          if ((checkSafety && eyes->isSafeMove(m)) || !checkSafety) validMoves.emplace_back(m);
         }
         break;
       }
 
-      validMoves.emplace_back(make_shared<Move>(coor, nextCoor, ' '));
+      shared_ptr<Move> m = make_shared<Move>(coor, nextCoor, ' ');
+      if ((checkSafety && eyes->isSafeMove(m)) || !checkSafety) validMoves.emplace_back(m);
     }
   }
 

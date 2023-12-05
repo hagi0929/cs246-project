@@ -57,9 +57,7 @@ bool Move::operator==(const Move &other) const {
           curCol == other.getCurCol() &&
           destRow == other.getDestRow() &&
           destCol == other.getDestCol() &&
-          promotion == other.getPromotion() &&
-          capturedMoveCount == other.getCapturedMoveCount() &&
-          capturedPiece == other.getCapturedPiece());
+          promotion == other.getPromotion());
 }
 
 ostream &operator<<(ostream &out, const Move &move)

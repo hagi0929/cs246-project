@@ -8,6 +8,7 @@
 class GameBoard;
 class Cell;
 class Piece;
+class Move;
 
 class Eyes {
   std::shared_ptr<GameBoard> board;
@@ -16,7 +17,7 @@ class Eyes {
   std::vector<bool> isChecked;
   std::vector<bool> isCheckmated;
   bool isStalemate;
-  void updateIsCheckmated(std::pair<int, int> kingCoor, int attacker, int defender);
+  void updateIsCheckmated(int attacker, int defender);
   void updateIsChecked(int attacker, int defender);
   void updateIsStalemate(int attacker, int defender);
 
@@ -24,7 +25,7 @@ class Eyes {
   Eyes(std::shared_ptr<GameBoard> board);
   bool isOccupied(std::pair<int, int> coor) const;
   bool isOpponent(std::pair<int, int> coor) const;
-  bool checked(std::pair<int, int> kingCoor, int attacker, int defender) const;
+  bool checked(int attacker, int defender) const;
   bool getIsChecked(int player) const;
   bool getIsCheckmated(int player) const;
   bool getIsStalemate() const;
@@ -33,6 +34,7 @@ class Eyes {
   // Updates isChecked, isCheckmated, and isStalemate
   // where defender is the player getting attacked
   void updateState(int attacker, int defender);
+  bool isSafeMove(std::shared_ptr<Move> m);
 };
 
 #endif

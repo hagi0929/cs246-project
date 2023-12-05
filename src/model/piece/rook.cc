@@ -5,7 +5,7 @@ using namespace std;
 Rook::Rook(pair<int, int> coor, int player, shared_ptr<Eyes> eyes)
     : Piece{coor, player, eyes} {}
 
-vector<shared_ptr<Move>> Rook::possibleMoves() const
+vector<shared_ptr<Move>> Rook::possibleMoves(bool checkSafety) const
 {
     vector<shared_ptr<Move>> validMoves;
 
@@ -29,13 +29,15 @@ vector<shared_ptr<Move>> Rook::possibleMoves() const
             if (eyes->isOccupied(nextCoor)) {
                 // If occupied by an opponent, add as a valid move, then break
                 if (eyes->isOpponent(nextCoor)) {
-                    validMoves.emplace_back(make_shared<Move>(coor, nextCoor, ' '));
+                    shared_ptr<Move> m = make_shared<Move>(coor, nextCoor, ' ');
+                    if ((checkSafety && eyes->isSafeMove(m)) || !checkSafety) validMoves.emplace_back(m);
                 }
                 break;
             }
 
             // Add the move if the cell is not occupied
-            validMoves.emplace_back(make_shared<Move>(coor, nextCoor, ' '));
+            shared_ptr<Move> m = make_shared<Move>(coor, nextCoor, ' ');
+            if ((checkSafety && eyes->isSafeMove(m)) || !checkSafety) validMoves.emplace_back(m);
         }
     }
     return validMoves;
