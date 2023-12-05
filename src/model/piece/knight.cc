@@ -6,7 +6,7 @@ Knight::Knight(pair<int, int> coor, int player, shared_ptr<Eyes> eyes)
 
 vector<shared_ptr<Move>> Knight::possibleMoves(bool checkSafety) const {
   vector<shared_ptr<Move>> validMoves;
-
+  const pair<int, int> coor = getCoor();
   if (coor.first - 2 >= 0) {
     if (coor.second - 1 >= 0 &&
         (!eyes->isOccupied({coor.first - 2, coor.second - 1}) ||

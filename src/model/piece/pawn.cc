@@ -27,32 +27,34 @@ vector<shared_ptr<Move>> Pawn::possibleMoves(bool checkSafety) const {
   }
 
   for (auto &dir : moveDirections) {
-    pair<int, int> nextCoor = {coor.first + dir.first,
-                               coor.second + dir.second};
+    const pair<int, int> curCoor = {coor.first, coor.second};
+
+    const pair<int, int> nextCoor = {coor.first + dir.first,
+                                     coor.second + dir.second};
     if (nextCoor.first >= 0 && nextCoor.first <= 7 && nextCoor.second >= 0 &&
-        nextCoor.second <= 7 && (coor.second != nextCoor.second ||
-        coor.first != nextCoor.first)) {
+        nextCoor.second <= 7 &&
+        (coor.second != nextCoor.second || coor.first != nextCoor.first)) {
       if (!eyes->isOccupied(nextCoor)) {
         if (nextCoor.first == 0 || nextCoor.first == 7) {
           shared_ptr<Move> mQueen{
-              new Move{coor, nextCoor, getPlayer() == 0 ? 'Q' : 'q', "0"}};
+              new Move{curCoor, nextCoor, getPlayer() == 0 ? 'Q' : 'q', "0"}};
           if ((checkSafety && eyes->isSafeMove(mQueen)) || !checkSafety)
             validMoves.emplace_back(mQueen);
           shared_ptr<Move> mRook{
-              new Move{coor, nextCoor, getPlayer() == 0 ? 'R' : 'r', "4"}};
+              new Move{curCoor, nextCoor, getPlayer() == 0 ? 'R' : 'r', "4"}};
           if ((checkSafety && eyes->isSafeMove(mRook)) || !checkSafety)
             validMoves.emplace_back(mRook);
           shared_ptr<Move> mKnight{
-              new Move{coor, nextCoor, getPlayer() == 0 ? 'N' : 'n', "8"}};
+              new Move{curCoor, nextCoor, getPlayer() == 0 ? 'N' : 'n', "8"}};
           if ((checkSafety && eyes->isSafeMove(mKnight)) || !checkSafety)
             validMoves.emplace_back(mKnight);
           shared_ptr<Move> mBishop{
-              new Move{coor, nextCoor, getPlayer() == 0 ? 'B' : 'b', "12"}};
+              new Move{curCoor, nextCoor, getPlayer() == 0 ? 'B' : 'b', "12"}};
           if ((checkSafety && eyes->isSafeMove(mBishop)) || !checkSafety)
             validMoves.emplace_back(mBishop);
         } else {
           shared_ptr<Move> m{
-              new Move{coor, nextCoor, getPlayer() == 0 ? ' ' : ' ', "16"}};
+              new Move{curCoor, nextCoor, getPlayer() == 0 ? ' ' : ' ', "16"}};
           if ((checkSafety && eyes->isSafeMove(m)) || !checkSafety)
             validMoves.emplace_back(m);
         }
@@ -60,29 +62,30 @@ vector<shared_ptr<Move>> Pawn::possibleMoves(bool checkSafety) const {
     }
   }
   for (auto &dir : attackDirections) {
-    pair<int, int> nextCoor = {coor.first + dir.first,
-                               coor.second + dir.second};
+    const pair<int, int> curCoor = {coor.first, coor.second};
+    const pair<int, int> nextCoor = {coor.first + dir.first,
+                                     coor.second + dir.second};
 
     if (nextCoor.first >= 0 && nextCoor.first <= 7 && nextCoor.second >= 0 &&
-        nextCoor.second <= 7 && (coor.second != nextCoor.second ||
-        coor.first != nextCoor.first)) {
+        nextCoor.second <= 7 &&
+        (coor.second != nextCoor.second || coor.first != nextCoor.first)) {
       if (eyes->isOccupied(nextCoor) &&
           eyes->isOpponent(nextCoor)) {  // opponent piece
         if (nextCoor.first == 0 || nextCoor.first == 7) {
           shared_ptr<Move> mQueen{
-              new Move{coor, nextCoor, getPlayer() == 0 ? 'Q' : 'q', "20"}};
+              new Move{curCoor, nextCoor, getPlayer() == 0 ? 'Q' : 'q', "20"}};
           if ((checkSafety && eyes->isSafeMove(mQueen)) || !checkSafety)
             validMoves.emplace_back(mQueen);
           shared_ptr<Move> mRook{
-              new Move{coor, nextCoor, getPlayer() == 0 ? 'R' : 'r', "24"}};
+              new Move{curCoor, nextCoor, getPlayer() == 0 ? 'R' : 'r', "24"}};
           if ((checkSafety && eyes->isSafeMove(mRook)) || !checkSafety)
             validMoves.emplace_back(mRook);
           shared_ptr<Move> mKnight{
-              new Move{coor, nextCoor, getPlayer() == 0 ? 'N' : 'n', "28"}};
+              new Move{curCoor, nextCoor, getPlayer() == 0 ? 'N' : 'n', "28"}};
           if ((checkSafety && eyes->isSafeMove(mKnight)) || !checkSafety)
             validMoves.emplace_back(mKnight);
           shared_ptr<Move> mBishop{
-              new Move{coor, nextCoor, getPlayer() == 0 ? 'B' : 'b', "32"}};
+              new Move{curCoor, nextCoor, getPlayer() == 0 ? 'B' : 'b', "32"}};
           if ((checkSafety && eyes->isSafeMove(mBishop)) || !checkSafety)
             validMoves.emplace_back(mBishop);
         } else {

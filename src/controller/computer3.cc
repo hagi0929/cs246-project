@@ -5,7 +5,7 @@ Computer3::Computer3(shared_ptr<Eyes> eye) : Computer{eye} {}
 
 int Computer3::calculateScore(shared_ptr<Move> move) {
   int score = 0;
-  eye->getBoard()->movePiece(move);
+  eye->getBoard()->doValidMove(move);
   if (eye->getIsChecked(eye->getThisTurn())) {
     score += 10;
   }
@@ -35,7 +35,7 @@ userCmd Computer3::getResponse() {
     vector<shared_ptr<Move>> pieceValidMoves = piece->possibleMoves(true);
     for (auto move : pieceValidMoves) {
       int score = 0;
-      eye->getBoard()->movePiece(move);
+      eye->getBoard()->doValidMove(move);
       if (move->getCapturedPiece() != ' ') {
         score += 10;
       }

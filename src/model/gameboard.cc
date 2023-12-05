@@ -57,7 +57,7 @@ void GameBoard::doValidMove(shared_ptr<Move> m) {
   // validate move obj is in the board
   if (m->getDestRow() < 0 || m->getDestRow() >= BOARD_SIZE ||
       m->getDestCol() < 0 || m->getDestCol() >= BOARD_SIZE) {
-    cout <<*m << endl;
+    cout << *m << endl;
     throw runtime_error("Invalid move");
   }
   if (!getCell(m->getDest())->isEmpty() &&
@@ -159,6 +159,11 @@ void GameBoard::undo(bool push) {
     }
 
     getCell(m->getCur())->getPiece()->subtractMove();
+    eyes->updateState(thisTurn, (thisTurn + 1) % 2);
+    if (eyes->getIsChecked((thisTurn + 1) % 2)) {
+      cout << "Player " << thisTurn << " checked Player "
+            << (thisTurn + 1) % 2 << "!" << endl;
+    }
   } catch (runtime_error &e) {
     throw;
   }
@@ -172,6 +177,11 @@ void GameBoard::redo() {
     cout << "redo " << *m << endl;
     doValidMove(m);
     cout << endl;
+    eyes->updateState((thisTurn + 1) % 2, thisTurn);
+    if (eyes->getIsChecked(thisTurn)) {
+      cout << "Player " << (thisTurn + 1) % 2 << " checked Player "
+            << thisTurn << "!" << endl;
+    }
   } catch (runtime_error &e) {
     throw;
   }

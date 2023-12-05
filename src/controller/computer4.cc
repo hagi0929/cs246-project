@@ -5,8 +5,11 @@ using namespace std;
 Computer4::Computer4(shared_ptr<Eyes> eye) : Computer{eye} {}
 
 int Computer4::calculateScore(shared_ptr<Move> move, int depth) {
+  if (depth == 0) {
+    return 0;
+  }
   int score = 0;
-  eye->getBoard()->movePiece(move);
+  eye->getBoard()->doValidMove(move);
   if (tolower(move->getCapturedPiece()) == 'k') {
     score += 100;
   }
@@ -46,14 +49,17 @@ int Computer4::calculateScore(shared_ptr<Move> move, int depth) {
 }
 
 userCmd Computer4::getResponse() {
-  cout << "endl";
+  cout << "Computer4's turn" << endl;
   int turn = eye->getThisTurn();
   vector<pair<shared_ptr<Move>, int>> validMoves;
   int score = 0;
+  cout << eye->getPieces(turn).size() << endl;
   for (auto piece : eye->getPieces(turn)) {
     vector<shared_ptr<Move>> pieceValidMoves = piece->possibleMoves(true);
+    cout << "piece: " << piece->getType() << endl;
     for (auto move : pieceValidMoves) {
       score = calculateScore(move, 5);
+      cout << *move << " " << score << endl;
       validMoves.emplace_back(make_pair(move, score));
     }
   }
