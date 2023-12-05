@@ -14,15 +14,14 @@
 
 const int BOARD_SIZE = 8;
 
-class GameBoard : public std::enable_shared_from_this<GameBoard>
-{
+class GameBoard : public std::enable_shared_from_this<GameBoard> {
   std::shared_ptr<Cell> board[BOARD_SIZE][BOARD_SIZE];
   std::shared_ptr<Eyes> eyes = nullptr;
   GameLog log;
   int thisTurn;
   bool playerColors[2];
 
-public:
+ public:
   GameBoard();
   ~GameBoard();
   void init(std::shared_ptr<Observer> o);
@@ -37,6 +36,7 @@ public:
   int getThisTurn() const;
   void createPiece(std::pair<int, int> coor, char p);
   std::shared_ptr<Cell> getCell(std::pair<int, int> coor) const;
+  std::shared_ptr<Eyes> getEyes() const;
 };
 
 #endif

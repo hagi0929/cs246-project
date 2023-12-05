@@ -1,11 +1,15 @@
 #ifndef COMPUTER_H
 #define COMPUTER_H
+#include "eyes.h"
 #include "player.h"
+#include <algorithm>
 
 class Computer : public Player {
-  GameBoard *board;
+ protected:
+  std::shared_ptr<Eyes> eye;
+
  public:
-  Computer(GameBoard *board);
+  Computer(std::shared_ptr<Eyes> eye);
 };
 
 #endif

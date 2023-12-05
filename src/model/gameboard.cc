@@ -2,22 +2,16 @@
 
 using namespace std;
 
-GameBoard::GameBoard() : thisTurn{0}, playerColors{{}}, eyes{nullptr}
-{
-  for (int i = 0; i < BOARD_SIZE; ++i)
-  {
-    for (int j = 0; j < BOARD_SIZE; ++j)
-    {
+GameBoard::GameBoard() : thisTurn{0}, playerColors{{}}, eyes{nullptr} {
+  for (int i = 0; i < BOARD_SIZE; ++i) {
+    for (int j = 0; j < BOARD_SIZE; ++j) {
       board[i][j] = make_shared<Cell>(make_pair(i, j));
     }
   }
 }
-void GameBoard::init(shared_ptr<Observer> o)
-{
-  for (int i = 0; i < BOARD_SIZE; ++i)
-  {
-    for (int j = 0; j < BOARD_SIZE; ++j)
-    {
+void GameBoard::init(shared_ptr<Observer> o) {
+  for (int i = 0; i < BOARD_SIZE; ++i) {
+    for (int j = 0; j < BOARD_SIZE; ++j) {
       board[i][j]->subscribe(o);
     }
   }
@@ -60,15 +54,22 @@ GameBoard::~GameBoard() {}
 
 void GameBoard::doValidMove(shared_ptr<Move> m) {
   // player captures enemy piece
-  if (!getCell(m->getDest())->isEmpty() && getCell(m->getDest())->getPiece()->getPlayer() != thisTurn)
-  {
+  // validate move obj is in the board
+  if (m->getDestRow() < 0 || m->getDestRow() >= BOARD_SIZE ||
+      m->getDestCol() < 0 || m->getDestCol() >= BOARD_SIZE) {
+    cout <<*m << endl;
+    throw runtime_error("Invalid move");
+  }
+  if (!getCell(m->getDest())->isEmpty() &&
+      getCell(m->getDest())->getPiece()->getPlayer() != thisTurn) {
     m->setCapturedPiece(getCell(m->getDest())->getPiece()->getType());
     m->setCapturedMoveCount(getCell(m->getDest())->getPiece()->getMoveCount());
     eyes->removePiece(getCell(m->getDest())->getPiece());
     removePiece(m->getDest());
   }
 
-  board[m->getDestRow()][m->getDestCol()]->setPiece(board[m->getCurRow()][m->getCurCol()]->getPiece());
+  board[m->getDestRow()][m->getDestCol()]->setPiece(
+      board[m->getCurRow()][m->getCurCol()]->getPiece());
   board[m->getCurRow()][m->getCurCol()]->setPiece(nullptr);
   board[m->getDestRow()][m->getDestCol()]->getPiece()->setCoor(m->getDest());
 
@@ -85,56 +86,54 @@ void GameBoard::doValidMove(shared_ptr<Move> m) {
   log.undoPush(m);
 }
 
-void GameBoard::movePiece(shared_ptr<Move> m)
-{
+void GameBoard::movePiece(shared_ptr<Move> m) {
   pair<int, int> cur = m->getCur();
-  if (!getCell(cur)->getPiece() || getCell(cur)->getPiece()->getPlayer() != thisTurn)
-  {
-    if (!getCell(cur)->getPiece()) cout << "no piece at " << getCell(cur)->getRow() << "," << getCell(cur)->getCol() << endl;
+  if (!getCell(cur)->getPiece() ||
+      getCell(cur)->getPiece()->getPlayer() != thisTurn) {
+    if (!getCell(cur)->getPiece())
+      cout << "no piece at " << getCell(cur)->getRow() << ","
+           << getCell(cur)->getCol() << endl;
     throw runtime_error("Wrong piece selected");
   }
 
-  vector<shared_ptr<Move>> validMoves = getCell(m->getCur())->getPiece()->possibleMoves(true);
-  //cout << "got " << validMoves.size() << " valid moves" << endl;
-  for (auto move : validMoves)
-  {
-    if (*move == *m)
-    {
+  vector<shared_ptr<Move>> validMoves =
+      getCell(m->getCur())->getPiece()->possibleMoves(true);
+  // cout << "got " << validMoves.size() << " valid moves" << endl;
+  for (auto move : validMoves) {
+    if (*move == *m) {
       doValidMove(m);
-      //cout << "tried valid in gameboard" << endl;
+      // cout << "tried valid in gameboard" << endl;
       log.clearRedoStack();
-      //cout << getThisTurn() << "'s turn" <<endl;
+      // cout << getThisTurn() << "'s turn" <<endl;
       eyes->updateState((thisTurn + 1) % 2, thisTurn);
-      //cout << "state updated" <<endl;
-      //cout << getThisTurn() << "'s turn" <<endl;
-      
+      // cout << "state updated" <<endl;
+      // cout << getThisTurn() << "'s turn" <<endl;
+
       if (eyes->getIsCheckmated(thisTurn)) {
         cout << "Checkmate! Player " << (thisTurn + 1) % 2 << " Wins!" << endl;
       } else if (eyes->getIsChecked(thisTurn)) {
-        cout << "Player " << (thisTurn + 1) % 2 << " checked Player " << thisTurn << "!" << endl;
+        cout << "Player " << (thisTurn + 1) % 2 << " checked Player "
+             << thisTurn << "!" << endl;
       } else if (eyes->getIsStalemate()) {
         cout << "Stalemate! The game is a draw." << endl;
       }
       return;
     }
   }
-
   throw runtime_error("Invalid move");
 }
-void GameBoard::addPiece(shared_ptr<Piece> p, pair<int, int> coor)
-{
+void GameBoard::addPiece(shared_ptr<Piece> p, pair<int, int> coor) {
   board[coor.first][coor.second]->setPiece(p);
 }
-void GameBoard::removePiece(pair<int, int> coor)
-{
+void GameBoard::removePiece(pair<int, int> coor) {
   board[coor.first][coor.second]->removePiece();
 }
 void GameBoard::setTurn(int player) { thisTurn = player; }
 void GameBoard::undo(bool push) {
   try {
-    //cout << endl;
-    //cout << "undo called" << endl;
-    //cout << "-----------" << endl;
+    // cout << endl;
+    // cout << "undo called" << endl;
+    // cout << "-----------" << endl;
     shared_ptr<Move> m = log.undo();
     if (push) log.redoPush(m);
     thisTurn = (thisTurn + 1) % 2;
@@ -147,13 +146,16 @@ void GameBoard::undo(bool push) {
       getCell(m->getDest())->getPiece()->setMoveCount(moveCount);
     }
 
-    board[m->getCurRow()][m->getCurCol()]->setPiece(board[m->getDestRow()][m->getDestCol()]->getPiece());
+    board[m->getCurRow()][m->getCurCol()]->setPiece(
+        board[m->getDestRow()][m->getDestCol()]->getPiece());
     board[m->getDestRow()][m->getDestCol()]->setPiece(nullptr);
     board[m->getCurRow()][m->getCurCol()]->getPiece()->setCoor(m->getCur());
 
     if (m->getCapturedPiece() != ' ') {
       createPiece(m->getDest(), m->getCapturedPiece());
-      getCell(m->getDest())->getPiece()->setMoveCount(m->getCapturedMoveCount());
+      getCell(m->getDest())
+          ->getPiece()
+          ->setMoveCount(m->getCapturedMoveCount());
     }
 
     getCell(m->getCur())->getPiece()->subtractMove();
@@ -161,71 +163,63 @@ void GameBoard::undo(bool push) {
     throw;
   }
 }
-void GameBoard::redo()
-{
-  try
-  {
-    //cout << endl;
-    //cout << "redo called" << endl;
-    //cout << "-----------" << endl;
+void GameBoard::redo() {
+  try {
+    // cout << endl;
+    // cout << "redo called" << endl;
+    // cout << "-----------" << endl;
     shared_ptr<Move> m = log.redo();
+    cout << "redo " << *m << endl;
     doValidMove(m);
     cout << endl;
-  }
-  catch (runtime_error &e)
-  {
+  } catch (runtime_error &e) {
     throw;
   }
 }
 int GameBoard::getThisTurn() const { return thisTurn; }
-void GameBoard::resign()
-{
+void GameBoard::resign() {
   cout << "player " << thisTurn << " has resigned" << endl;
 }
-shared_ptr<Cell> GameBoard::getCell(pair<int, int> coor) const
-{
+shared_ptr<Cell> GameBoard::getCell(pair<int, int> coor) const {
   return board[coor.first][coor.second];
 }
 
-void GameBoard::createPiece(pair<int, int> coor, char p)
-{
+void GameBoard::createPiece(pair<int, int> coor, char p) {
   shared_ptr<Piece> piece;
   int playerNo;
 
-  if (isupper(p))
-  {
+  if (isupper(p)) {
     playerNo = 0;
-  }
-  else
-  {
+  } else {
     playerNo = 1;
   }
   p = tolower(p);
 
-  switch (p)
-  {
-  case 'p':
-    piece = make_shared<Pawn>(coor, playerNo, eyes);
-    break;
-  case 'r':
-    piece = make_shared<Rook>(coor, playerNo, eyes);
-    break;
-  case 'n':
-    piece = make_shared<Knight>(coor, playerNo, eyes);
-    break;
-  case 'b':
-    piece = make_shared<Bishop>(coor, playerNo, eyes);
-    break;
-  case 'q':
-    piece = make_shared<Queen>(coor, playerNo, eyes);
-    break;
-  case 'k':
-    piece = make_shared<King>(coor, playerNo, eyes);
-    break;
-  default:
-    cerr << "Invalid piece type" << endl;
-    return;
+  switch (p) {
+    case 'p':
+      piece = make_shared<Pawn>(coor, playerNo, eyes);
+      break;
+    case 'r':
+      piece = make_shared<Rook>(coor, playerNo, eyes);
+      break;
+    case 'n':
+      piece = make_shared<Knight>(coor, playerNo, eyes);
+      break;
+    case 'b':
+      piece = make_shared<Bishop>(coor, playerNo, eyes);
+      break;
+    case 'q':
+      piece = make_shared<Queen>(coor, playerNo, eyes);
+      break;
+    case 'k':
+      piece = make_shared<King>(coor, playerNo, eyes);
+      break;
+    default:
+      cerr << "Invalid piece type" << endl;
+      return;
   }
   addPiece(piece, coor);
   eyes->addPiece(piece);
 }
+
+shared_ptr<Eyes> GameBoard::getEyes() const { return eyes; }

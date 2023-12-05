@@ -35,6 +35,10 @@ class Eyes {
   // where defender is the player getting attacked
   void updateState(int attacker, int defender);
   bool isSafeMove(std::shared_ptr<Move> m);
+    int getThisTurn() const;
+  std::vector<std::shared_ptr<Piece>> getPieces(int player) const;
+  std::shared_ptr<GameBoard> getBoard();
+
 };
 
 #endif

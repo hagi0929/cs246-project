@@ -3,14 +3,6 @@
 #include <iostream>
 using namespace std;
 
-void Stack::showStack()
-{
-    for (vector<shared_ptr<Move>>::reverse_iterator it = stack.rbegin(); it != stack.rend(); it++)
-    {
-        cout << *it << endl;
-    }
-}
-
 shared_ptr<Move> Stack::pop()
 {
     shared_ptr<Move> top = peek();
@@ -72,23 +64,4 @@ void GameLog::redoPush(shared_ptr<Move> m)
 
 void GameLog::clearRedoStack() {
     redoStack.clearStack();
-}
-
-void GameLog::showUndoStack()
-{
-    cout << "Undo Stack" << endl;
-    cout << "----------" << endl;
-    undoStack.showStack();
-}
-
-void GameLog::showRedoStack()
-{
-    cout << "Redo Stack" << endl;
-    cout << "----------" << endl;
-    redoStack.showStack();
-}
-
-void GameLog::saveToFile()
-{
-    // TO DO:save all moves into a file(ex : game1.txt)
 }

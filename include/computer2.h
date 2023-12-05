@@ -4,6 +4,8 @@
 
 class Computer2 : public Computer {
  public:
+  Computer2(std::shared_ptr<Eyes> eye);
+
   userCmd getResponse() override;
 };
 

@@ -91,6 +91,4 @@ vector<shared_ptr<Move>> Knight::possibleMoves(bool checkSafety) const {
   return validMoves;
 }
 
-char Knight::getType() const {
-  return getPlayer() == 0 ? 'N' : 'n';
-}
+char Knight::getType() const { return getPlayer() == 0 ? 'N' : 'n'; }
