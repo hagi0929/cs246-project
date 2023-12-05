@@ -55,6 +55,7 @@ GameBoard::~GameBoard() {}
 void GameBoard::doValidMove(shared_ptr<Move> m) {
   // player captures enemy piece
   // validate move obj is in the board
+  cout << "do validMove" << endl;
   if (m->getDestRow() < 0 || m->getDestRow() >= BOARD_SIZE ||
       m->getDestCol() < 0 || m->getDestCol() >= BOARD_SIZE) {
     cout << *m << endl;
@@ -83,6 +84,7 @@ void GameBoard::doValidMove(shared_ptr<Move> m) {
     removePiece(m->getDest());
     createPiece(m->getDest(), m->getPromotion());
     getCell(m->getDest())->getPiece()->setMoveCount(moveCount);
+    eyes->addPiece(getCell(m->getDest())->getPiece());
   }
 
   getCell(m->getDest())->getPiece()->addMove();
@@ -91,6 +93,7 @@ void GameBoard::doValidMove(shared_ptr<Move> m) {
 }
 
 void GameBoard::movePiece(shared_ptr<Move> m, bool AI) {
+  cout << "movePiece" << endl;
   pair<int, int> cur = m->getCur();
   if (!getCell(cur)->getPiece() ||
       getCell(cur)->getPiece()->getPlayer() != thisTurn) {
@@ -147,14 +150,15 @@ void GameBoard::undo(bool push) {
 
     if (m->getPromotion() != ' ') {
       int moveCount = getCell(m->getDest())->getPiece()->getMoveCount();
-      eyes->removePiece(getCell(m->getDest())->getPiece());
       removePiece(m->getDest());
+      eyes->removePiece(getCell(m->getDest())->getPiece());
       createPiece(m->getDest(), thisTurn == 0 ? 'P' : 'p');
       getCell(m->getDest())->getPiece()->setMoveCount(moveCount);
+      eyes->addPiece(getCell(m->getDest())->getPiece());
     }
 
     board[m->getCurRow()][m->getCurCol()]->setPiece(
-    board[m->getDestRow()][m->getDestCol()]->getPiece());
+      board[m->getDestRow()][m->getDestCol()]->getPiece());
     board[m->getDestRow()][m->getDestCol()]->setPiece(nullptr);
     board[m->getCurRow()][m->getCurCol()]->getPiece()->setCoor(m->getCur());
 
