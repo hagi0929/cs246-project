@@ -1,1 +1,10 @@
-game computer3 computer3
+game human human
+move a2 a4
+move f7 f5
+move e2 e3
+move a7 a5
+move d1 f3
+move g8 h6
+move f3 e4
+move h6 g8
+move e4 e7

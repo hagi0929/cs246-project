@@ -147,11 +147,11 @@ bool Eyes::isSafeMove(shared_ptr<Move> m) {
   int attacker =
       (board->getCell(m->getDest())->getPiece()->getPlayer() + 1) % 2;
   int defender = board->getCell(m->getDest())->getPiece()->getPlayer();
-
   board->undo(false);
   board->setTurn(defender);
   // cout << board->getThisTurn() << "'s turn, returning false in safe" <<endl;
-  return !checked(attacker, defender);
+  bool chk = checked(attacker, defender);
+  return !chk;
 }
 
 int Eyes::getThisTurn() const { return board->getThisTurn(); }
