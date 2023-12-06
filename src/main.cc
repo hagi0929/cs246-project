@@ -4,13 +4,29 @@
 
 using namespace std;
 
-int main() {
-  try {
-    Game game{cin};
-    game.activate();
-    cout << "Welcome tdo the game!" << endl;
-    cout << "Welcome to the gsdfame!" << endl;
-  } catch (exception& e) {
-    cerr << "ERROR: " << e.what() << endl;
+int main()
+{
+  bool graphics;
+  cout << "Welcome to the game!" << endl;
+  cout << "Would you like to turn on graphics? (y/n)" << endl;
+  char yn;
+  while (cin >> yn)
+  {
+    if (yn == 'y')
+    {
+      graphics = true;
+      break;
+    }
+    else if (yn == 'n')
+    {
+      graphics = false;
+      break;
+    }
+    else
+    {
+      cout << "answer with y or n" << endl;
+    }
   }
+  Game game{cin, graphics};
+  game.activate();
 }

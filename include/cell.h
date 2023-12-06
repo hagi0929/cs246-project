@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "bishop.h"
-#include "display.h"
+#include "view.h"
 #include "king.h"
 #include "knight.h"
 #include "observer.h"

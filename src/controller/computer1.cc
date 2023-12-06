@@ -18,6 +18,5 @@ userCmd Computer1::getResponse() {
   }
 
   int randNum = rand() % validMoves.size();
-  cout << "randNum " << *validMoves[randNum] << endl;
   return userCmd{cmdType::MOVE, validMoves[randNum]->getCmd()};
 }

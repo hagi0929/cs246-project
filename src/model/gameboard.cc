@@ -57,7 +57,6 @@ void GameBoard::doValidMove(shared_ptr<Move> m) {
   // validate move obj is in the board
   if (m->getDestRow() < 0 || m->getDestRow() >= BOARD_SIZE ||
       m->getDestCol() < 0 || m->getDestCol() >= BOARD_SIZE) {
-    cout <<*m << endl;
     throw runtime_error("Invalid move");
   }
   if (!getCell(m->getDest())->isEmpty() &&
@@ -68,7 +67,6 @@ void GameBoard::doValidMove(shared_ptr<Move> m) {
     removePiece(m->getDest());
   }
 
-  cout << *m << endl;
   board[m->getDestRow()][m->getDestCol()]->setPiece(
       board[m->getCurRow()][m->getCurCol()]->getPiece());
   board[m->getCurRow()][m->getCurCol()]->setPiece(nullptr);
@@ -87,36 +85,30 @@ void GameBoard::doValidMove(shared_ptr<Move> m) {
   log.undoPush(m);
 }
 
-void GameBoard::movePiece(shared_ptr<Move> m) {
+void GameBoard::movePiece(shared_ptr<Move> m, bool AI) {
   pair<int, int> cur = m->getCur();
   if (!getCell(cur)->getPiece() ||
       getCell(cur)->getPiece()->getPlayer() != thisTurn) {
-    if (!getCell(cur)->getPiece())
-      cout << "no piece at " << getCell(cur)->getRow() << ","
-           << getCell(cur)->getCol() << endl;
-    throw runtime_error("Wrong piece selected");
+    if (!getCell(cur)->getPiece()) throw runtime_error("Wrong piece selected");
   }
 
   vector<shared_ptr<Move>> validMoves =
       getCell(m->getCur())->getPiece()->possibleMoves(true);
-  // cout << "got " << validMoves.size() << " valid moves" << endl;
   for (auto move : validMoves) {
     if (*move == *m) {
       doValidMove(m);
-      // cout << "tried valid in gameboard" << endl;
       log.clearRedoStack();
-      // cout << getThisTurn() << "'s turn" <<endl;
       eyes->updateState((thisTurn + 1) % 2, thisTurn);
-      // cout << "state updated" <<endl;
-      // cout << getThisTurn() << "'s turn" <<endl;
 
-      if (eyes->getIsCheckmated(thisTurn)) {
-        cout << "Checkmate! Player " << (thisTurn + 1) % 2 << " Wins!" << endl;
-      } else if (eyes->getIsChecked(thisTurn)) {
-        cout << "Player " << (thisTurn + 1) % 2 << " checked Player "
-             << thisTurn << "!" << endl;
-      } else if (eyes->getIsStalemate()) {
-        cout << "Stalemate! The game is a draw." << endl;
+      if (!AI) {
+        if (eyes->getIsCheckmated(thisTurn)) {
+          cout << "Checkmate! Player " << (thisTurn + 1) % 2 << " Wins!" << endl;
+        } else if (eyes->getIsChecked(thisTurn)) {
+          cout << "Player " << (thisTurn + 1) % 2 << " checked Player "
+               << thisTurn << "!" << endl;
+        }   else if (eyes->getIsStalemate()) {
+          cout << "Stalemate! The game is a draw." << endl;
+        }
       }
       return;
     }
@@ -132,9 +124,6 @@ void GameBoard::removePiece(pair<int, int> coor) {
 void GameBoard::setTurn(int player) { thisTurn = player; }
 void GameBoard::undo(bool push) {
   try {
-    // cout << endl;
-    // cout << "undo called" << endl;
-    // cout << "-----------" << endl;
     shared_ptr<Move> m = log.undo();
     if (push) log.redoPush(m);
     thisTurn = (thisTurn + 1) % 2;
@@ -166,13 +155,8 @@ void GameBoard::undo(bool push) {
 }
 void GameBoard::redo() {
   try {
-    // cout << endl;
-    // cout << "redo called" << endl;
-    // cout << "-----------" << endl;
     shared_ptr<Move> m = log.redo();
-    cout << "redo " << *m << endl;
     doValidMove(m);
-    cout << endl;
   } catch (runtime_error &e) {
     throw;
   }

@@ -4,7 +4,7 @@
 #include "computer2.h"
 #include "computer3.h"
 #include "computer4.h"
-#include "display.h"
+#include "view.h"
 #include "gameboard.h"
 #include "human.h"
 
@@ -19,7 +19,7 @@ class Game
   std::istream &in;
 
 public:
-  Game(std::istream &in);
+  Game(std::istream &in, bool graphics);
   ~Game();
   void play();
   void activate();

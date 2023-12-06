@@ -5,9 +5,7 @@
 
 using namespace std;
 
-TextDisplay::TextDisplay()
-{
-
+TextDisplay::TextDisplay() {
   theDisplay.resize(getBoardSize(), vector<char>(8));
 
   int rows[] = {8, 7, 6, 5, 4, 3, 2, 1};
@@ -16,10 +14,8 @@ TextDisplay::TextDisplay()
       {'_', ' '}  // tiles for odd rows
   };
 
-  for (int r = 0; r < getBoardSize(); r++)
-  {
-    for (int c = 0; c < getBoardSize(); c++)
-    {
+  for (int r = 0; r < getBoardSize(); r++) {
+    for (int c = 0; c < getBoardSize(); c++) {
       int i = r % 2, j = c % 2;
       theDisplay[r][c] = tiles[i][j];
     }
@@ -30,30 +26,24 @@ TextDisplay::~TextDisplay() {}
 
 void TextDisplay::display() { cout << *this; }
 
-void TextDisplay::notify(Cell &c)
-{
+void TextDisplay::notify(Cell &c) {
   int row = c.getRow();
   int col = c.getCol();
 
-  if (c.isEmpty())
-  {
+  if (c.isEmpty()) {
     theDisplay[row][col] = ((row + col) % 2 == 0) ? ' ' : '_';
   }
-  else
-  {
+  else {
     theDisplay[row][col] = c.getPiece()->getType();
   }
 }
 
-ostream &operator<<(ostream &out, const TextDisplay &td)
-{
+ostream &operator<<(ostream &out, const TextDisplay &td) {
   int rows[] = {8, 7, 6, 5, 4, 3, 2, 1};
 
-  for (int r = 0; r < td.getBoardSize(); r++)
-  {
+  for (int r = 0; r < td.getBoardSize(); r++) {
     out << rows[r] << " ";
-    for (int c = 0; c < td.getBoardSize(); c++)
-    {
+    for (int c = 0; c < td.getBoardSize(); c++) {
       out << td.theDisplay[r][c];
     }
     out << endl;

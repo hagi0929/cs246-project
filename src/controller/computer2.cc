@@ -7,14 +7,13 @@ using namespace std;
 Computer2::Computer2(shared_ptr<Eyes> eye) : Computer{eye} {}
 
 userCmd Computer2::getResponse() {
-  cout << endl;
   int turn = eye->getThisTurn();
   vector<pair<shared_ptr<Move>, int>> validMoves;
   for (auto piece : eye->getPieces(turn)) {
     vector<shared_ptr<Move>> pieceValidMoves = piece->possibleMoves(true);
     for (auto move : pieceValidMoves) {
       int score = 0;
-      eye->getBoard()->movePiece(move);
+      eye->getBoard()->movePiece(move, true);
       if (move->getCapturedPiece() != ' ') {
         score += 10;
       }
@@ -45,6 +44,5 @@ userCmd Computer2::getResponse() {
     }
   }
   int index = rand() % bestMoves.size();
-  cout << "best move: " << *bestMoves[index].first << endl;
   return userCmd{cmdType::MOVE, bestMoves[index].first->getCmd()};
 }

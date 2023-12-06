@@ -2,7 +2,7 @@
 #define __GRAPHICSDISPLAY_H__
 #include "window.h"
 #include "observer.h"
-#include "display.h"
+#include "view.h"
 
 class Cell;
 

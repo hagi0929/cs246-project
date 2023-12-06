@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "cell.h"
-#include "display.h"
+#include "view.h"
 
 class TextDisplay : public View
 {

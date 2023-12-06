@@ -6,7 +6,7 @@ Computer4::Computer4(shared_ptr<Eyes> eye) : Computer{eye} {}
 
 int Computer4::calculateScore(shared_ptr<Move> move, int depth) {
   int score = 0;
-  eye->getBoard()->movePiece(move);
+  eye->getBoard()->movePiece(move, true);
   if (tolower(move->getCapturedPiece()) == 'k') {
     score += 100;
   }
@@ -46,7 +46,6 @@ int Computer4::calculateScore(shared_ptr<Move> move, int depth) {
 }
 
 userCmd Computer4::getResponse() {
-  cout << "endl";
   int turn = eye->getThisTurn();
   vector<pair<shared_ptr<Move>, int>> validMoves;
   int score = 0;
@@ -74,9 +73,5 @@ userCmd Computer4::getResponse() {
     }
   }
   int index = rand() % bestMoves.size();
-  for (auto move : bestMoves) {
-    cout << *move.first << " " << move.second << endl;
-  }
-  cout << "best move: " << *bestMoves[index].first << endl;
   return userCmd{cmdType::MOVE, bestMoves[index].first->getCmd()};
 }

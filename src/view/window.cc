@@ -30,7 +30,7 @@ Xwindow::Xwindow(int width, int height)
   XFlush(d);
   XFlush(d);
 
-  // Set up colours.
+  // Setup colours.
   XColor xcolour;
   Colormap cmap;
   char color_vals[5][10] = {"white", "black", "red", "green", "blue"};

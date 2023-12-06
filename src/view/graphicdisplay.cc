@@ -1,4 +1,4 @@
-#include "graphicdisplay.h"
+#include "graphicsdisplay.h"
 #include "cell.h"
 #include <iostream>
 
@@ -23,15 +23,6 @@ GraphicsDisplay::GraphicsDisplay() : view{new Xwindow{500, 500}}, WIDTH{500}, HE
         }
     }
 
-    // for (int r = 0; r < boardSize; r++)
-    // {
-    //     for (int c = 0; c < boardSize; c++)
-    //     {
-    //         int x = c, y = r, wh = 0;
-    //         transformation(x, y, wh);
-    //         view->fillRectangle(x, y, wh, wh, 0);
-    //     }
-    // }
     cerr << "Graphic board is created" << endl;
 }
 
@@ -43,9 +34,7 @@ void GraphicsDisplay::transformation(int &x, int &y, int &wh)
     y = wh * y;
 }
 
-GraphicsDisplay::~GraphicsDisplay()
-{
-}
+GraphicsDisplay::~GraphicsDisplay() {}
 
 void GraphicsDisplay::notify(Cell &c)
 {

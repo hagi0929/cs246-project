@@ -1,5 +1,5 @@
-#ifndef DISPLAY_H
-#define DISPLAY_H
+#ifndef VIEW_H
+#define VIEW_H
 
 #include "observer.h"
 

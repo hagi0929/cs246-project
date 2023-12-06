@@ -39,7 +39,6 @@ shared_ptr<Move> GameLog::redo()
         throw runtime_error("Redo stack is empty");
     }
     shared_ptr<Move> lastMove = redoStack.pop();
-    // undoStack.push(lastMove);
     return lastMove;
 }
 shared_ptr<Move> GameLog::undo()
@@ -49,7 +48,6 @@ shared_ptr<Move> GameLog::undo()
         throw runtime_error("Undo stack is empty");
     }
     shared_ptr<Move> lastMove = undoStack.pop();
-    // redoStack.push(lastMove);
     return lastMove;
 }
 void GameLog::undoPush(shared_ptr<Move> m)
