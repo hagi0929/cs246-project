@@ -68,6 +68,7 @@ void GameBoard::doValidMove(shared_ptr<Move> m) {
     removePiece(m->getDest());
   }
 
+  cout << *m << endl;
   board[m->getDestRow()][m->getDestCol()]->setPiece(
       board[m->getCurRow()][m->getCurCol()]->getPiece());
   board[m->getCurRow()][m->getCurCol()]->setPiece(nullptr);

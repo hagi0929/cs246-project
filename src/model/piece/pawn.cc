@@ -8,6 +8,10 @@ vector<shared_ptr<Move>> Pawn::possibleMoves(bool checkSafety) const {
   vector<shared_ptr<Move>> validMoves;
   vector<pair<int, int>> moveDirections;
   vector<pair<int, int>> attackDirections;
+  const pair<int, int> coor = getCoor();
+  const int moveCount = getMoveCount();
+  const int player = getPlayer();
+  const int opponent = player == 0 ? 1 : 0;
   if (getPlayer() == 0) {
     if (moveCount == 0 && coor.first - 2 >= 0 &&
         !eyes->isOccupied({coor.first - 1, coor.second})) {
@@ -27,7 +31,7 @@ vector<shared_ptr<Move>> Pawn::possibleMoves(bool checkSafety) const {
   }
 
   for (auto &dir : moveDirections) {
-    pair<int, int> nextCoor = {coor.first + dir.first,
+    const pair<int, int> nextCoor = {coor.first + dir.first,
                                coor.second + dir.second};
     if (nextCoor.first >= 0 && nextCoor.first <= 7 && nextCoor.second >= 0 &&
         nextCoor.second <= 7 && (coor.second != nextCoor.second ||
@@ -60,7 +64,7 @@ vector<shared_ptr<Move>> Pawn::possibleMoves(bool checkSafety) const {
     }
   }
   for (auto &dir : attackDirections) {
-    pair<int, int> nextCoor = {coor.first + dir.first,
+    const pair<int, int> nextCoor = {coor.first + dir.first,
                                coor.second + dir.second};
 
     if (nextCoor.first >= 0 && nextCoor.first <= 7 && nextCoor.second >= 0 &&
