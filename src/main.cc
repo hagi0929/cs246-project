@@ -1,16 +1,15 @@
-#include <iostream>
 #include <stdexcept>
+
 #include "game.h"
 
 using namespace std;
-
+int const NUMOFPLAYERS = 2;
 int main() {
   try {
     Game game{cin};
-    game.activate();
-    cout << "Welcome tdo the game!" << endl;
-    cout << "Welcome to the gsdfame!" << endl;
+    game.play();
+    cout << "welcome!" << endl;
   } catch (exception& e) {
-    cerr << "ERROR: " << e.what() << endl;
+    cerr << "Game Crashed: " << e.what() << endl;
   }
 }

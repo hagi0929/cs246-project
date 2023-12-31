@@ -1,31 +1,32 @@
 #ifndef GAME_H
 #define GAME_H
-#include "computer1.h"
-#include "computer2.h"
-#include "computer3.h"
-#include "computer4.h"
-#include "display.h"
+#include <iostream>
+#include <memory>
+
+#include "command.h"
 #include "gameboard.h"
-#include "human.h"
+#include "gamestate.h"
+#include "player.h"
 
-const int NUMOFPLAYERS = 2;
-class Game
-{
-  std::shared_ptr<GameBoard> gameBoard;
-  std::shared_ptr<View> display;
-  std::shared_ptr<Player> players[NUMOFPLAYERS];
-  bool gameInProgress = false;
-  bool setupInProgress = false;
+class Game {
   std::istream &in;
+  std::unique_ptr<Gamestate> gamestate;
+  std::unique_ptr<Gameboard> gameboard;
+  std::shared_ptr<Player> players[2];
 
-public:
+ public:
   Game(std::istream &in);
-  ~Game();
   void play();
-  void activate();
-  void setupCmd();
-  void processCmd();
-  std::vector<std::string> parseCmd(std::string cmd);
+  void setState(Gamestate *newState);
+  std::weak_ptr<Player> getCurrentPlayer();
+  void addPieceToBoard(const Coor &coor, char piece);
+  void removePieceFromBoard(const Coor &coor);
+  void movePiece(const Coor &from, const Coor &to, char promotion);
+  void setThisTurn(int turn);
+  void setPlayer(std::string player, int playerNum);
+  void resign();
+  void executeCommand(std::unique_ptr<ICommand> command);
+  std::string getInput();
 };
 
 #endif

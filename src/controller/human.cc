@@ -2,20 +2,21 @@
 
 #include <boost/algorithm/string.hpp>
 #include <iostream>
+#include <string>
+#include <vector>
+
+#include "game.h"
+
 using namespace std;
 
-Human::Human(istream &in) : in{in} {}
-Human::~Human() {}
-
-userCmd Human::getResponse() {
-  string rawCmd;
-  getline(cin, rawCmd);
+Human::Human(Game& game) : game{game} {}
+shared_ptr<ICommand> Human::getCommand() {
+  string rawCmd = game.getInput();
   vector<string> cmd;
   boost::split(cmd, rawCmd, boost::is_any_of(" "));
   if (cmd.size() == 0) {
-    cout << "Invalid command" << endl;
+    throw runtime_error("Invalid command");
   }
-  cmdType type = cmdType::MOVE;
   if (cmd.front() == "move") {
     if (cmd.size() < 3 || 4 < cmd.size()) {
       throw runtime_error("Invalid argument");
@@ -28,21 +29,17 @@ userCmd Human::getResponse() {
     }
     if (cmd.size() == 4 &&
         (cmd[3].size() != 1 ||
-         (cmd[3][0] != 'q' && cmd[3][0] != 'r' && cmd[3][0] != 'b' && cmd[3][0] != 'n' &&
-          cmd[3][0] != 'Q' && cmd[3][0] != 'R' && cmd[3][0] != 'B' && cmd[3][0] != 'N'))) {
+         (cmd[3][0] != 'q' && cmd[3][0] != 'r' && cmd[3][0] != 'b' &&
+          cmd[3][0] != 'k' && cmd[3][0] != 'n' && cmd[3][0] != 'p'))) {
       throw runtime_error("Invalid promotion");
     }
-    type = cmdType::MOVE;
+    return make_shared<MoveCommand>(Coor{cmd[1]}, Coor{cmd[2]},
+                                    cmd.size() == 4 ? cmd[3][0] : ' ');
   } else if (cmd.front() == "quit") {
-    type = cmdType::QUIT;
+    return make_shared<QuitCommand>(QuitCommand());
   } else if (cmd.front() == "resign") {
-    type = cmdType::RESIGN;
-  } else if (cmd.front() == "undo") {
-    type = cmdType::UNDO;
-  } else if (cmd.front() == "redo") {
-    type = cmdType::REDO;
+    return make_shared<ResignCommand>(ResignCommand());
   } else {
     throw runtime_error("Invalid head command ");
   }
-  return userCmd{type, cmd};
 }
