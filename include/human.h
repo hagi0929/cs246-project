@@ -1,14 +1,11 @@
-#ifndef HUMAN_H
-#define HUMAN_H
+#include <iostream>
+
 #include "player.h"
 
 class Human : public Player {
-  std::istream &in;
+  Game &game;
 
  public:
-  Human(std::istream &in);
-  ~Human();
-  userCmd getResponse() override;
+  Human(Game &game);
+  std::shared_ptr<ICommand> getCommand() override;
 };
-
-#endif

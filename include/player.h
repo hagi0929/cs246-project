@@ -1,23 +1,15 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "gameboard.h"
-#include "move.h"
 
-enum class cmdType { MOVE, QUIT, RESIGN, UNDO, REDO };
-
-struct userCmd {
-  cmdType type;
-  std::vector<std::string> cmd = std::vector<std::string>{};
-};
-
+#include "command.h"
 class Player {
- protected:
   int score = 0;
 
  public:
-  virtual userCmd getResponse() = 0;
+  virtual std::shared_ptr<ICommand> getCommand() = 0;
+  void addScore(int);
   int getScore() const;
-  bool hasPromotion() const;
+  void setScore(int);
 };
 
 #endif

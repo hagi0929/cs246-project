@@ -51,6 +51,9 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "fstream": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "variant": "cpp",
+        "ctime": "cpp",
+        "list": "cpp"
     }
 }
