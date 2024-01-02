@@ -55,5 +55,6 @@
         "variant": "cpp",
         "ctime": "cpp",
         "list": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }

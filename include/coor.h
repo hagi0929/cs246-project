@@ -10,10 +10,13 @@ class Coor {
  public:
   Coor(int x, int y);
   Coor(std::string s);
-  int getX();
-  int getY();
+  int getX() const;
+  int getY() const;
   friend std::ostream& operator<<(std::ostream& out, const Coor& coor);
+  bool operator==(const Coor& other) const;
+  Coor operator+(const Coor& other) const;
+  Coor operator-(const Coor& other) const;
+  bool isInbound() const;
 };
-
 
 #endif

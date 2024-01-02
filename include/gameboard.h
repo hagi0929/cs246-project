@@ -6,7 +6,7 @@
 class Gameboard {
   Cell board[8][8];
   int thisTurn = 0;
-
+  std::vector<std::shared_ptr<Piece>> capturedPieces;
  public:
   Gameboard();
   Cell &getCell(int row, int col);
@@ -18,6 +18,8 @@ class Gameboard {
   void movePiece(const Coor &from, const Coor &to, char promotion);
   void setThisTurn(int turn);
   void resign();
+  std::vector<std::shared_ptr<Piece>> getPieces();
+  std::vector<std::shared_ptr<Piece>> getCapturedPieces();
 };
 
 #endif
