@@ -3,25 +3,37 @@
 
 #include "cell.h"
 #include "coor.h"
+#include "move.h"
 #include "observer.h"
+
+enum class GameStatus {
+  ONGOING,
+  WHITE_WIN,
+  BLACK_WIN,
+  STALEMATE,
+  DRAW,
+  ERR,
+};
 
 class Gameboard {
   std::vector<std::shared_ptr<Piece>> pieces;
-  std::vector<std::shared_ptr<Observer>> observer;
-
+  std::vector<std::shared_ptr<Observer>> observers;
+  std::shared_ptr<Eye> eye;
+  int thisTurn;
+  GameStatus gameStatus;
+  std::shared_ptr<Piece> getPiece(Coor);
+  bool isEmpty(Coor);
+  void executeMove(Move&);
+  void updateGameStatus();
  public:
   Gameboard();
-  Cell &getCell(int row, int col);
-  // void setCell(int row, int col, Piece piece);
-  void init();
-  int getThisTurn();
-  void createPiece(const Coor &coor, char pieceType);
-  void removePiece(const Coor &coor);
-  void movePiece(const Coor &from, const Coor &to, char promotion);
-  void setThisTurn(int turn);
-  void resign();
-  std::vector<std::shared_ptr<Piece>> getPieces();
-  std::vector<std::shared_ptr<Piece>> getCapturedPieces();
+  void attach(std::shared_ptr<Observer>);
+  void movePiece(Coor, Coor, char);
+  void addPiece(Coor, char);
+  void removePiece(Coor);
+  void setTurn(int);
+  int getThisTurn() const;
+  std::shared_ptr<Snapshot> getSnapshot() const;
 };
 
 #endif

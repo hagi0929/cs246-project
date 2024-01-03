@@ -23,7 +23,7 @@ std::weak_ptr<Player> Game::getCurrentPlayer() {
   return players[gameboard->getThisTurn()];
 }
 void Game::addPieceToBoard(const Coor& coor, char piece) {
-  gameboard->createPiece(coor, piece);
+  gameboard->addPiece(coor, piece);
 }
 void Game::removePieceFromBoard(const Coor& coor) {
   gameboard->removePiece(coor);
@@ -31,7 +31,7 @@ void Game::removePieceFromBoard(const Coor& coor) {
 void Game::movePiece(const Coor& from, const Coor& to, char promotion) {
   gameboard->movePiece(from, to, promotion);
 }
-void Game::setThisTurn(int turn) { gameboard->setThisTurn(turn); }
+void Game::setThisTurn(int turn) { gameboard->setTurn(turn); }
 void Game::setPlayer(string player, int playerNum) {
   if (player == "human") {
     players[playerNum] = make_shared<Human>(*this);

@@ -16,9 +16,8 @@ class Piece {
 
  public:
   Piece(Coor coor, int player);
-  Piece(Piece&& other);
-  Piece(Piece& other);
-
+  Piece(Piece* other);
+  
   virtual char getType() const = 0;
   virtual std::vector<Move> possibleMoves(Eye& eye,
                                           bool safetyCheck = true) const = 0;
