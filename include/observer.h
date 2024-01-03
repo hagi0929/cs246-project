@@ -1,3 +1,6 @@
+#ifndef OBSERVER_H
+#define OBSERVER_H
+
 #include "coor.h"
 
 class Observer {
@@ -7,3 +10,5 @@ class Observer {
   virtual void notifyMove(Coor, Coor) = 0;
   virtual ~Observer() = default;
 };
+
+#endif

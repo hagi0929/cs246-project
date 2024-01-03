@@ -1,12 +1,15 @@
 #include "game.h"
 #include "human.h"
-
+#include "textdisplay.h"
 using namespace std;
 
 Game::Game(istream& in)
     : in{in},
       gamestate{make_unique<MenuState>()},
-      gameboard{make_unique<Gameboard>()} {}
+      gameboard{make_unique<Gameboard>()},
+      displays{} {
+        displays.emplace_back(make_shared<TextDisplay>());
+      }
 void Game::play() {
   while (true) {
     try {
@@ -16,6 +19,11 @@ void Game::play() {
     } catch (exception& e) {
       cerr << "ERROR: " << e.what() << endl;
     }
+  }
+}
+void Game::showAll() {
+  for (auto& display : displays) {
+    display->show();
   }
 }
 void Game::setState(Gamestate* newState) { gamestate.reset(newState); }

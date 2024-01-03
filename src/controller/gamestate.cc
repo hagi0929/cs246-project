@@ -63,9 +63,10 @@ shared_ptr<ICommand> SetupState::getCommand(Game& game) {
   }
 }
 
-string InGameState::headmessage() { return "game: "; }
+string InGameState::headmessage() { return ""; }
 
 shared_ptr<ICommand> InGameState::getCommand(Game& game) {
+  game.showAll();
   std::weak_ptr<Player> currentPlayer = game.getCurrentPlayer();
   return currentPlayer.lock()->getCommand();
 }

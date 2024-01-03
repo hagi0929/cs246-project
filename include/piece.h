@@ -7,7 +7,7 @@
 #include "coor.h"
 #include "move.h"
 
-class Eye;
+class Snapshot;
 class Piece {
  protected:
   Coor coor;
@@ -15,11 +15,11 @@ class Piece {
   int moveCount;
 
  public:
-  Piece(Coor coor, int player);
+  Piece(Coor coor, int player, int moveCount = 0);
   Piece(Piece* other);
   
   virtual char getType() const = 0;
-  virtual std::vector<Move> possibleMoves(Eye& eye,
+  virtual std::vector<Move> possibleMoves(Snapshot& snapshot,
                                           bool safetyCheck = true) const = 0;
   virtual std::shared_ptr<Piece> clone() const = 0;
   Coor getCoor() const;

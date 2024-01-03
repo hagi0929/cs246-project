@@ -1,4 +1,4 @@
-#include "eye.h"
+#include "snapshot.h"
 #include "piece.h"
 
 class King : public Piece {
@@ -6,7 +6,7 @@ class King : public Piece {
   King(Coor coor, int player);
   King(Piece* other);
   
-  std::vector<Move> possibleMoves(Eye& eye,
+  std::vector<Move> possibleMoves(Snapshot& eye,
                                   bool safetyCheck = true) const override;
   std::shared_ptr<Piece> clone() const override;
   char getType() const override;

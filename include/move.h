@@ -1,3 +1,6 @@
+#ifndef MOVE_H
+#define MOVE_H
+
 #include <memory>
 #include <ostream>
 #include <vector>
@@ -14,7 +17,7 @@ enum class MoveType {
 class Move {
   char pieceType;
   MoveType type;
-  std::vector<Coor> coords; // from, to , (enPassant or (rookFrom, rookTo))
+  std::vector<Coor> coords = std::vector<Coor>{}; // from, to , (enPassant or (rookFrom, rookTo))
 
  public:
   Move(Coor from, Coor to);                              // Move
@@ -26,3 +29,5 @@ class Move {
   void notify(std::shared_ptr<Observer> o);
   friend std::ostream &operator<<(std::ostream &out, const Move &m);
 };
+
+#endif

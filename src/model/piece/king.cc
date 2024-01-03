@@ -1,33 +1,29 @@
 #include "king.h"
 
-#include "eye.h"
+#include "snapshot.h"
 using namespace std;
 
 King::King(Coor coor, int player) : Piece{coor, player} {}
-King::King(Piece&& other) : Piece{move(other)} {}
-King::King(Piece& other) : Piece{other} {}
-
-vector<Move> King::possibleMoves(Eye& eye, bool safetyCheck) const {
-  vector<Move> validMoves;
-  shared_ptr<Piece> capturedPiece = nullptr;
+King::King(Piece* other) : Piece{other} {}
+vector<Move> King::possibleMoves(Snapshot& snapshot, bool safetyCheck) const {
+  vector<Move> validMoves = vector<Move>{};
   for (int i = -1; i <= 1; ++i) {
     for (int j = -1; j <= 1; ++j) {
       Coor to = getCoor() + Coor{i, j};
       if (to.isInbound()) {
         if (safetyCheck) {
-          capturedPiece = eye.getPiece(to);
-          Move moveCandidate = Move{getCoor(), to, capturedPiece};
-          if (safetyCheck) {
-            auto simulation = eye.simulateMove(moveCandidate);
-            simulation->isChecked(player);
-          }
+          Move moveCandidate = Move{getCoor(), to, 0};
+          auto simulation = snapshot.simulateMove(moveCandidate);
+          simulation->isChecked(player);
+        } else {
+          validMoves.emplace_back(getCoor(), to, 0);
         }
       }
     }
-    return validMoves;
   }
+  return validMoves;
 }
 
 shared_ptr<Piece> King::clone() const { return make_shared<King>(*this); }
 
-char King::getType() const { return 'k'; }
+char King::getType() const { return player == 0 ? 'K' : 'k'; }

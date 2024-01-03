@@ -1,10 +1,10 @@
 #ifndef GAMEBOARD_H
 #define GAMEBOARD_H
 
-#include "cell.h"
 #include "coor.h"
 #include "move.h"
 #include "observer.h"
+#include "snapshot.h"
 
 enum class GameStatus {
   ONGOING,
@@ -18,10 +18,9 @@ enum class GameStatus {
 class Gameboard {
   std::vector<std::shared_ptr<Piece>> pieces;
   std::vector<std::shared_ptr<Observer>> observers;
-  std::shared_ptr<Eye> eye;
   int thisTurn;
   GameStatus gameStatus;
-  std::shared_ptr<Piece> getPiece(Coor);
+  std::shared_ptr<Piece> getPiece(Coor) const;
   bool isEmpty(Coor);
   void executeMove(Move&);
   void updateGameStatus();

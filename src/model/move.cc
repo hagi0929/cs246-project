@@ -4,27 +4,26 @@
 #include "piece.h"
 using namespace std;
 
-Move::Move(Coor from, Coor to)
-    : coords{vector<Coor>{}}, pieceType{0}, type{MoveType::MOVE} {
+Move::Move(Coor from, Coor to) : pieceType{0}, type{MoveType::MOVE} {
   coords.emplace_back(from);
   coords.emplace_back(to);
 }
 
 Move::Move(Coor from, Coor to, char pieceType)
-    : coords{vector<Coor>{}}, pieceType{pieceType}, type{MoveType::MOVE} {
+    : pieceType{pieceType}, type{MoveType::MOVE} {
   coords.emplace_back(from);
   coords.emplace_back(to);
 }
 
 Move::Move(Coor from, Coor to, Coor enPassant)
-    : coords{vector<Coor>{}}, pieceType{0}, type{MoveType::ENPASSANT} {
+    : pieceType{0}, type{MoveType::ENPASSANT} {
   coords.emplace_back(from);
   coords.emplace_back(to);
   coords.emplace_back(enPassant);
 }
 
 Move::Move(Coor from, Coor to, Coor rookFrom, Coor rookTo)
-    : coords{vector<Coor>{}}, pieceType{0}, type{MoveType::CASTLING} {
+    : pieceType{0}, type{MoveType::CASTLING} {
   coords.emplace_back(from);
   coords.emplace_back(to);
   coords.emplace_back(rookFrom);
@@ -36,11 +35,11 @@ bool Move::equals(Coor from, Coor to, char promote) {
 }
 
 void Move::execute(vector<shared_ptr<Piece>> &pieces) {
-  for (auto p = pieces.begin(); pieces.begin() != pieces.end(); pieces++) {
+  for (auto p = pieces.begin(); p != pieces.end(); ++p) {
     if (p->get()->getCoor() == coords[0]) {
       p->get()->setCoor(coords[1]);
       if (pieceType == 'q' && pieceType == 'Q') {
-        // p->reset(new King{p->get()});
+        // p->reset(new Queen{p->get()});
       } else if (pieceType == 'r' && pieceType == 'R') {
         // p->reset(new Rook{p->get()});
       } else if (pieceType == 'b' && pieceType == 'B') {
@@ -53,14 +52,14 @@ void Move::execute(vector<shared_ptr<Piece>> &pieces) {
     }
   }
   if (type == MoveType::CASTLING) {
-    for (auto p = pieces.begin(); pieces.begin() != pieces.end(); pieces++) {
+    for (auto p = pieces.begin(); p != pieces.end(); p++) {
       if (p->get()->getCoor() == coords[2]) {
         p->get()->setCoor(coords[3]);
       }
     }
   }
   if (type == MoveType::ENPASSANT) {
-    for (auto p = pieces.begin(); pieces.begin() != pieces.end(); pieces++) {
+    for (auto p = pieces.begin(); p != pieces.end(); p++) {
       if (p->get()->getCoor() == coords[2]) {
         pieces.erase(p);
       }
@@ -89,7 +88,8 @@ ostream &operator<<(ostream &out, const Move &m) {
     out << "EnPassant: " << m.coords[0] << " " << m.coords[1] << " "
         << m.coords[2];
   } else {
-    out << "Move: " << m.coords[0] << "->" << m.coords[1] << " promotion: " << m.pieceType;
+    out << "Move: " << m.coords[0] << "->" << m.coords[1]
+        << " promotion: " << m.pieceType;
   }
   return out;
 }

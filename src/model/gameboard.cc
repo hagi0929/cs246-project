@@ -3,19 +3,14 @@
 #include <iostream>
 
 #include "coor.h"
-#include "king.h"
-#include "knight.h"
-#include "pawn.h"
 #include "piece.h"
-#include "queen.h"
-#include "rook.h"
+#include "king.h"
 
 using namespace std;
 
 Gameboard::Gameboard()
     : pieces{vector<shared_ptr<Piece>>{}},
       observers{vector<shared_ptr<Observer>>{}},
-      eye{nullptr},
       thisTurn{0} {}
 
 void Gameboard::attach(shared_ptr<Observer> o) { observers.emplace_back(o); }
@@ -61,8 +56,6 @@ void Gameboard::updateGameStatus() {
     gameStatus = GameStatus::BLACK_WIN;
   } else if (s->isStalemate()) {
     gameStatus = GameStatus::STALEMATE;
-  } else if (s->isDraw()) {
-    gameStatus = GameStatus::DRAW;
   } else {
     gameStatus = GameStatus::ONGOING;
   }
@@ -73,7 +66,7 @@ void Gameboard::movePiece(Coor from, Coor to, char promote) {
     throw "No piece";
   }
   int counter = 0;
-  vector<Move> validMoves = getPiece(from)->possibleMoves(getSnapshot());
+  vector<Move> validMoves = getPiece(from)->possibleMoves(*getSnapshot());
   for (auto m : validMoves) {
     if (m.equals(from, to, promote)) {
       executeMove(m);
@@ -133,8 +126,6 @@ void Gameboard::addPiece(Coor c, char type) {
     default:
       break;
   }
-
-  pieces.emplace_back(make_shared<Piece>());
   updateGameStatus();
   for (auto o : observers) {
     o->notifyAdd(c, type);
@@ -156,3 +147,16 @@ void Gameboard::removePiece(Coor c) {
 void Gameboard::setTurn(int turn) { thisTurn = turn; }
 
 int Gameboard::getThisTurn() const { return thisTurn; }
+
+shared_ptr<Snapshot> Gameboard::getSnapshot() const {
+  return make_shared<Snapshot>(pieces, thisTurn);
+}
+
+shared_ptr<Piece> Gameboard::getPiece(Coor c) const {
+  for (auto p : pieces) {
+    if (p->getCoor() == c) {
+      return p;
+    }
+  }
+  return nullptr;
+}
