@@ -3,10 +3,12 @@
 
 #include "cell.h"
 #include "coor.h"
+#include "observer.h"
+
 class Gameboard {
-  Cell board[8][8];
-  int thisTurn = 0;
-  std::vector<std::shared_ptr<Piece>> capturedPieces;
+  std::vector<std::shared_ptr<Piece>> pieces;
+  std::vector<std::shared_ptr<Observer>> observer;
+
  public:
   Gameboard();
   Cell &getCell(int row, int col);

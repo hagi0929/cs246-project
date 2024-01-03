@@ -1,19 +1,6 @@
 #include "eye.h"
 
 using namespace std;
-Eye::Eye(Gameboard& gameboard)
-    : pieces{vector<shared_ptr<Piece>>{}},
-      captured{vector<shared_ptr<Piece>>{}} {
-  for (auto& piece : gameboard.getPieces()) {
-    pieces.emplace_back(piece->clone());
-  }
-  for (auto& piece : gameboard.getCapturedPieces()) {
-    pieces.emplace_back(piece->clone());
-  }
-  checked[0] = calculateCheck(0);
-  checked[1] = calculateCheck(1);
-  Stalemated = calculateStalemate();
-}
 
 Eye::Eye(vector<shared_ptr<Piece>> pieces, vector<shared_ptr<Piece>> captured)
     : pieces{vector<shared_ptr<Piece>>{}},
