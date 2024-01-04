@@ -4,14 +4,14 @@
 #include <string>
 
 class Coor {
-  int x;
-  int y;
+  int col;
+  int row;
 
  public:
-  Coor(int x, int y);
+  Coor(int row, int col);
   Coor(std::string s);
-  int getX() const;
-  int getY() const;
+  int getRow() const;
+  int getCol() const;
   friend std::ostream& operator<<(std::ostream& out, const Coor& coor);
   bool operator==(const Coor& other) const;
   Coor operator+(const Coor& other) const;

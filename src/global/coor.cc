@@ -1,26 +1,26 @@
 #include "coor.h"
 
-Coor::Coor(int x, int y) : x{x}, y{y} {}
-Coor::Coor(std::string s) : x{s[0] - 'a'}, y{s[1] - '1'} {}
-int Coor::getX() const { return x; }
-int Coor::getY() const { return y; }
+Coor::Coor(int row, int col) : row{row}, col{col} {}
+Coor::Coor(std::string s) : col{s[0] - 'a'}, row{7 - s[1] + '1'} {}
+int Coor::getRow() const { return row; }
+int Coor::getCol() const { return col; }
 std::ostream& operator<<(std::ostream& out, const Coor& coor) {
-  out << (char)(coor.x + 'a') << (char)(coor.y + '1');
+  out << (char)(coor.col + 'a') << (char)((7 - coor.row) + '1');
   return out;
 }
 
 bool Coor::operator==(const Coor& other) const {
-  return x == other.x && y == other.y;
+  return col == other.col && row == other.row;
 }
 
 Coor Coor::operator+(const Coor& other) const {
-  return Coor{x + other.x, y + other.y};
+  return Coor{row + other.row, col + other.col};
 }
 
 Coor Coor::operator-(const Coor& other) const {
-  return Coor{x - other.x, y - other.y};
+  return Coor{row - other.row, col - other.col};
 }
 
 bool Coor::isInbound() const {
-  return x >= 0 && x < 8 && y >= 0 && y < 8;
+  return col >= 0 && col < 8 && row >= 0 && row < 8;
 }

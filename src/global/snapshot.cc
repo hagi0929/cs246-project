@@ -2,20 +2,23 @@
 
 using namespace std;
 
-Snapshot::Snapshot(vector<shared_ptr<Piece>> pieces, int turn)
+Snapshot::Snapshot(vector<shared_ptr<Piece>> rcvPieces, int turn)
     : pieces{vector<shared_ptr<Piece>>{}}, checked{false, false}, turn{turn} {
-  for (auto& piece : pieces) {
+  for (auto& piece : rcvPieces) {
     pieces.emplace_back(piece->clone());
   }
+  cout << "Snapshot created" << endl;
   checked[0] = calculateCheck(0);
   checked[1] = calculateCheck(1);
 }
 
 bool Snapshot::calculateCheck(int playerNum) {
   std::shared_ptr<Piece> king = getKing(playerNum);
-  for (auto piece : getPieces(1 - playerNum)) {
+  for (auto piece : getPieces((1 + playerNum) % 2)) {
     for (auto move : piece->possibleMoves(*this, false)) {
-      return true;
+      if (move.getTo() == king->getCoor()) {
+        return true;
+      }
     }
   }
   return false;
@@ -23,17 +26,19 @@ bool Snapshot::calculateCheck(int playerNum) {
 
 std::shared_ptr<Piece> Snapshot::getKing(int playerNum) {
   for (auto piece : pieces) {
-    if (piece->getType() == 'k' && piece->getPlayer() == playerNum) {
+    if ((piece->getType() == 'k' || piece->getType() == 'K') &&
+        piece->getPlayer() == playerNum) {
       return piece;
     }
   }
-  throw std::runtime_error("No king found");
 }
 
 bool Snapshot::isStalemate() {
-  for (auto piece : getPieces(turn)) {
-    for (auto move : piece->possibleMoves(*this)) {
-      return false;
+  for (auto& piece : getPieces(turn)) {
+    for (auto& move : piece->possibleMoves(*this)) {
+      if (!simulateMove(move)->isChecked(turn)) {
+        return false;
+      }
     }
   }
   return true;
@@ -70,15 +75,15 @@ shared_ptr<Snapshot> Snapshot::simulateMove(Move move) const {
 }
 
 bool Snapshot::isCheckmate(int playerNum) {
-    if (!checked[playerNum]) {
-      return false;
-    }
-    for (auto& piece : getPieces(playerNum)) {
-      for (auto& move : piece->possibleMoves(*this)) {
-        if (!simulateMove(move)->isChecked(playerNum)) {
-          return false;
-        }
+  if (!checked[playerNum]) {
+    return false;
+  }
+  for (auto& piece : getPieces(playerNum)) {
+    for (auto& move : piece->possibleMoves(*this)) {
+      if (!simulateMove(move)->isChecked(playerNum)) {
+        return false;
       }
     }
-    return true;
   }
+  return true;
+}

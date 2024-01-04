@@ -9,6 +9,7 @@ Game::Game(istream& in)
       gameboard{make_unique<Gameboard>()},
       displays{} {
         displays.emplace_back(make_shared<TextDisplay>());
+        gameboard->attach(displays.back());
       }
 void Game::play() {
   while (true) {
@@ -63,5 +64,8 @@ void Game::executeCommand(unique_ptr<ICommand> command) {
 string Game::getInput() {
   string rawCmd;
   getline(in, rawCmd);
+  if (in.eof()) {
+    exit(0);
+  }
   return rawCmd;
 }

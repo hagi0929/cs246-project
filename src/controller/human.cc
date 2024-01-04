@@ -34,7 +34,7 @@ shared_ptr<ICommand> Human::getCommand() {
       throw runtime_error("Invalid promotion");
     }
     return make_shared<MoveCommand>(Coor{cmd[1]}, Coor{cmd[2]},
-                                    cmd.size() == 4 ? cmd[3][0] : ' ');
+                                    cmd.size() == 4 ? cmd[3][0] : 0);
   } else if (cmd.front() == "quit") {
     return make_shared<QuitCommand>(QuitCommand());
   } else if (cmd.front() == "resign") {

@@ -31,6 +31,13 @@ Move::Move(Coor from, Coor to, Coor rookFrom, Coor rookTo)
 }
 
 bool Move::equals(Coor from, Coor to, char promote) {
+  cout << "Move::equals" << endl;
+  cout << "from: " << from << " == " << coords[0] << " is it same? "
+       << (coords[0] == from ? "True" : "False") << endl;
+  cout << "to: " << to << " == " << coords[1] << " is it same? "
+       << (coords[1] == to ? "True" : "False") << endl;
+  cout << "promote: " << promote << " == " << pieceType << " is it same? "
+       << (pieceType == promote ? "True" : "False") << endl;
   return coords[0] == from && coords[1] == to && pieceType == promote;
 }
 
@@ -67,6 +74,10 @@ void Move::execute(vector<shared_ptr<Piece>> &pieces) {
   }
 }
 
+Coor Move::getFrom() const { return coords[0]; }
+
+Coor Move::getTo() const { return coords[1]; }
+
 void Move::notify(shared_ptr<Observer> o) {
   if (type == MoveType::CASTLING) {
     o->notifyMove(coords[0], coords[1]);
@@ -76,7 +87,9 @@ void Move::notify(shared_ptr<Observer> o) {
     o->notifyRemove(coords[2]);
   } else {
     o->notifyMove(coords[0], coords[1]);
-    o->notifyAdd(coords[1], pieceType);
+    if (pieceType != 0) {
+      o->notifyAdd(coords[1], pieceType);
+    }
   }
 }
 

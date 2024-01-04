@@ -16,12 +16,13 @@ class Piece {
 
  public:
   Piece(Coor coor, int player, int moveCount = 0);
-  Piece(Piece* other);
+
+  virtual ~Piece() = default;
   
   virtual char getType() const = 0;
   virtual std::vector<Move> possibleMoves(Snapshot& snapshot,
                                           bool safetyCheck = true) const = 0;
-  virtual std::shared_ptr<Piece> clone() const = 0;
+  virtual std::shared_ptr<Piece> clone() = 0;
   Coor getCoor() const;
   int getPlayer() const;
   int getMoveCount() const;

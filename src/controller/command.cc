@@ -7,6 +7,8 @@ GameCommand::GameCommand(string player1, string player2)
 void GameCommand::execute(Game &game) {
   game.setPlayer(player1, 0);
   game.setPlayer(player2, 1);
+  game.addPieceToBoard(Coor{"a8"}, 'K');
+  game.addPieceToBoard(Coor{"b2"}, 'k');
   game.setState(new InGameState());
 }
 

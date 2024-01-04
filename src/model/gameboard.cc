@@ -3,8 +3,8 @@
 #include <iostream>
 
 #include "coor.h"
-#include "piece.h"
 #include "king.h"
+#include "piece.h"
 
 using namespace std;
 
@@ -63,24 +63,25 @@ void Gameboard::updateGameStatus() {
 
 void Gameboard::movePiece(Coor from, Coor to, char promote) {
   if (isEmpty(from)) {
-    throw "No piece";
+    cout << "No piece at " << from.getCol() << from.getRow() << endl;
+    throw runtime_error("No piece at ");
   }
   int counter = 0;
   vector<Move> validMoves = getPiece(from)->possibleMoves(*getSnapshot());
   for (auto m : validMoves) {
+    cout << m << endl;
     if (m.equals(from, to, promote)) {
       executeMove(m);
-      counter++;
     }
   }
   if (counter == 0) {
-    throw "Invalid move";
+    cout << "Invalid move";
   };
   if (counter > 1) {
     for (auto m : validMoves) {
       cout << m << endl;
     }
-    throw "Ambiguous move";
+    cout << "Ambiguous move";
   }
 }
 
@@ -126,7 +127,6 @@ void Gameboard::addPiece(Coor c, char type) {
     default:
       break;
   }
-  updateGameStatus();
   for (auto o : observers) {
     o->notifyAdd(c, type);
   }
