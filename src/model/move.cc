@@ -2,6 +2,11 @@
 
 #include "king.h"
 #include "piece.h"
+#include "queen.h"
+#include "rook.h"
+#include "bishop.h"
+#include "knight.h"
+
 using namespace std;
 
 Move::Move(Coor from, Coor to) : pieceType{0}, type{MoveType::MOVE} {
@@ -35,20 +40,23 @@ bool Move::equals(Coor from, Coor to, char promote) {
 }
 
 void Move::execute(vector<shared_ptr<Piece>> &pieces) {
-  for (auto p = pieces.begin(); p != pieces.end(); ++p) {
+  for (auto p = pieces.begin(); p != pieces.end();) {
     if (p->get()->getCoor() == coords[0]) {
       p->get()->setCoor(coords[1]);
-      if (pieceType == 'q' && pieceType == 'Q') {
-        // p->reset(new Queen{p->get()});
-      } else if (pieceType == 'r' && pieceType == 'R') {
-        // p->reset(new Rook{p->get()});
-      } else if (pieceType == 'b' && pieceType == 'B') {
-        // p->reset(new Bishop{p->get()});
-      } else if (pieceType == 'n' && pieceType == 'N') {
-        // p->reset(new Knight{p->get()});
+      if (pieceType == 'q' || pieceType == 'Q') {
+        p->reset(new Queen{p->get()});
+      } else if (pieceType == 'r' || pieceType == 'R') {
+        p->reset(new Rook{p->get()});
+      } else if (pieceType == 'b' || pieceType == 'B') {
+        p->reset(new Bishop{p->get()});
+      } else if (pieceType == 'n' || pieceType == 'N') {
+        p->reset(new Knight{p->get()});
       }
+      ++p;
     } else if (p->get()->getCoor() == coords[1]) {
-      pieces.erase(p);
+      p = pieces.erase(p);
+    } else {
+      ++p;
     }
   }
   if (type == MoveType::CASTLING) {
@@ -67,6 +75,10 @@ void Move::execute(vector<shared_ptr<Piece>> &pieces) {
   }
 }
 
+Coor Move::getFrom() const { return coords[0]; }
+
+Coor Move::getTo() const { return coords[1]; }
+
 void Move::notify(shared_ptr<Observer> o) {
   if (type == MoveType::CASTLING) {
     o->notifyMove(coords[0], coords[1]);
@@ -76,7 +88,9 @@ void Move::notify(shared_ptr<Observer> o) {
     o->notifyRemove(coords[2]);
   } else {
     o->notifyMove(coords[0], coords[1]);
-    o->notifyAdd(coords[1], pieceType);
+    if (pieceType != 0) {
+      o->notifyAdd(coords[1], pieceType);
+    }
   }
 }
 

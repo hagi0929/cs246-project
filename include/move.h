@@ -27,6 +27,8 @@ class Move {
   bool equals(Coor from, Coor to, char promote);
   void execute(std::vector<std::shared_ptr<Piece>> &pieces);
   void notify(std::shared_ptr<Observer> o);
+  Coor getFrom() const;
+  Coor getTo() const;
   friend std::ostream &operator<<(std::ostream &out, const Move &m);
 };
 

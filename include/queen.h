@@ -1,14 +1,19 @@
+#ifndef QUEEN_H
+#define QUEEN_H
+
 #include "snapshot.h"
 #include "piece.h"
 
-class King : public Piece {
+class Queen : public Piece {
  public:
-  King(Coor coor, int player, int moveCount = 0);
-  King(Piece* other);
-  King(King& other);
+  Queen(Coor coor, int player, int moveCount = 0);
+  Queen(Piece* other);
+  Queen(Queen& other);
   
   std::vector<Move> possibleMoves(Snapshot& eye,
                                   bool safetyCheck = true) const override;
   std::shared_ptr<Piece> clone() override;
   char getType() const override;
 };
+
+#endif

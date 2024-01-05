@@ -8,28 +8,32 @@
 #include "gamestate.h"
 #include "player.h"
 #include "view.h"
+
+enum class GameState {
+  SETUP,
+  PLAYING,
+  MENU,
+};
+
 class Game {
   std::istream &in;
-  std::unique_ptr<Gamestate> gamestate;
   std::unique_ptr<Gameboard> gameboard;
-  std::vector<std::shared_ptr<Display>> displays = std::vector<std::shared_ptr<Display>>{};
+  std::vector<std::shared_ptr<Display>> displays =
+      std::vector<std::shared_ptr<Display>>{};
   std::shared_ptr<Player> players[2];
-  friend class GameState;
+  GameState gameState;
+  void executeCommand(std::unique_ptr<ICommand> command);
+  std::weak_ptr<Player> getCurrentPlayer();
+  std::shared_ptr<ICommand> getCommand();
 
  public:
   Game(std::istream &in);
   void play();
-  void setState(Gamestate *newState);
-  std::weak_ptr<Player> getCurrentPlayer();
-  void addPieceToBoard(const Coor &coor, char piece);
-  void removePieceFromBoard(const Coor &coor);
-  void movePiece(const Coor &from, const Coor &to, char promotion);
-  void setThisTurn(int turn);
-  void setPlayer(std::string player, int playerNum);
+  void setState(GameState newState);
   void resign();
-  void executeCommand(std::unique_ptr<ICommand> command);
-  std::string getInput();
+  void setPlayer(std::string player, int playerNum);
   void showAll();
+  std::string getInput();
 };
 
 #endif

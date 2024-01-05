@@ -3,8 +3,13 @@
 #include <iostream>
 
 #include "coor.h"
-#include "piece.h"
 #include "king.h"
+#include "pawn.h"
+#include "queen.h"
+#include "rook.h"
+#include "bishop.h"
+#include "knight.h"
+#include "piece.h"
 
 using namespace std;
 
@@ -45,80 +50,78 @@ void Gameboard::updateGameStatus() {
     }
   }
   if (!p0king || !p1king) {
-    gameStatus = GameStatus::ERR;
+    throw runtime_error("King is missing");
   }
 
   // check stallmate checkmate draw
   shared_ptr<Snapshot> s = getSnapshot();
   if (s->isCheckmate(0)) {
-    gameStatus = GameStatus::WHITE_WIN;
+    gameStatus = GameboardStatus::WHITE_WIN;
   } else if (s->isCheckmate(1)) {
-    gameStatus = GameStatus::BLACK_WIN;
+    gameStatus = GameboardStatus::BLACK_WIN;
   } else if (s->isStalemate()) {
-    gameStatus = GameStatus::STALEMATE;
+    gameStatus = GameboardStatus::STALEMATE;
   } else {
-    gameStatus = GameStatus::ONGOING;
+    gameStatus = GameboardStatus::ONGOING;
   }
 }
 
 void Gameboard::movePiece(Coor from, Coor to, char promote) {
+  cout << "trying to move " << from << " to " << to << endl;
   if (isEmpty(from)) {
-    throw "No piece";
+    throw runtime_error("No piece at ");
   }
-  int counter = 0;
-  vector<Move> validMoves = getPiece(from)->possibleMoves(*getSnapshot());
-  for (auto m : validMoves) {
+  if (getPiece(from)->getPlayer() != thisTurn) {
+    throw runtime_error("Not your turn");
+  }
+  vector<Move> allValidMoves = getPiece(from)->possibleMoves(*getSnapshot());
+  vector<Move> finalMove = vector<Move>{};
+  for (auto m : allValidMoves) {
     if (m.equals(from, to, promote)) {
-      executeMove(m);
-      counter++;
+      finalMove.emplace_back(m);
     }
   }
-  if (counter == 0) {
-    throw "Invalid move";
-  };
-  if (counter > 1) {
-    for (auto m : validMoves) {
-      cout << m << endl;
-    }
-    throw "Ambiguous move";
+  if (finalMove.size() != 1) {
+    throw runtime_error("Invalid move");
   }
+  executeMove(finalMove[0]);
 }
 
 void Gameboard::addPiece(Coor c, char type) {
   removePiece(c);
   switch (type) {
     case 'P':
-      // pieces.emplace_back(make_shared<Pawn>(c, 0));
+      pieces.emplace_back(make_shared<Pawn>(c, 0));
       break;
     case 'R':
-      // pieces.emplace_back(make_shared<Rook>(c, 0));
+      pieces.emplace_back(make_shared<Rook>(c, 0));
       break;
     case 'N':
-      // pieces.emplace_back(make_shared<Knight>(c, 0));
+      pieces.emplace_back(make_shared<Knight>(c, 0));
       break;
     case 'B':
-      // pieces.emplace_back(make_shared<Bishop>(c, 0));
+      pieces.emplace_back(make_shared<Bishop>(c, 0));
       break;
     case 'Q':
-      // pieces.emplace_back(make_shared<Queen>(c, 0));
+      pieces.emplace_back(make_shared<Queen>(c, 0));
       break;
     case 'K':
       pieces.emplace_back(make_shared<King>(c, 0));
       break;
     case 'p':
-      // pieces.emplace_back(make_shared<Pawn>(c, 1));
+      pieces.emplace_back(make_shared<Pawn>(c, 1));
       break;
     case 'r':
-      // pieces.emplace_back(make_shared<Rook>(c, 1));
+      pieces.emplace_back(make_shared<Rook>(c, 1));
       break;
     case 'n':
-      // pieces.emplace_back(make_shared<Knight>(c, 1));
+      pieces.emplace_back(make_shared<Knight>(c, 1));
       break;
     case 'b':
-      // pieces.emplace_back(make_shared<Bishop>(c, 1));
+      pieces.emplace_back(make_shared<Bishop>(c, 1));
       break;
     case 'q':
-      // pieces.emplace_back(make_shared<Queen>(c, 1));
+      pieces.emplace_back(make_shared<Queen>(c, 1));
       break;
     case 'k':
       pieces.emplace_back(make_shared<King>(c, 1));
@@ -126,7 +129,6 @@ void Gameboard::addPiece(Coor c, char type) {
     default:
       break;
   }
-  updateGameStatus();
   for (auto o : observers) {
     o->notifyAdd(c, type);
   }
@@ -160,3 +162,5 @@ shared_ptr<Piece> Gameboard::getPiece(Coor c) const {
   }
   return nullptr;
 }
+
+GameboardStatus Gameboard::getGameStatus() const { return gameStatus; }

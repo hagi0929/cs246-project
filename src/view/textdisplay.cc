@@ -4,13 +4,14 @@
 
 using namespace std;
 
-void TextDisplay::notifyAdd(Coor c, char ch) { board[c.getX()][c.getY()] = ch; }
+void TextDisplay::notifyAdd(Coor c, char ch) { 
+  board[c.getCol()][c.getRow()] = ch; }
 
-void TextDisplay::notifyRemove(Coor c) { board[c.getX()][c.getY()] = ' '; }
+void TextDisplay::notifyRemove(Coor c) { board[c.getCol()][c.getRow()] = 0; }
 
 void TextDisplay::notifyMove(Coor from, Coor to) {
-  board[to.getX()][to.getY()] = board[from.getX()][from.getY()];
-  board[from.getX()][from.getY()] = 0;
+  board[to.getCol()][to.getRow()] = board[from.getCol()][from.getRow()];
+  board[from.getCol()][from.getRow()] = 0;
 }
 
 void TextDisplay::show() {
