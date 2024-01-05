@@ -107,3 +107,5 @@ ostream &operator<<(ostream &out, const Move &m) {
   }
   return out;
 }
+
+char Move::getPromotion() const { return pieceType; }

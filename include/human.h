@@ -3,9 +3,8 @@
 #include "player.h"
 
 class Human : public Player {
-  Game &game;
 
  public:
-  Human(Game &game);
+  Human(Game &game, int playerNum);
   std::shared_ptr<ICommand> getCommand() override;
 };

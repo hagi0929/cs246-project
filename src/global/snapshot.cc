@@ -67,7 +67,6 @@ bool Snapshot::isChecked(int playerNum) { return checked[playerNum]; }
 shared_ptr<Snapshot> Snapshot::simulateMove(Move move) const {
   vector<shared_ptr<Piece>> newPieces;
   for (auto& piece : pieces) {
-    cout << "piece fuck: " << piece->getCoor() << endl;
     newPieces.emplace_back(piece->clone());
     newPieces.back()->getCoor();
   }
@@ -152,4 +151,24 @@ bool Snapshot::isDraw() {
     }
   }
   return false;
+}
+
+int Snapshot::calculateScore(Move move, bool considerAll) {
+  int score = 0;
+  if (move.getPromotion() != ' ') {
+    score += 9;
+  }
+  if (move.getFrom().isInbound() && move.getTo().isInbound()) {
+    auto piece = getPiece(move.getTo());
+    if (piece.get()) {
+      score += piece->getValue();
+    }
+    if (considerAll) {
+      piece = getPiece(move.getFrom());
+      if (piece.get()) {
+        score -= piece->getValue();
+      }
+    }
+  }
+  return score;
 }

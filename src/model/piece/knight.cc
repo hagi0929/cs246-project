@@ -44,3 +44,7 @@ vector<Move> Knight::possibleMoves(Snapshot& snapshot, bool safetyCheck) const {
 char Knight::getType() const {
     return 'N'; // 'N' for Knight
 }
+
+int Knight::getValue() const {
+    return 3;
+}

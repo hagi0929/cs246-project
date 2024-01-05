@@ -39,3 +39,5 @@ shared_ptr<Piece> King::clone() {
 }
 
 char King::getType() const { return player == 0 ? 'K' : 'k'; }
+
+int King::getValue() const { return 1000; }

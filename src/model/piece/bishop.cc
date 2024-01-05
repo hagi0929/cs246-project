@@ -44,3 +44,7 @@ shared_ptr<Piece> Bishop::clone() {
 char Bishop::getType() const {
   return 'B';  // 'B' for Bishop
 }
+
+int Bishop::getValue() const {
+  return 3;
+}

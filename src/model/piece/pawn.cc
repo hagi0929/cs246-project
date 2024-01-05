@@ -68,3 +68,5 @@ void Pawn::setCoor(Coor newCoor) {
   }
   Piece::setCoor(newCoor);
 }
+
+int Pawn::getValue() const { return 1; }

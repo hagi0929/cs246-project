@@ -21,7 +21,7 @@ class Game {
   std::vector<std::shared_ptr<Display>> displays =
       std::vector<std::shared_ptr<Display>>{};
   std::shared_ptr<Player> players[2];
-  GameState gameState;
+  GameState gameState = GameState::MENU;
   void executeCommand(std::unique_ptr<ICommand> command);
   std::weak_ptr<Player> getCurrentPlayer();
   std::shared_ptr<ICommand> getCommand();
@@ -34,6 +34,7 @@ class Game {
   void setPlayer(std::string player, int playerNum);
   void showAll();
   std::string getInput();
+  std::shared_ptr<Snapshot> getSnapshot();
 };
 
 #endif

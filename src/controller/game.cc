@@ -2,6 +2,7 @@
 
 #include <boost/algorithm/string.hpp>
 
+#include "computer.h"
 #include "human.h"
 #include "textdisplay.h"
 using namespace std;
@@ -29,6 +30,7 @@ void Game::showAll() {
 
 shared_ptr<ICommand> Game::getCommand() {
   if (gameState == GameState::MENU) {
+    cout << "menu: ";
     string rawCmd = getInput();
     vector<string> cmd;
     boost::split(cmd, rawCmd, boost::is_any_of(" "));
@@ -60,11 +62,14 @@ shared_ptr<ICommand> Game::getCommand() {
       throw runtime_error("Invalid head command " + cmd.front());
     }
   } else if (gameState == GameState::PLAYING) {
+    cout << "ingame: " << endl;
     showAll();
     std::weak_ptr<Player> currentPlayer = getCurrentPlayer();
     return currentPlayer.lock()->getCommand();
 
   } else if (gameState == GameState::SETUP) {
+    cout << "setup: ";
+
     string rawCmd = getInput();
     vector<string> cmd;
     boost::split(cmd, rawCmd, boost::is_any_of(" "));
@@ -124,15 +129,15 @@ std::weak_ptr<Player> Game::getCurrentPlayer() {
 }
 void Game::setPlayer(string player, int playerNum) {
   if (player == "human") {
-    players[playerNum] = make_shared<Human>(*this);
+    players[playerNum] = make_shared<Human>(*this, playerNum);
   } else if (player == "computer1") {
-    // players[i] = make_shared<Computer1>();
+    players[playerNum] = make_shared<Computer1>(*this, playerNum);
   } else if (player == "computer2") {
-    // players[i] = make_shared<Computer2>();
+    players[playerNum] = make_shared<Computer2>(*this, playerNum);
   } else if (player == "computer3") {
-    // players[i] = make_shared<Computer3>();
+    players[playerNum] = make_shared<Computer3>(*this, playerNum);
   } else if (player == "computer4") {
-    // players[i] = make_shared<Computer4>();
+    players[playerNum] = make_shared<Computer4>(*this, playerNum);
   } else {
     throw runtime_error("Invalid player type " + player);
   }
@@ -149,3 +154,5 @@ string Game::getInput() {
   }
   return rawCmd;
 }
+
+shared_ptr<Snapshot> Game::getSnapshot() { return gameboard->getSnapshot(); }

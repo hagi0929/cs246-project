@@ -1,34 +1,27 @@
 #include "game.h"
 #include "player.h"
-
-class Computer : public Player {
- protected:
-  Game& game;
-
+#include "snapshot.h"
+class Computer1 : public Player {
  public:
-  Computer(Game& game);
-};
-
-class Computer1 : public Computer {
- public:
-  Computer1(Game& game);
+  Computer1(Game& game, int playerNum);
   std::shared_ptr<ICommand> getCommand() override;
 };
 
-class Computer2 : public Computer {
+class Computer2 : public Player {
  public:
-  Computer2(Game& game);
+  Computer2(Game& game, int playerNum);
   std::shared_ptr<ICommand> getCommand() override;
 };
 
-class Computer3 : public Computer {
+class Computer3 : public Player {
  public:
-  Computer3(Game& game);
+  Computer3(Game& game, int playerNum);
   std::shared_ptr<ICommand> getCommand() override;
 };
 
-class Computer4 : public Computer {
+class Computer4 : public Player {
+  int predictScore(std::shared_ptr<Snapshot> snapshot, int depth, int team);
  public:
-  Computer4(Game& game);
+  Computer4(Game& game, int playerNum);
   std::shared_ptr<ICommand> getCommand() override;
 };

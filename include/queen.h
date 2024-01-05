@@ -14,6 +14,7 @@ class Queen : public Piece {
                                   bool safetyCheck = true) const override;
   std::shared_ptr<Piece> clone() override;
   char getType() const override;
+  int getValue() const override;
 };
 
 #endif

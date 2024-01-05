@@ -27,6 +27,8 @@ class Piece {
   virtual std::vector<Move> possibleMoves(Snapshot& snapshot,
                                           bool safetyCheck = true) const = 0;
   virtual std::shared_ptr<Piece> clone() = 0;
+  virtual int getValue() const = 0;
+
   Coor getCoor() const;
   int getPlayer() const;
   int getMoveCount() const;

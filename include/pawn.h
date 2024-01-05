@@ -12,4 +12,5 @@ class Pawn : public Piece {
   std::shared_ptr<Piece> clone() override;
   char getType() const override;
   void setCoor(Coor newCoor) override;
+  int getValue() const override;
 };

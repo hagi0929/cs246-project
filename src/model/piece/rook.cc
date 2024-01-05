@@ -44,3 +44,7 @@ shared_ptr<Piece> Rook::clone() {
 char Rook::getType() const {
   return 'R';  // 'R' for Rook
 }
+
+int Rook::getValue() const {
+  return 5;
+}

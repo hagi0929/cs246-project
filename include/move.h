@@ -30,6 +30,7 @@ class Move {
   Coor getFrom() const;
   Coor getTo() const;
   friend std::ostream &operator<<(std::ostream &out, const Move &m);
+  char getPromotion() const;
 };
 
 #endif

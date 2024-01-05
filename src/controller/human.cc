@@ -9,7 +9,7 @@
 
 using namespace std;
 
-Human::Human(Game& game) : game{game} {}
+Human::Human(Game& game, int playerNum) : Player{game, playerNum} {}
 shared_ptr<ICommand> Human::getCommand() {
   string rawCmd = game.getInput();
   vector<string> cmd;

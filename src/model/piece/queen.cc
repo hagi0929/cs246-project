@@ -44,3 +44,7 @@ shared_ptr<Piece> Queen::clone() {
 char Queen::getType() const {
   return 'Q';  // 'Q' for Queen
 }
+
+int Queen::getValue() const {
+  return 9;
+}

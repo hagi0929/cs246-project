@@ -12,9 +12,9 @@ class Snapshot {
   int turn;
   bool calculateCheck(int playerNum);
   std::shared_ptr<Piece> getKing(int playerNum);
-  std::vector<std::shared_ptr<Piece>> getPieces(int playerNum);
 
  public:
+  std::vector<std::shared_ptr<Piece>> getPieces(int playerNum);
   Snapshot(std::vector<std::shared_ptr<Piece>> pieces, int turn);
   std::shared_ptr<Piece> getPiece(Coor);
   // TODO consider out of bounds
@@ -22,6 +22,7 @@ class Snapshot {
   bool isEnemy(Coor, int);
   bool isAlley(Coor, int);
   std::shared_ptr<Snapshot> simulateMove(Move move) const;
+  int calculateScore(Move move, bool considerAll = false);
   bool isChecked(int playerNum);
   bool isCheckmate(int playerNum);
   bool isStalemate();
