@@ -5,10 +5,9 @@
 using namespace std;
 
 void TextDisplay::notifyAdd(Coor c, char ch) { 
-  cout << "notifyAdd" << endl;
   board[c.getCol()][c.getRow()] = ch; }
 
-void TextDisplay::notifyRemove(Coor c) { board[c.getCol()][c.getRow()] = ' '; }
+void TextDisplay::notifyRemove(Coor c) { board[c.getCol()][c.getRow()] = 0; }
 
 void TextDisplay::notifyMove(Coor from, Coor to) {
   board[to.getCol()][to.getRow()] = board[from.getCol()][from.getRow()];

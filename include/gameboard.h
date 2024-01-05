@@ -6,24 +6,25 @@
 #include "observer.h"
 #include "snapshot.h"
 
-enum class GameStatus {
+enum class GameboardStatus {
   ONGOING,
+  PAUSED,
   WHITE_WIN,
   BLACK_WIN,
   STALEMATE,
   DRAW,
-  ERR,
 };
 
 class Gameboard {
   std::vector<std::shared_ptr<Piece>> pieces;
   std::vector<std::shared_ptr<Observer>> observers;
   int thisTurn;
-  GameStatus gameStatus;
+  GameboardStatus gameStatus = GameboardStatus::PAUSED;
   std::shared_ptr<Piece> getPiece(Coor) const;
   bool isEmpty(Coor);
   void executeMove(Move&);
   void updateGameStatus();
+
  public:
   Gameboard();
   void attach(std::shared_ptr<Observer>);
@@ -33,6 +34,7 @@ class Gameboard {
   void setTurn(int);
   int getThisTurn() const;
   std::shared_ptr<Snapshot> getSnapshot() const;
+  GameboardStatus getGameStatus() const;
 };
 
 #endif
