@@ -12,8 +12,8 @@ class Gamestate {
  protected:
  public:
   virtual ~Gamestate() = default;
-  virtual std::shared_ptr<ICommand> getCommand(Game& game) = 0;
   virtual std::string headmessage() = 0;
+  virtual std::shared_ptr<ICommand> getCommand(Game& game) = 0;
 };
 
 class SetupState : public Gamestate {
@@ -23,6 +23,7 @@ class SetupState : public Gamestate {
 };
 
 class InGameState : public Gamestate {
+  friend class Game;
  public:
   std::string headmessage() override;
   std::shared_ptr<ICommand> getCommand(Game& game) override;
